@@ -1,0 +1,6769 @@
+{
+  "categories": [
+    {
+      "slug": "cd",
+      "name": "Jeux vidéo",
+      "shortName": "Jeux",
+      "description": "Jeux originaux PlayStation, Xbox, Switch et plus.",
+      "icon": "Gamepad2",
+      "accent": "yellow",
+      "group": "gaming",
+      "sourceName": "CD",
+      "count": 97
+    },
+    {
+      "slug": "pencil",
+      "name": "Stylos & Pencil",
+      "shortName": "Pencil",
+      "description": "Stylos numériques et accessoires tablette.",
+      "icon": "PenTool",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "PENCIL",
+      "count": 15
+    },
+    {
+      "slug": "consol-de-jeux",
+      "name": "Consoles",
+      "shortName": "Consoles",
+      "description": "PlayStation, Xbox, Nintendo Switch et accessoires console.",
+      "icon": "MonitorPlay",
+      "accent": "yellow",
+      "group": "gaming",
+      "sourceName": "CONSOL DE JEUX",
+      "count": 23
+    },
+    {
+      "slug": "manette",
+      "name": "Manettes",
+      "shortName": "Manettes",
+      "description": "Manettes et pads pour consoles et PC.",
+      "icon": "Joystick",
+      "accent": "yellow",
+      "group": "gaming",
+      "sourceName": "MANETTE",
+      "count": 7
+    },
+    {
+      "slug": "power-bank",
+      "name": "Power banks",
+      "shortName": "Power banks",
+      "description": "Batteries externes pour téléphone et voyage.",
+      "icon": "BatteryFull",
+      "accent": "blue",
+      "group": "mobile",
+      "sourceName": "power bank",
+      "count": 13
+    },
+    {
+      "slug": "pc",
+      "name": "Ordinateurs PC",
+      "shortName": "PC",
+      "description": "PC, Mac et ordinateurs reconditionnés ou neufs.",
+      "icon": "Laptop",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "PC",
+      "count": 9
+    },
+    {
+      "slug": "mp3",
+      "name": "Audio & enceintes",
+      "shortName": "Audio",
+      "description": "Enceintes, woofer et accessoires audio.",
+      "icon": "Speaker",
+      "accent": "yellow",
+      "group": "audio",
+      "sourceName": "MP3",
+      "count": 5
+    },
+    {
+      "slug": "telephone-samsung",
+      "name": "Smartphones & tablettes",
+      "shortName": "Phones",
+      "description": "Smartphones, iPhone, iPad et montres connectées.",
+      "icon": "Smartphone",
+      "accent": "blue",
+      "group": "mobile",
+      "sourceName": "TELEPHONE SAMSUNG",
+      "count": 17
+    },
+    {
+      "slug": "cle-usb-et-memoire",
+      "name": "Clés USB & mémoire",
+      "shortName": "Stockage",
+      "description": "Clés USB, cartes mémoire et boîtiers de stockage.",
+      "icon": "HardDrive",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "cle usb et memoire",
+      "count": 10
+    },
+    {
+      "slug": "adaptateur-pc",
+      "name": "Adaptateurs PC",
+      "shortName": "Adaptateurs",
+      "description": "Adaptateurs, hubs et connectique PC.",
+      "icon": "Cable",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "ADAPTAteur PC",
+      "count": 15
+    },
+    {
+      "slug": "accessoire-de-reparation",
+      "name": "Pièces de réparation",
+      "shortName": "Réparation",
+      "description": "Outils et pièces pour réparation mobile & PC.",
+      "icon": "Wrench",
+      "accent": "green",
+      "group": "repair",
+      "sourceName": "ACCESSOIRE DE réparation",
+      "count": 30
+    },
+    {
+      "slug": "sac-et-pose-pc",
+      "name": "Sacs & supports PC",
+      "shortName": "Sacs PC",
+      "description": "Sacs, poses et supports pour ordinateurs.",
+      "icon": "Briefcase",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "SAC ET POSE PC",
+      "count": 6
+    },
+    {
+      "slug": "chargeur-pc",
+      "name": "Chargeurs PC",
+      "shortName": "Chargeurs PC",
+      "description": "Chargeurs et alimentations pour ordinateurs.",
+      "icon": "Plug",
+      "accent": "green",
+      "group": "pc",
+      "sourceName": "CHARGEUR PC",
+      "count": 3
+    },
+    {
+      "slug": "chargeur-telephone-porteble",
+      "name": "Chargeurs & câbles",
+      "shortName": "Chargeurs",
+      "description": "Chargeurs téléphone, câbles USB-C et Lightning.",
+      "icon": "BatteryCharging",
+      "accent": "blue",
+      "group": "mobile",
+      "sourceName": "CHARGEUR TELEPHONE PORTEBLE",
+      "count": 28
+    },
+    {
+      "slug": "motorola-piecs-de-rechange",
+      "name": "Pièces Motorola",
+      "shortName": "Motorola",
+      "description": "Pièces de rechange Motorola.",
+      "icon": "Cpu",
+      "accent": "blue",
+      "group": "mobile",
+      "sourceName": "MOTOROLA PIECS DE RECHANGE",
+      "count": 2
+    },
+    {
+      "slug": "coq-iphone",
+      "name": "Coques & pochettes",
+      "shortName": "Coques",
+      "description": "Coques, étuis et pochettes téléphone / tablette.",
+      "icon": "Shield",
+      "accent": "blue",
+      "group": "mobile",
+      "sourceName": "coq iphone",
+      "count": 1
+    },
+    {
+      "slug": "copie-de-jeux",
+      "name": "Copies de jeux",
+      "shortName": "Copies",
+      "description": "Copies de jeux disponibles en boutique.",
+      "icon": "Disc3",
+      "accent": "yellow",
+      "group": "gaming",
+      "sourceName": "copie de jeux",
+      "count": 1
+    }
+  ],
+  "products": [
+    {
+      "id": "2144",
+      "slug": "pincette-7-sa-sr",
+      "name": "Pincette 7-SA SR",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Pincette 7-SA SR disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pincette-7-sa-sr.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 0
+    },
+    {
+      "id": "5712",
+      "slug": "chargeur-complet-y-g06",
+      "name": "chargeur complet Y-G06",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "chargeur complet Y-G06 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-complet-y-g06.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 1
+    },
+    {
+      "id": "236",
+      "slug": "souris-hp-s1",
+      "name": "Souris HP s1",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "Souris HP s1 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/souris-hp-s1.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 2
+    },
+    {
+      "id": "687",
+      "slug": "call-of-dutty-mw-ps5",
+      "name": "CALL OF DUTTY MW PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-dutty-mw-ps5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 3
+    },
+    {
+      "id": "6025",
+      "slug": "power-bank-q1074",
+      "name": "power bank Q1074",
+      "price": 6000,
+      "compareAtPrice": null,
+      "description": "power bank Q1074 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-q1074.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 4
+    },
+    {
+      "id": "238",
+      "slug": "power-bank-hp-a27",
+      "name": "power bank HP-A27",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "power bank HP-A27 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-hp-a27.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 5
+    },
+    {
+      "id": "682",
+      "slug": "battlefield-1-ps4",
+      "name": "BATTLEFIELD 1 PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/battlefield-1-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 6
+    },
+    {
+      "id": "2333",
+      "slug": "chargeur-iph-16-pm",
+      "name": "CHARGEUR IPH 16 PM",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR IPH 16 PM disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-iph-16-pm.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 7
+    },
+    {
+      "id": "5454",
+      "slug": "pen-tab-s9fe-s9fe-s10fe-s10fe",
+      "name": "Pen Tab s9fe/ s9fe+ / s10fe/ s10fe+",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "Pen Tab s9fe/ s9fe+ / s10fe/ s10fe+ disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-tab-s9fe-s9fe-s10fe-s10fe.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 8
+    },
+    {
+      "id": "2330",
+      "slug": "chargeur-14-pm",
+      "name": "CHARGEUR 14 PM",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "CHARGEUR 14 PM disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-14-pm.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 9
+    },
+    {
+      "id": "2328",
+      "slug": "chargeur-typec-c",
+      "name": "CHARGEUR TYPEC C",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TYPEC C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-typec-c.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 10
+    },
+    {
+      "id": "2329",
+      "slug": "chargeur-ip",
+      "name": "CHARGEUR IP",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR IP disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-ip.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 11
+    },
+    {
+      "id": "279",
+      "slug": "gta-5-ps4",
+      "name": "GTA 5 PS4",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/gta-5-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 12
+    },
+    {
+      "id": "2143",
+      "slug": "lame-a-tige",
+      "name": "Lame a tige",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Lame a tige disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/lame-a-tige.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 13
+    },
+    {
+      "id": "2358",
+      "slug": "chargeur-yoo-face-w65-01",
+      "name": "CHARGEUR YOO FACE W65-01",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR YOO FACE W65-01 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-yoo-face-w65-01.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 14
+    },
+    {
+      "id": "742",
+      "slug": "mortal-11-kombat-ps4",
+      "name": "MORTAL 11 KOMBAT PS4",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "MORTAL 11 KOMBAT PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/mortal-11-kombat-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 15
+    },
+    {
+      "id": "750",
+      "slug": "sniper-elite-5-ps5",
+      "name": "SNIPER ELITE 5 PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR D'INFILTRATION PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/sniper-elite-5-ps5.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 16
+    },
+    {
+      "id": "5456",
+      "slug": "pen-st-01",
+      "name": "Pen ST 01",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "Pen ST 01 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-st-01.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 17
+    },
+    {
+      "id": "5457",
+      "slug": "pencil-universei",
+      "name": "PENCIL UNIVERSEI",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "SA MARCHE POUR TOU LES TABLETTE MEME LES TELEPHONE PORTABLE",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pencil-universei.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Rouge"
+        },
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc",
+            "Bleu",
+            "Rouge",
+            "Vert",
+            "GOLD",
+            "CENDRE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 18
+    },
+    {
+      "id": "2360",
+      "slug": "woofer-sd-w68",
+      "name": "WOOFER SD-W68",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "WOOFER SD-W68 disponible chez LKM Boutique à Lomé (Audio & enceintes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "mp3"
+      ],
+      "image": "/products/woofer-sd-w68.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 19
+    },
+    {
+      "id": "2361",
+      "slug": "woofer-sd-w88",
+      "name": "WOOFER SD-W88",
+      "price": 55000,
+      "compareAtPrice": null,
+      "description": "WOOFER SD-W88 disponible chez LKM Boutique à Lomé (Audio & enceintes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "mp3"
+      ],
+      "image": "/products/woofer-sd-w88.webp",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 20
+    },
+    {
+      "id": "699",
+      "slug": "fc26-ps5",
+      "name": "FC26 PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS5 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc26-ps5.png",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 21
+    },
+    {
+      "id": "4784",
+      "slug": "adaptateur-type-c-hdtv-13-in-1",
+      "name": "ADAPTATEUR TYPE-C HDTV 13 in 1",
+      "price": 13000,
+      "compareAtPrice": null,
+      "description": "ADAPTATEUR TYPE-C HDTV 13 in 1 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/adaptateur-type-c-hdtv-13-in-1.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 22
+    },
+    {
+      "id": "2362",
+      "slug": "woofer-c57",
+      "name": "WOOFER C57",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "WOOFER C57 disponible chez LKM Boutique à Lomé (Audio & enceintes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "mp3"
+      ],
+      "image": "/products/woofer-c57.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 23
+    },
+    {
+      "id": "698",
+      "slug": "fc25-ps5",
+      "name": "FC25 PS5",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS5 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc25-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 24
+    },
+    {
+      "id": "697",
+      "slug": "fc24-ps5",
+      "name": "FC24 PS5",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JE DE SPORT PS5 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc24-ps5.png",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 25
+    },
+    {
+      "id": "728",
+      "slug": "mortal-11-kombat-ps5",
+      "name": "MORTAL 11 KOMBAT PS5",
+      "price": 23000,
+      "compareAtPrice": null,
+      "description": "MORTAL 11 KOMBAT PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/mortal-11-kombat-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 26
+    },
+    {
+      "id": "727",
+      "slug": "mortal-1-kombat-ps5",
+      "name": "MORTAL 1 KOMBAT PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "MORTAL 1 KOMBAT PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/mortal-1-kombat-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 27
+    },
+    {
+      "id": "739",
+      "slug": "need-for-speed-switch",
+      "name": "need for speed switch",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "need for speed switch disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/need-for-speed-switch.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 28
+    },
+    {
+      "id": "723",
+      "slug": "madden-22-xbox",
+      "name": "MADDEN 22 XBOX",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT XBOX (FOOTBALL AMERICAINE)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/madden-22-xbox.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 29
+    },
+    {
+      "id": "720",
+      "slug": "madden-15-xbox",
+      "name": "MADDEN 15 XBOX",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (FOOTBALL AMÉRICAIN) XBOX",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/madden-15-xbox.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 30
+    },
+    {
+      "id": "724",
+      "slug": "madden-23-xbox",
+      "name": "MADDEN 23 XBOX",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT XBOX (FOOTBALL AMERICAINE)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/madden-23-xbox.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 31
+    },
+    {
+      "id": "719",
+      "slug": "lego-batman-ps5",
+      "name": "LEGO BATMAN PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE FAMILIAL PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/lego-batman-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 32
+    },
+    {
+      "id": "735",
+      "slug": "nintendo-2k26",
+      "name": "NINTENDO 2K26",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (BASKET) NINTENDO",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nintendo-2k26.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 33
+    },
+    {
+      "id": "703",
+      "slug": "fifa-18-ps4",
+      "name": "FIFA 18 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fifa-18-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 34
+    },
+    {
+      "id": "753",
+      "slug": "spider-man-miles-morales-ps5",
+      "name": "SPIDER MAN MILES MORALES PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/spider-man-miles-morales-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 35
+    },
+    {
+      "id": "685",
+      "slug": "call-of-duty-black-ops-7-ps5",
+      "name": "CALL OF DUTY BLACK OPS 7 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-black-ops-7-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 36
+    },
+    {
+      "id": "680",
+      "slug": "assassin-s-creed-unity-ps4",
+      "name": "ASSASSIN'S CREED UNITY PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU D'AVENTURE ACTION PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/assassin-s-creed-unity-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 37
+    },
+    {
+      "id": "681",
+      "slug": "assetto-corsa-competizione-ps5",
+      "name": "ASSETTO CORSA COMPETIZIONE PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "ASSETTO CORSA COMPETIZIONE PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/assetto-corsa-competizione-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 38
+    },
+    {
+      "id": "755",
+      "slug": "street-fighter-arcade-edition-ps4",
+      "name": "STREET FIGHTER ARCADE EDITION PS4",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "STREET FIGHTER ARCADE EDITION PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/street-fighter-arcade-edition-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 39
+    },
+    {
+      "id": "5544",
+      "slug": "souris-chargable",
+      "name": "souris chargable",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "souris chargable disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/souris-chargable.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 40
+    },
+    {
+      "id": "857",
+      "slug": "fifa-16-ps4",
+      "name": "fifa 16 ps4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (FOOTBALL) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fifa-16-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 41
+    },
+    {
+      "id": "2168",
+      "slug": "chargeur-moxom-cpl",
+      "name": "chargeur moxom cpl",
+      "price": 4000,
+      "compareAtPrice": null,
+      "description": "chargeur moxom cpl disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-moxom-cpl.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 42
+    },
+    {
+      "id": "1306",
+      "slug": "station-d-accueil-switch",
+      "name": "STATION D'ACCUEIL SWITCH",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "STATION D'ACCUEIL SWITCH disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/station-d-accueil-switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 43
+    },
+    {
+      "id": "4762",
+      "slug": "chargeur-tranyoo-t-ap2l",
+      "name": "CHARGEUR TRANYOO T-AP2L",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TRANYOO T-AP2L disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-tranyoo-t-ap2l.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 44
+    },
+    {
+      "id": "6170",
+      "slug": "macbook-2020-m1",
+      "name": "MACBOOK 2020 (M1)",
+      "price": 265000,
+      "compareAtPrice": null,
+      "description": "MACBOOK 2020 (M1) disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-2020-m1.jpg",
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "13.3 POUCE"
+        },
+        {
+          "name": "Capacité",
+          "value": "256 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "M1"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 45
+    },
+    {
+      "id": "713",
+      "slug": "gta5-ps5",
+      "name": "GTA5 PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/gta5-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 46
+    },
+    {
+      "id": "866",
+      "slug": "snaper-elite-5",
+      "name": "snaper elite 5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR D'INFILTRATION",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/snaper-elite-5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 47
+    },
+    {
+      "id": "686",
+      "slug": "call-of-dutty-mw-3-ps5",
+      "name": "CALL OF DUTTY MW 3 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-dutty-mw-3-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 48
+    },
+    {
+      "id": "683",
+      "slug": "battlefield-6-ps5",
+      "name": "BATTLEFIELD 6 PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/battlefield-6-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 49
+    },
+    {
+      "id": "977",
+      "slug": "macbook-pro-2019",
+      "name": "MACBOOK PRO 2019",
+      "price": null,
+      "compareAtPrice": null,
+      "description": "MACBOOK PRO 2019 disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "512 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "32 Go"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 50
+    },
+    {
+      "id": "5407",
+      "slug": "switch-oled",
+      "name": "Switch Oled",
+      "price": 220000,
+      "compareAtPrice": null,
+      "description": "🔥 LA SWITCH OLED EST LÀ — 220 000 FCFA Un écran OLED 7\" qui change tout : couleurs éclatantes, son puissant, jeu partout — TV, table ou dans la main. 🎁 EA SPORTS FC 26 OFFERT avec ta console. Oui, gratuit. Stock limité chez LKM Lomé. 📞 90 00 25 91 — WhatsApp",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/switch-oled.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 51
+    },
+    {
+      "id": "5418",
+      "slug": "pose-n8",
+      "name": "POSE N8",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "POSE N8 disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/pose-n8.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 52
+    },
+    {
+      "id": "712",
+      "slug": "grandages-medieval-ps4",
+      "name": "GRANDAGES MEDIEVAL PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "GRANDAGES MEDIEVAL PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/grandages-medieval-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 53
+    },
+    {
+      "id": "247",
+      "slug": "2k26-ps4",
+      "name": "2K26 PS4",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (BASKET)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/2k26-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 54
+    },
+    {
+      "id": "5837",
+      "slug": "bat-iph-11",
+      "name": "BAT IPH 11",
+      "price": 6000,
+      "compareAtPrice": null,
+      "description": "BAT IPH 11 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/bat-iph-11.webp",
+      "specs": [
+        {
+          "name": "qualite",
+          "value": "bonne qualite"
+        },
+        {
+          "name": "qualite",
+          "value": "copi"
+        },
+        {
+          "name": "qualite",
+          "value": "original"
+        }
+      ],
+      "options": [
+        {
+          "name": "qualite",
+          "values": [
+            "bonne qualite",
+            "copi",
+            "original"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 55
+    },
+    {
+      "id": "1772",
+      "slug": "power-bank-p302",
+      "name": "POWER BANK P302",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "POWER BANK P302 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-p302.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 56
+    },
+    {
+      "id": "1761",
+      "slug": "power-bank-hp-a22",
+      "name": "POWER BANK HP-A22",
+      "price": 9000,
+      "compareAtPrice": null,
+      "description": "POWER BANK HP-A22 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-hp-a22.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 57
+    },
+    {
+      "id": "1764",
+      "slug": "power-bank-ph124",
+      "name": "POWER BANK PH124",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "POWER BANK PH124 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-ph124.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "CENDRE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 58
+    },
+    {
+      "id": "4764",
+      "slug": "chargeur-tranyoo-t-eu13c",
+      "name": "CHARGEUR TRANYOO T-EU13C",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TRANYOO T-EU13C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-tranyoo-t-eu13c.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 59
+    },
+    {
+      "id": "1285",
+      "slug": "cle-usb-8gb",
+      "name": "cle usb 8GB",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "cle usb 8GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 60
+    },
+    {
+      "id": "1709",
+      "slug": "crt-m-32gb",
+      "name": "CRT M 32GB",
+      "price": 4000,
+      "compareAtPrice": null,
+      "description": "CRT M 32GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": "/products/crt-m-32gb.jpg",
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 61
+    },
+    {
+      "id": "737",
+      "slug": "nintendo-fc26",
+      "name": "NINTENDO FC26",
+      "price": 45000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (FOOTBALL) NINTENDO",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nintendo-fc26.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 62
+    },
+    {
+      "id": "6241",
+      "slug": "crt-m-128gb",
+      "name": "CRT M 128GB",
+      "price": 8000,
+      "compareAtPrice": null,
+      "description": "CRT M 128GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": "/products/crt-m-128gb.jpg",
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        },
+        {
+          "name": "Marque",
+          "value": "SAMUSUNG"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "SAMUSUNG",
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 63
+    },
+    {
+      "id": "1725",
+      "slug": "crt-m-256gb",
+      "name": "CRT M 256GB",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "CRT M 256GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": "/products/crt-m-256gb.jpg",
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 64
+    },
+    {
+      "id": "1714",
+      "slug": "crt-m-64gb",
+      "name": "CRT M 64GB",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CRT M 64GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": "/products/crt-m-64gb.jpg",
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 65
+    },
+    {
+      "id": "1770",
+      "slug": "power-bank-ph116",
+      "name": "POWER BANK PH116",
+      "price": 9000,
+      "compareAtPrice": null,
+      "description": "POWER BANK PH116 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-ph116.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Jaune"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Jaune"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 66
+    },
+    {
+      "id": "241",
+      "slug": "power-bank-hp-a38",
+      "name": "power bank hp-A38",
+      "price": 11000,
+      "compareAtPrice": null,
+      "description": "power bank hp-A38 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-hp-a38.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 67
+    },
+    {
+      "id": "1776",
+      "slug": "power-bank-3c-d77",
+      "name": "POWER BANK 3C D77",
+      "price": 7000,
+      "compareAtPrice": null,
+      "description": "POWER BANK 3C D77 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-3c-d77.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Violet"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 68
+    },
+    {
+      "id": "856",
+      "slug": "fi-22-ps4",
+      "name": "FI 22 PS4",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "FI 22 PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fi-22-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 69
+    },
+    {
+      "id": "746",
+      "slug": "resident-evil-4-ps5",
+      "name": "RESIDENT EVIL 4 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION HORREUR (SURVIVAL HORROR) PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/resident-evil-4-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 70
+    },
+    {
+      "id": "730",
+      "slug": "nhl-16-ps4",
+      "name": "NHL 16 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (HOCHEY SUR GLACE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nhl-16-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 71
+    },
+    {
+      "id": "689",
+      "slug": "call-of-duty-infinite-warfare-ps4",
+      "name": "CALL OF DUTY INFINITE WARFARE PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-infinite-warfare-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 72
+    },
+    {
+      "id": "688",
+      "slug": "call-of-duty-black-ops-cold-war-ps4",
+      "name": "CALL OF DUTY BLACK OPS COLD WAR PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-black-ops-cold-war-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 73
+    },
+    {
+      "id": "280",
+      "slug": "tomb-raider-ps4",
+      "name": "TOMB RAIDER PS4",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/tomb-raider-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 74
+    },
+    {
+      "id": "747",
+      "slug": "resident-evil-requiem-ps5",
+      "name": "RESIDENT EVIL REQUIEM PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "RESIDENT EVIL REQUIEM PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/resident-evil-requiem-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 75
+    },
+    {
+      "id": "752",
+      "slug": "spider-man-2",
+      "name": "SPIDER MAN 2",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/spider-man-2.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 76
+    },
+    {
+      "id": "745",
+      "slug": "red-dead-redemption-ps5",
+      "name": "RED DEAD REDEMPTION PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/red-dead-redemption-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 77
+    },
+    {
+      "id": "706",
+      "slug": "gears-of-wars-ps5",
+      "name": "GEARS OF WARS PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "GEARS OF WARS PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/gears-of-wars-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 78
+    },
+    {
+      "id": "710",
+      "slug": "goldorak-ps5",
+      "name": "GOLDORAK PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/goldorak-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 79
+    },
+    {
+      "id": "708",
+      "slug": "ghost-of-tsushima-ps5",
+      "name": "GHOST OF TSUSHIMA PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "GHOST OF TSUSHIMA PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/ghost-of-tsushima-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 80
+    },
+    {
+      "id": "702",
+      "slug": "fifa-17-ps4",
+      "name": "FIFA 17 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fifa-17-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 81
+    },
+    {
+      "id": "701",
+      "slug": "fifa-15-ps4",
+      "name": "FIFA 15 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fifa-15-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 82
+    },
+    {
+      "id": "704",
+      "slug": "fifa-19-ps4",
+      "name": "FIFA 19 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fifa-19-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 83
+    },
+    {
+      "id": "691",
+      "slug": "call-of-duty-vanguard-ps4",
+      "name": "CALL OF DUTY VANGUARD PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-vanguard-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 84
+    },
+    {
+      "id": "692",
+      "slug": "call-of-duty-ww2-ps4",
+      "name": "CALL OF DUTY WW2 PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR DE GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-ww2-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 85
+    },
+    {
+      "id": "707",
+      "slug": "ghost-of-tsushima-ps4",
+      "name": "GHOST OF TSUSHIMA PS4",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/ghost-of-tsushima-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 86
+    },
+    {
+      "id": "718",
+      "slug": "jedi-survivor-ps5",
+      "name": "JEDI SURVIVOR PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEDI SURVIVOR PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/jedi-survivor-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 87
+    },
+    {
+      "id": "714",
+      "slug": "hitman-ps5",
+      "name": "HITMAN PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION INFILTRATION PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/hitman-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 88
+    },
+    {
+      "id": "715",
+      "slug": "horizon-ps5",
+      "name": "HORIZON PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT RPG PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/horizon-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 89
+    },
+    {
+      "id": "738",
+      "slug": "nintendo-hitman-world-assasination",
+      "name": "NINTENDO HITMAN WORLD ASSASINATION",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION INFILTRATION NINTENDO",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nintendo-hitman-world-assasination.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 90
+    },
+    {
+      "id": "726",
+      "slug": "minecraft-ps5",
+      "name": "MINECRAFT PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE CONSTRUCTION AVENTURE (BAC A SABLE) PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/minecraft-ps5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 91
+    },
+    {
+      "id": "716",
+      "slug": "horizon-zero-down-ps4",
+      "name": "HORIZON ZERO DOWN PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT RPG PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/horizon-zero-down-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 92
+    },
+    {
+      "id": "733",
+      "slug": "nhl-19-ps4",
+      "name": "NHL 19 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (HOCHEY SUR GLACE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nhl-19-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 93
+    },
+    {
+      "id": "732",
+      "slug": "nhl-18",
+      "name": "NHL 18",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (HOCHEY SUR GLACE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nhl-18.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 94
+    },
+    {
+      "id": "731",
+      "slug": "nhl-17-ps4",
+      "name": "NHL 17 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (HOCHEY SUR GLACE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nhl-17-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 95
+    },
+    {
+      "id": "725",
+      "slug": "mafia-3-ps4",
+      "name": "MAFIA 3 PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/mafia-3-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 96
+    },
+    {
+      "id": "684",
+      "slug": "call-of-dutty-black-ops-6-ps5",
+      "name": "CALL OF DUTTY BLACK OPS 6 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-dutty-black-ops-6-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 97
+    },
+    {
+      "id": "758",
+      "slug": "ufc5-ps5",
+      "name": "UFC5 PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT COMBAT (MMA) PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/ufc5-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 98
+    },
+    {
+      "id": "757",
+      "slug": "the-last-of-us-ps4",
+      "name": "THE LAST OF US PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE SURVIE PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/the-last-of-us-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 99
+    },
+    {
+      "id": "717",
+      "slug": "jedi-fallen-order-ps5",
+      "name": "JEDI FALLEN ORDER PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEDI FALLEN ORDER PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/jedi-fallen-order-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 100
+    },
+    {
+      "id": "678",
+      "slug": "2k26-ps5",
+      "name": "2K26 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS5 (BASKET)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/2k26-ps5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 101
+    },
+    {
+      "id": "855",
+      "slug": "w-2k26-ps5",
+      "name": "W 2K26 PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "W 2K26 PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/w-2k26-ps5.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 102
+    },
+    {
+      "id": "690",
+      "slug": "call-of-duty-mw-ps4",
+      "name": "CALL OF DUTY MW PS4",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-duty-mw-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 103
+    },
+    {
+      "id": "729",
+      "slug": "nfs-unbound-ps5",
+      "name": "NFS UNBOUND PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "NFS UNBOUND PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nfs-unbound-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 104
+    },
+    {
+      "id": "870",
+      "slug": "sniper-elite-resistance-ps5",
+      "name": "SNIPER ELITE resistance PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR INFILTRATION PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/sniper-elite-resistance-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 105
+    },
+    {
+      "id": "734",
+      "slug": "nhl-20-ps4",
+      "name": "NHL 20 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT (HOCHEY SUR GLACE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nhl-20-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 106
+    },
+    {
+      "id": "1396",
+      "slug": "gear-club-unlimited-2-switch",
+      "name": "GEAR.CLUB unlimited 2 switch",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "GEAR.CLUB unlimited 2 switch disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/gear-club-unlimited-2-switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 107
+    },
+    {
+      "id": "722",
+      "slug": "madden-18-ps4",
+      "name": "MADDEN 18 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL AMERICAIN)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/madden-18-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 108
+    },
+    {
+      "id": "2100",
+      "slug": "wrc-10-ps5",
+      "name": "WRC 10 PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "WRC 10 PS5 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/wrc-10-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 109
+    },
+    {
+      "id": "2088",
+      "slug": "fc26-ps4",
+      "name": "FC26 PS4",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc26-ps4.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 110
+    },
+    {
+      "id": "721",
+      "slug": "madden-17-ps4",
+      "name": "MADDEN 17 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT PS4 (FOOTBALL AMERICAINE )",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/madden-17-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 111
+    },
+    {
+      "id": "2098",
+      "slug": "destiny-ps4",
+      "name": "DESTINY PS4",
+      "price": 17000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR FPS AVENTURE SCIENCE-FICTION PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/destiny-ps4.png",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 112
+    },
+    {
+      "id": "2096",
+      "slug": "final-fantasy-xvi-ps5",
+      "name": "FINAL FANTASY XVI PS5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE ROLE D'ACTION RPG PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/final-fantasy-xvi-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 113
+    },
+    {
+      "id": "2819",
+      "slug": "samsung-a17",
+      "name": "SAMSUNG A17",
+      "price": 95000,
+      "compareAtPrice": null,
+      "description": "SAMSUNG A17 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/samsung-a17.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        },
+        {
+          "name": "Capacité",
+          "value": "64 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "256 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "4 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "6 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 114
+    },
+    {
+      "id": "2808",
+      "slug": "samsung-a07",
+      "name": "SAMSUNG A07",
+      "price": 70000,
+      "compareAtPrice": null,
+      "description": "SAMSUNG A07 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/samsung-a07.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        },
+        {
+          "name": "Capacité",
+          "value": "64 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "4 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "6 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        },
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Vert",
+            "Violet"
+          ]
+        },
+        {
+          "name": "Capacité",
+          "values": [
+            "64 Go",
+            "128 Go"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 115
+    },
+    {
+      "id": "2090",
+      "slug": "pincette-ss-sa-sr",
+      "name": "Pincette SS-SA SR",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Pincette SS-SA SR disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pincette-ss-sa-sr.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 116
+    },
+    {
+      "id": "2102",
+      "slug": "fc26-xbox",
+      "name": "FC26 XBOX",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT XBOX (FOOTBALL)",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc26-xbox.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 117
+    },
+    {
+      "id": "2111",
+      "slug": "assassin-s-creed-shadows-ps5",
+      "name": "ASSASSIN'S CREED SHADOWS PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU D'AVENTURE ACTION PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/assassin-s-creed-shadows-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 118
+    },
+    {
+      "id": "2139",
+      "slug": "chargeur-yoo-face-pd-25w",
+      "name": "chargeur Yoo face PD 25W",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "chargeur Yoo face PD 25W disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-yoo-face-pd-25w.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 119
+    },
+    {
+      "id": "2122",
+      "slug": "pincette-7-sa",
+      "name": "Pincette 7-SA",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Pincette 7-SA disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pincette-7-sa.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 120
+    },
+    {
+      "id": "4772",
+      "slug": "chargeur-tranyoo-t-eu25c",
+      "name": "CHARGEUR TRANYOO T-EU25C",
+      "price": 7500,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TRANYOO T-EU25C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-tranyoo-t-eu25c.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 121
+    },
+    {
+      "id": "4780",
+      "slug": "chargeur-tranyoo-t-eu9c",
+      "name": "CHARGEUR TRANYOO T-EU9C",
+      "price": 9000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TRANYOO T-EU9C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-tranyoo-t-eu9c.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 122
+    },
+    {
+      "id": "2146",
+      "slug": "pen-st-11",
+      "name": "Pen ST 11",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "Pen ST 11 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-st-11.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 123
+    },
+    {
+      "id": "6011",
+      "slug": "pen-st-04",
+      "name": "Pen ST 04",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "Pen ST 04 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-st-04.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 124
+    },
+    {
+      "id": "2153",
+      "slug": "pencil-note-20ultra",
+      "name": "PENCIL NOTE 20ULTRA",
+      "price": 13000,
+      "compareAtPrice": null,
+      "description": "PENCIL NOTE 20ULTRA disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pencil-note-20ultra.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Rouge"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Bleu",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 125
+    },
+    {
+      "id": "2318",
+      "slug": "chargeur-ak-224-type-c",
+      "name": "CHARGEUR AK-224 TYPE C",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR AK-224 TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-ak-224-type-c.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 126
+    },
+    {
+      "id": "2317",
+      "slug": "chargeur-ak-224-v8",
+      "name": "CHARGEUR AK-224 V8",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR AK-224 V8 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-ak-224-v8.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 127
+    },
+    {
+      "id": "2142",
+      "slug": "lame-de-reparation-en-boite",
+      "name": "Lame de reparation en boite",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "Lame de reparation en boite disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/lame-de-reparation-en-boite.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 128
+    },
+    {
+      "id": "6006",
+      "slug": "pen-s25-ultra",
+      "name": "Pen S25 ultra",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "Pen S25 ultra disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-s25-ultra.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Bleu",
+            "CENDRE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 129
+    },
+    {
+      "id": "2319",
+      "slug": "chargeur-ysy-6097",
+      "name": "CHARGEUR YSY-6097",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR YSY-6097 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-ysy-6097.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 130
+    },
+    {
+      "id": "6002",
+      "slug": "pen-s24-ultra",
+      "name": "Pen S24 ultra",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "Pen S24 ultra disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-s24-ultra.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc",
+            "Violet",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 131
+    },
+    {
+      "id": "2160",
+      "slug": "pen-s22-ultra",
+      "name": "Pen S22 ultra",
+      "price": 7000,
+      "compareAtPrice": null,
+      "description": "Pen S22 ultra disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-s22-ultra.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 132
+    },
+    {
+      "id": "2320",
+      "slug": "chargeur-type-c",
+      "name": "CHARGEUR TYPE C",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-type-c.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 133
+    },
+    {
+      "id": "2315",
+      "slug": "chargeur-120w-pd",
+      "name": "CHARGEUR 120W PD",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR 120W PD disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-120w-pd.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 134
+    },
+    {
+      "id": "6008",
+      "slug": "pen-note-20",
+      "name": "Pen Note 20",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "Pen Note 20 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-note-20.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Vert",
+            "CENDRE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 135
+    },
+    {
+      "id": "2316",
+      "slug": "macbook-pro-2017-core-i7",
+      "name": "MACBOOK PRO 2017 (CORE I7)",
+      "price": 285000,
+      "compareAtPrice": null,
+      "description": "MACBOOK PRO 2017 (CORE I7) disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-pro-2017-core-i7.jpg",
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "15.4 POUCE"
+        },
+        {
+          "name": "Capacité",
+          "value": "1 To"
+        },
+        {
+          "name": "RAM",
+          "value": "16 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "corei7"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 136
+    },
+    {
+      "id": "2488",
+      "slug": "xbox-one-500gb",
+      "name": "XBOX ONE 500GB",
+      "price": 70000,
+      "compareAtPrice": null,
+      "description": "XBOX ONE 500GB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/xbox-one-500gb.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 137
+    },
+    {
+      "id": "6546",
+      "slug": "macbook-pro-2019-16-pouce-core-i7",
+      "name": "MACBOOK PRO 2019(16 POUCE )CORE i7",
+      "price": 380000,
+      "compareAtPrice": null,
+      "description": "MACBOOK PRO 2019 CORE I7 /500GB /16POUCE",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-pro-2019-16-pouce-core-i7.jpg",
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "16POUCE"
+        },
+        {
+          "name": "Capacité",
+          "value": "512 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "32 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "cote i9"
+        },
+        {
+          "name": "Taille",
+          "value": "15.4 POUCE"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "corei7"
+        },
+        {
+          "name": "RAM",
+          "value": "16 Go"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 138
+    },
+    {
+      "id": "5805",
+      "slug": "tete-suri-european-bathroom",
+      "name": "TETE SURI european bathroom",
+      "price": 1500,
+      "compareAtPrice": null,
+      "description": "TETE SURI european bathroom disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/tete-suri-european-bathroom.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 139
+    },
+    {
+      "id": "4770",
+      "slug": "chargeur-tranyoo-t-eu13l",
+      "name": "CHARGEUR TRANYOO T-EU13L",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TRANYOO T-EU13L disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-tranyoo-t-eu13l.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 140
+    },
+    {
+      "id": "2747",
+      "slug": "god-of-war-ps5",
+      "name": "GOD OF WAR PS5",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/god-of-war-ps5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 141
+    },
+    {
+      "id": "696",
+      "slug": "fallout-4-ps4",
+      "name": "FALLOUT 4 PS4",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "JEU D'AVENTURE RPG MONDE OUVERT POST-APOCALYPTIQUE PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fallout-4-ps4.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 142
+    },
+    {
+      "id": "2775",
+      "slug": "samsung-galaxy-a16",
+      "name": "SAMSUNG GALAXY A16",
+      "price": 85000,
+      "compareAtPrice": null,
+      "description": "SAMSUNG GALAXY A16 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/samsung-galaxy-a16.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        },
+        {
+          "name": "Capacité",
+          "value": "64 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "256 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "4 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "6 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 143
+    },
+    {
+      "id": "2880",
+      "slug": "samsung-s21-fe",
+      "name": "SAMSUNG S21 FE",
+      "price": 75000,
+      "compareAtPrice": null,
+      "description": "SAMSUNG S21 FE disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/samsung-s21-fe.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        },
+        {
+          "name": "Capacité",
+          "value": "64 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "256 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "4 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "6 Go"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 144
+    },
+    {
+      "id": "2988",
+      "slug": "macbook-2017-core-i7",
+      "name": "MACBOOK 2017 (CORE I7)",
+      "price": 280000,
+      "compareAtPrice": null,
+      "description": "MACBOOK 2017 (CORE I7) disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-2017-core-i7.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "512 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "1 To"
+        },
+        {
+          "name": "Taille",
+          "value": "15.4 POUCE"
+        },
+        {
+          "name": "RAM",
+          "value": "16 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "corei7"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 145
+    },
+    {
+      "id": "2973",
+      "slug": "manette-ps4-venu",
+      "name": "MANETTE PS4 VENU",
+      "price": 12500,
+      "compareAtPrice": null,
+      "description": "MANETTE PS4 VENU disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-ps4-venu.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc",
+            "Bleu"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 146
+    },
+    {
+      "id": "2971",
+      "slug": "manette-xbox",
+      "name": "MANETTE XBOX",
+      "price": 12500,
+      "compareAtPrice": null,
+      "description": "MANETTE XBOX disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-xbox.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 147
+    },
+    {
+      "id": "6033",
+      "slug": "ps4-fat-1tb-hak-v13-52",
+      "name": "PS4 FAT 1TB (HAK v13.52)",
+      "price": 130000,
+      "compareAtPrice": null,
+      "description": "PS4 FAT 1TB (HAK v13.52) disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-fat-1tb-hak-v13-52.webp",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 148
+    },
+    {
+      "id": "6035",
+      "slug": "xbox-one-s-1tb",
+      "name": "XBOX ONE S 1Tb",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "XBOX ONE S 1Tb disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/xbox-one-s-1tb.webp",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 149
+    },
+    {
+      "id": "3187",
+      "slug": "xbox-one-s-500go",
+      "name": "XBOX One S 500Go",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "XBOX One S 500Go disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/xbox-one-s-500go.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 150
+    },
+    {
+      "id": "4542",
+      "slug": "chargeur-pc-60w-magsafe-adapter",
+      "name": "CHARGEUR PC 60W MAGSAFE ADAPTER",
+      "price": 12000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR PC 60W MAGSAFE ADAPTER disponible chez LKM Boutique à Lomé (Chargeurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-pc"
+      ],
+      "image": "/products/chargeur-pc-60w-magsafe-adapter.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 151
+    },
+    {
+      "id": "6036",
+      "slug": "xbox-one-x-1tb",
+      "name": "XBOX ONE X 1TB",
+      "price": 125000,
+      "compareAtPrice": null,
+      "description": "XBOX ONE X 1TB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/xbox-one-x-1tb.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 152
+    },
+    {
+      "id": "2366",
+      "slug": "woofer-booms-box-mini",
+      "name": "WOOFER BOOMS BOX MINI",
+      "price": 7500,
+      "compareAtPrice": null,
+      "description": "WOOFER BOOMS BOX MINI disponible chez LKM Boutique à Lomé (Audio & enceintes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "mp3"
+      ],
+      "image": "/products/woofer-booms-box-mini.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 153
+    },
+    {
+      "id": "2157",
+      "slug": "brosse",
+      "name": "Brosse",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Brosse disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/brosse.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 154
+    },
+    {
+      "id": "2121",
+      "slug": "tournevis-y-0-6",
+      "name": "TOURNEVIS Y 0.6",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "TOURNEVIS Y 0.6 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tournevis-y-0-6.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 155
+    },
+    {
+      "id": "2364",
+      "slug": "woofer-jbl-alaxe",
+      "name": "WOOFER JBL ALAXE",
+      "price": 6500,
+      "compareAtPrice": null,
+      "description": "WOOFER JBL ALAXE disponible chez LKM Boutique à Lomé (Audio & enceintes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "mp3"
+      ],
+      "image": "/products/woofer-jbl-alaxe.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 156
+    },
+    {
+      "id": "2140",
+      "slug": "tige-fer-de-reparartion",
+      "name": "tige fer de reparartion",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "tige fer de reparartion disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tige-fer-de-reparartion.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 157
+    },
+    {
+      "id": "2120",
+      "slug": "pincette-ss-sa",
+      "name": "Pincette SS-SA",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Pincette SS-SA disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pincette-ss-sa.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 158
+    },
+    {
+      "id": "2123",
+      "slug": "tournevis-americain-1-5",
+      "name": "TOURNEVIS AMERICAIN 1.5",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "TOURNEVIS AMERICAIN 1.5 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tournevis-americain-1-5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 159
+    },
+    {
+      "id": "2124",
+      "slug": "tournevis-etoile-0-8",
+      "name": "TOURNEVIS ETOILE 0.8",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "TOURNEVIS ETOILE 0.8 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tournevis-etoile-0-8.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 160
+    },
+    {
+      "id": "2141",
+      "slug": "lame-de-repartion-multiple",
+      "name": "Lame de repartion multiple",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "Lame de repartion multiple disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/lame-de-repartion-multiple.jpg",
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "13.3 POUCE"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 161
+    },
+    {
+      "id": "6172",
+      "slug": "macbook-aire-2017-core-i3",
+      "name": "MACBOOK AIRE 2017 (CORE I3)",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "MACBOOK AIRE 2017 (CORE I3) disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-aire-2017-core-i3.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "512 Go"
+        },
+        {
+          "name": "Capacité",
+          "value": "1 To"
+        },
+        {
+          "name": "Capacité",
+          "value": "256 Go"
+        },
+        {
+          "name": "Taille",
+          "value": "13.3 POUCE"
+        },
+        {
+          "name": "RAM",
+          "value": "8 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "core i5"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 162
+    },
+    {
+      "id": "1485",
+      "slug": "toy-con-grip-swtich",
+      "name": "TOY-CON GRIP SWTICH",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "TOY-CON GRIP SWTICH disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/toy-con-grip-swtich.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 163
+    },
+    {
+      "id": "865",
+      "slug": "ps4-slim-hak-500gb",
+      "name": "PS4 SLIM HAK 500GB",
+      "price": 125000,
+      "compareAtPrice": null,
+      "description": "PS4 SLIM 500GB , livrée avec une manette ,et les câbles et chargeur . 11 JEUX : 1.GTA 5 , 2. FC26 3. NARUTO SHIPPUDEN : Ultimate storm collection 4. RESIDENT EVIL , 5. DEMON SLAYER Kimetsu no yaiba- The Hinokami 6.Chronicles 2, 7. RISE OF TOMB RAIDER 8. inFAMOUS FIRST LIGHT 9. A WAY OUT 10. NINJA GAIDEN 3 : RAZOR'S EDGE 11. NEED FOR SPEED",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-slim-hak-500gb.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 164
+    },
+    {
+      "id": "5438",
+      "slug": "boitier-ssd-m2",
+      "name": "Boitier SSD M2",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "Boitier SSD M2 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/boitier-ssd-m2.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 165
+    },
+    {
+      "id": "5426",
+      "slug": "type-c-hub-8in1-2",
+      "name": "TYPE-C HUB 8in1-2",
+      "price": 6000,
+      "compareAtPrice": null,
+      "description": "TYPE-C HUB 8in1-2 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/type-c-hub-8in1-2.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 166
+    },
+    {
+      "id": "5430",
+      "slug": "type-c-to-hdtv-5in1",
+      "name": "TYPE-C to HDTV 5in1",
+      "price": 7000,
+      "compareAtPrice": null,
+      "description": "TYPE-C to HDTV 5in1 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/type-c-to-hdtv-5in1.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 167
+    },
+    {
+      "id": "5432",
+      "slug": "wireless-csr-4-0-dongle",
+      "name": "Wireless csr 4.0 Dongle",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "Wireless csr 4.0 Dongle disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/wireless-csr-4-0-dongle.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 168
+    },
+    {
+      "id": "5424",
+      "slug": "type-c-to-hdtv-cable",
+      "name": "TYPE-C to HDTV cable",
+      "price": 70000,
+      "compareAtPrice": null,
+      "description": "TYPE-C to HDTV cable disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/type-c-to-hdtv-cable.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 169
+    },
+    {
+      "id": "5416",
+      "slug": "pose-zh-982",
+      "name": "POSE ZH-982",
+      "price": 8000,
+      "compareAtPrice": null,
+      "description": "POSE ZH-982 disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/pose-zh-982.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 170
+    },
+    {
+      "id": "2969",
+      "slug": "manette-ps5",
+      "name": "MANETTE PS5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "MANETTE PS5 disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-ps5.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "treyi"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc",
+            "treyi"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 171
+    },
+    {
+      "id": "5408",
+      "slug": "switch",
+      "name": "Switch",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "Switch disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 172
+    },
+    {
+      "id": "5412",
+      "slug": "pose-ksc-1742",
+      "name": "POSE KSC-1742",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "POSE KSC-1742 disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/pose-ksc-1742.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 173
+    },
+    {
+      "id": "5414",
+      "slug": "pose-zh-981",
+      "name": "POSE ZH-981",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "POSE ZH-981 disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/pose-zh-981.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 174
+    },
+    {
+      "id": "6030",
+      "slug": "ps4-fat-direc-v13-02",
+      "name": "PS4 fat DIREC V13.02",
+      "price": 110000,
+      "compareAtPrice": null,
+      "description": "PS4 fat DIREC V13.02 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-fat-direc-v13-02.webp",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 175
+    },
+    {
+      "id": "5448",
+      "slug": "pen-tab-s7fe-book2-360-book3-360",
+      "name": "Pen Tab s7fe / Book2 360/ Book3 360",
+      "price": 40000,
+      "compareAtPrice": null,
+      "description": "Pen Tab s7fe / Book2 360/ Book3 360 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-tab-s7fe-book2-360-book3-360.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Vert",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 176
+    },
+    {
+      "id": "5428",
+      "slug": "type-c-to-hdtv-8in1",
+      "name": "TYPE-C to HDTV 8in1",
+      "price": 8500,
+      "compareAtPrice": null,
+      "description": "TYPE-C to HDTV 8in1 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/type-c-to-hdtv-8in1.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 177
+    },
+    {
+      "id": "5814",
+      "slug": "the-crew-motorfest-ps4",
+      "name": "THE CREW MOTORFEST PS4",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JEU DE COURSE DE VOITURE PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/the-crew-motorfest-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 178
+    },
+    {
+      "id": "5815",
+      "slug": "ufc-4-ps4",
+      "name": "UFC 4 PS4",
+      "price": 19500,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT / COMBAT (MMA) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/ufc-4-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 179
+    },
+    {
+      "id": "5816",
+      "slug": "spider-man-milles-morales-ps4",
+      "name": "SPIDER-MAN MILLES MORALES PS4",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE EN MONDE OUVERT PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/spider-man-milles-morales-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 180
+    },
+    {
+      "id": "5817",
+      "slug": "god-of-war-ps4",
+      "name": "GOD OF WAR PS4",
+      "price": 11000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/god-of-war-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 181
+    },
+    {
+      "id": "5818",
+      "slug": "need-speed-for-rivals-ps4",
+      "name": "NEED SPEED FOR RIVALS PS4",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "NEED SPEED FOR RIVALS PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/need-speed-for-rivals-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 182
+    },
+    {
+      "id": "5819",
+      "slug": "battlefield-2042-ps4",
+      "name": "BATTLEFIELD 2042 PS4",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/battlefield-2042-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 183
+    },
+    {
+      "id": "5820",
+      "slug": "days-gone-ps4",
+      "name": "DAYS GONE PS4",
+      "price": 17500,
+      "compareAtPrice": null,
+      "description": "JEU D'AVENTURE ACTION SURVIE ZOMBIE MONDE OUVERT PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/days-gone-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 184
+    },
+    {
+      "id": "5821",
+      "slug": "w2k25-ps4",
+      "name": "W2K25 PS4",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "JEU DE SPORT COMBAT (CATCH) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/w2k25-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 185
+    },
+    {
+      "id": "5822",
+      "slug": "farcry6-ps4",
+      "name": "FARCRY6 PS4",
+      "price": 16000,
+      "compareAtPrice": null,
+      "description": "JEU D'AVENTURE ACTION FPS MONDE OUVERT PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/farcry6-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 186
+    },
+    {
+      "id": "5823",
+      "slug": "nfs-heat-ps4",
+      "name": "NFS HEAT PS4",
+      "price": 16000,
+      "compareAtPrice": null,
+      "description": "NFS HEAT PS4 disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/nfs-heat-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 187
+    },
+    {
+      "id": "5824",
+      "slug": "the-last-of-us-parti-2-ps4",
+      "name": "THE LAST OF US PARTI 2 PS4",
+      "price": 19000,
+      "compareAtPrice": null,
+      "description": "JEU D'ACTION AVENTURE (SURVIE) PS4",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/the-last-of-us-parti-2-ps4.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 188
+    },
+    {
+      "id": "6027",
+      "slug": "manette-nintendo-joy-con",
+      "name": "MANETTE NINTENDO JOY-CON",
+      "price": 45999,
+      "compareAtPrice": null,
+      "description": "MANETTE NINTENDO JOY-CON disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-nintendo-joy-con.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 189
+    },
+    {
+      "id": "5828",
+      "slug": "manette-nintendo-pro",
+      "name": "MANETTE NINTENDO PRO",
+      "price": 45000,
+      "compareAtPrice": null,
+      "description": "MANETTE NINTENDO PRO disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-nintendo-pro.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "ROSE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc",
+            "ROSE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 190
+    },
+    {
+      "id": "3783",
+      "slug": "cle-usb-128gb",
+      "name": "cle usb 128GB",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "cle usb 128GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 191
+    },
+    {
+      "id": "5833",
+      "slug": "tete-chargeur-40w-dynamic",
+      "name": "TETE CHARGEUR 40W DYNAMIC",
+      "price": 7000,
+      "compareAtPrice": null,
+      "description": "TETE CHARGEUR 40W DYNAMIC disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/tete-chargeur-40w-dynamic.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 192
+    },
+    {
+      "id": "6013",
+      "slug": "bat-iph-12-12-pro",
+      "name": "BAT IPH 12/12 PRO",
+      "price": 6500,
+      "compareAtPrice": null,
+      "description": "BAT IPH 12/12 PRO disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/bat-iph-12-12-pro.jpg",
+      "specs": [
+        {
+          "name": "qualite",
+          "value": "bonne qualite"
+        },
+        {
+          "name": "qualite",
+          "value": "copi"
+        },
+        {
+          "name": "qualite",
+          "value": "original"
+        }
+      ],
+      "options": [
+        {
+          "name": "qualite",
+          "values": [
+            "bonne qualite",
+            "copi",
+            "original"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 193
+    },
+    {
+      "id": "3793",
+      "slug": "cle-usb-64gb",
+      "name": "cle usb 64GB",
+      "price": 7500,
+      "compareAtPrice": null,
+      "description": "cle usb 64GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 194
+    },
+    {
+      "id": "3794",
+      "slug": "cle-usb-32gb",
+      "name": "cle usb 32GB",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "cle usb 32GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 195
+    },
+    {
+      "id": "3797",
+      "slug": "cle-usb-16gb",
+      "name": "cle usb 16GB",
+      "price": 4000,
+      "compareAtPrice": null,
+      "description": "cle usb 16GB disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Marque",
+          "value": "sanDisk"
+        },
+        {
+          "name": "Marque",
+          "value": "NB"
+        }
+      ],
+      "options": [
+        {
+          "name": "Marque",
+          "values": [
+            "sanDisk",
+            "NB"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 196
+    },
+    {
+      "id": "5872",
+      "slug": "manette-ps4-avec-pochette",
+      "name": "MANETTE PS4 AVEC POCHETTE",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "MANETTE PS4 AVEC POCHETTE disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/manette-ps4-avec-pochette.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 197
+    },
+    {
+      "id": "5927",
+      "slug": "adaptateur-usb-type-c-td-c3315",
+      "name": "ADAPTATEUR USB TYPE-C TD-C3315",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "ADAPTATEUR USB TYPE-C TD-C3315 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/adaptateur-usb-type-c-td-c3315.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 198
+    },
+    {
+      "id": "5929",
+      "slug": "adaptateur-te-dos-usb-td-c3308",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃ADAPTATEUR TE-DOS USB TD-C3308",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃ADAPTATEUR TE-DOS USB TD-C3308 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/adaptateur-te-dos-usb-td-c3308.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 199
+    },
+    {
+      "id": "5931",
+      "slug": "marvers-ms-cr03",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤MARVERS MS-CR03",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤MARVERS MS-CR03 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/marvers-ms-cr03.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 200
+    },
+    {
+      "id": "5933",
+      "slug": "marvers-cardreader-ms-cr02",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤MARVERS CARDREADER MS-CR02",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤MARVERS CARDREADER MS-CR02 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/marvers-cardreader-ms-cr02.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 201
+    },
+    {
+      "id": "6001",
+      "slug": "chargeur-type-c-40w-dynamic-power-adapter",
+      "name": "CHARGEUR TYPE C 40W DYNAMIC POWER ADAPTER",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR TYPE C 40W DYNAMIC POWER ADAPTER disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-type-c-40w-dynamic-power-adapter.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 202
+    },
+    {
+      "id": "6021",
+      "slug": "ps5-fat-1tb-standar-2-manette",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 FAT 1TB STANDAR 2 MANETTE",
+      "price": 350000,
+      "compareAtPrice": null,
+      "description": "LA PS5 FAT STANDARD AVEC COMPTE , UNE MANETTE ET CABLE D'ALIMENTATION , CHARGEUR 6 JEUX: EA SORTS FC26 ( EN CD ) THE LAST OF US PARTI 2 REMASTERED STAR WARS JEDI: SURVIVOR FAE CRY 6 THE WITCHER 3: WILD HUNT ASTRO'S PLAYROOM",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps5-fat-1tb-standar-2-manette.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 203
+    },
+    {
+      "id": "6022",
+      "slug": "ps5-slim-1tb-direct-digital",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 SLIM 1TB DIRECT DIGITAL",
+      "price": 320000,
+      "compareAtPrice": null,
+      "description": "PS5 SLIM DIGITAL AVEC COMPTE, UNE MANETTE ET CABLE D'ALIMENTATION ET CHARGEUR 6 JEUX: GTA 5 EA SPORTS FC 26 ASPHALT ASTRO'S PLAYROOM ROBLOX FORTNITE",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps5-slim-1tb-direct-digital.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 204
+    },
+    {
+      "id": "6031",
+      "slug": "ps4-fat-hak-500go-v13-52",
+      "name": "PS4 FAT (HAK 500Go V13.52",
+      "price": 125000,
+      "compareAtPrice": null,
+      "description": "PS4 FAT (HAK 500Go V13.52 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-fat-hak-500go-v13-52.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 205
+    },
+    {
+      "id": "6032",
+      "slug": "ps4-slime-direct-500go-v13-52",
+      "name": "PS4 SLIME DIRECT 500Go V13.52",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "PS4 SLIME DIRECT 500Go V13.52 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-slime-direct-500go-v13-52.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 206
+    },
+    {
+      "id": "6038",
+      "slug": "ps5-fat-1tb-digital",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 FAT 1Tb digital",
+      "price": 265000,
+      "compareAtPrice": null,
+      "description": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 FAT 1Tb digital disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps5-fat-1tb-digital.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 207
+    },
+    {
+      "id": "6066",
+      "slug": "chargeur-apple-watch",
+      "name": "CHARGEUR APPLE WATCH",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "CHARGEUR APPLE WATCH disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-apple-watch.jpg",
+      "specs": [
+        {
+          "name": "qualite",
+          "value": "bonne qualite"
+        },
+        {
+          "name": "qualite",
+          "value": "copi"
+        },
+        {
+          "name": "qualite",
+          "value": "original"
+        }
+      ],
+      "options": [
+        {
+          "name": "qualite",
+          "values": [
+            "bonne qualite",
+            "copi",
+            "original"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 208
+    },
+    {
+      "id": "6069",
+      "slug": "cable-macbook-2mettre",
+      "name": "CABLE MACBOOK 2METTRE",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "CABLE MACBOOK 2METTRE disponible chez LKM Boutique à Lomé (Chargeurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-pc"
+      ],
+      "image": "/products/cable-macbook-2mettre.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 209
+    },
+    {
+      "id": "6130",
+      "slug": "ps5-slime-standard",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 SLIME standard",
+      "price": 310000,
+      "compareAtPrice": null,
+      "description": "PS5 SLIM STANDARD AVEC 1 MANETTE , CABLE D'ALIMENTATION ET CHARGEUR 1 JEU CD: FC26",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps5-slime-standard.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 210
+    },
+    {
+      "id": "6173",
+      "slug": "ps5-fat-1tb-standard",
+      "name": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 FAT 1TB STANDARD",
+      "price": 320000,
+      "compareAtPrice": null,
+      "description": "PS5 FAT STANDARD AVEC COMPTE UNE MANETTE ET LES cable 2 JEUX EA SPORTS FC25 ( EN CD) CALL OF DUTTY",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps5-fat-1tb-standard.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 211
+    },
+    {
+      "id": "6233",
+      "slug": "ps3-slim-128gb",
+      "name": "PS3 SLIM 128GB",
+      "price": 65000,
+      "compareAtPrice": null,
+      "description": "PS3 SLIM 128GB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps3-slim-128gb.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 212
+    },
+    {
+      "id": "6234",
+      "slug": "ps4-pro-1tb-hak",
+      "name": "PS4 PRO 1TB (HAK",
+      "price": 160000,
+      "compareAtPrice": null,
+      "description": "PS5 SLIM DIGITAL , 2 MANETTE , CABLE D'ALIMENTATION , CHARGEUR 5 JEUX: EA SPORTS FC26 MORTAL KOMBAT EFOOTBALL DEAD BY DAYLIGHT ASTRO'S PLAYROOM",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/ps4-pro-1tb-hak.jpg",
+      "specs": [],
+      "options": [],
+      "featured": true,
+      "position": 213
+    },
+    {
+      "id": "6370",
+      "slug": "pen-note-10",
+      "name": "Pen Note 10",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "Pen Note 10 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-note-10.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        },
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Bleu"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 214
+    },
+    {
+      "id": "6372",
+      "slug": "pen-note-9",
+      "name": "Pen Note 9",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "Pen Note 9 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-note-9.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "ROSE"
+        },
+        {
+          "name": "Couleur",
+          "value": "Jaune"
+        },
+        {
+          "name": "Couleur",
+          "value": "CENDRE"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "ROSE",
+            "Jaune",
+            "CENDRE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 215
+    },
+    {
+      "id": "6382",
+      "slug": "pen-note-8",
+      "name": "Pen Note 8",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "Pen Note 8 disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-note-8.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Bleu",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 216
+    },
+    {
+      "id": "6385",
+      "slug": "pen-s23-ultra",
+      "name": "PEN S23 ULTRA",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "PEN S23 ULTRA disponible chez LKM Boutique à Lomé (Stylos & Pencil). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pencil"
+      ],
+      "image": "/products/pen-s23-ultra.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "GOLD"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Bleu",
+            "GOLD"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 217
+    },
+    {
+      "id": "6540",
+      "slug": "tete-chargeur-macbook",
+      "name": "TETE CHARGEUR MACBOOK",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "TETE CHARGEUR MACBOOK disponible chez LKM Boutique à Lomé (Chargeurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-pc"
+      ],
+      "image": "/products/tete-chargeur-macbook.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "VALEUR",
+          "value": "96 W"
+        },
+        {
+          "name": "VALEUR",
+          "value": "87 W"
+        },
+        {
+          "name": "VALEUR",
+          "value": "70W"
+        },
+        {
+          "name": "VALEUR",
+          "value": "67W"
+        },
+        {
+          "name": "VALEUR",
+          "value": "61W"
+        }
+      ],
+      "options": [
+        {
+          "name": "VALEUR",
+          "values": [
+            "96 W",
+            "67W",
+            "61W"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 218
+    },
+    {
+      "id": "6547",
+      "slug": "imac-2015",
+      "name": "imac 2015",
+      "price": 75000,
+      "compareAtPrice": null,
+      "description": "imac 2015 disponible chez LKM Boutique à Lomé (Ordinateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/imac-2015.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 219
+    },
+    {
+      "id": "6551",
+      "slug": "baf-moto-one-5g",
+      "name": "BAF MOTO ONE 5G",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "BAF MOTO ONE 5G disponible chez LKM Boutique à Lomé (Pièces Motorola). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "motorola-piecs-de-rechange"
+      ],
+      "image": "/products/baf-moto-one-5g.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 220
+    },
+    {
+      "id": "6565",
+      "slug": "adaptateur-gd-9212",
+      "name": "ADAPTATEUR GD-9212",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "ADAPTATEUR GD-9212 disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/adaptateur-gd-9212.png",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 221
+    },
+    {
+      "id": "6592",
+      "slug": "pince",
+      "name": "PINCE",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "PINCE disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pince.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 222
+    },
+    {
+      "id": "6593",
+      "slug": "plaquette-de-batterie",
+      "name": "PLAQUETTE DE BATTERIE",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "PLAQUETTE DE BATTERIE disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/plaquette-de-batterie.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 223
+    },
+    {
+      "id": "6619",
+      "slug": "sac-pc-switcheasy",
+      "name": "SAC PC SWITCHEasy",
+      "price": 45000,
+      "compareAtPrice": null,
+      "description": "SAC PC SWITCHEasy disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/sac-pc-switcheasy.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 224
+    },
+    {
+      "id": "6621",
+      "slug": "sac-coteci",
+      "name": "SAC COTECI",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "SAC COTECI disponible chez LKM Boutique à Lomé (Sacs & supports PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "sac-et-pose-pc"
+      ],
+      "image": "/products/sac-coteci.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "MARON"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "MARON"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 225
+    },
+    {
+      "id": "6816",
+      "slug": "cable-usb-iphone",
+      "name": "CABLE USB-IPHONE",
+      "price": 1,
+      "compareAtPrice": null,
+      "description": "CABLE USB-IPHONE disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/cable-usb-iphone.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 226
+    },
+    {
+      "id": "6818",
+      "slug": "cable-usb-type-c",
+      "name": "CABLE USB-TYPE C",
+      "price": 1,
+      "compareAtPrice": null,
+      "description": "CABLE USB-TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/cable-usb-type-c.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 227
+    },
+    {
+      "id": "6820",
+      "slug": "cable-type-c-type-c",
+      "name": "CABLE TYPE C-TYPE C",
+      "price": 1,
+      "compareAtPrice": null,
+      "description": "CABLE TYPE C-TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/cable-type-c-type-c.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 228
+    },
+    {
+      "id": "6824",
+      "slug": "cable-type-c-iphone",
+      "name": "CABLE TYPE C- IPHONE",
+      "price": 2500,
+      "compareAtPrice": null,
+      "description": "CABLE TYPE C- IPHONE disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/cable-type-c-iphone.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 229
+    },
+    {
+      "id": "6885",
+      "slug": "baf-motorola-edge-5g-2020",
+      "name": "BAF MOTOROLA EDGE 5G 2020",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "BAF MOTOROLA EDGE 5G 2020 disponible chez LKM Boutique à Lomé (Pièces Motorola). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "motorola-piecs-de-rechange"
+      ],
+      "image": "/products/baf-motorola-edge-5g-2020.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 230
+    },
+    {
+      "id": "6888",
+      "slug": "adaptateur-displayport-ver-hdmi",
+      "name": "Adaptateur Displayport ver HDMI",
+      "price": 3000,
+      "compareAtPrice": null,
+      "description": "Adaptateur Displayport ver HDMI disponible chez LKM Boutique à Lomé (Adaptateurs PC). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "adaptateur-pc"
+      ],
+      "image": "/products/adaptateur-displayport-ver-hdmi.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 231
+    },
+    {
+      "id": "6912",
+      "slug": "lame-de-precision",
+      "name": "LAME DE PRECISION",
+      "price": 1000,
+      "compareAtPrice": null,
+      "description": "LAME DE PRECISION disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/lame-de-precision.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 232
+    },
+    {
+      "id": "6925",
+      "slug": "samsung-galaxy-s22-ultra-128gb-8gb",
+      "name": "SAMSUNG GALAXY S22 ULTRA(128GB /8GB )",
+      "price": 220000,
+      "compareAtPrice": null,
+      "description": "SAMSUNG GALAXY S22 ULTRA(128GB /8GB ) disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/samsung-galaxy-s22-ultra-128gb-8gb.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Violet"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 233
+    },
+    {
+      "id": "6967",
+      "slug": "fc27-ps5",
+      "name": "FC27 PS5",
+      "price": 45000,
+      "compareAtPrice": null,
+      "description": "FC27 PS5 VERSION FRANÇAIS",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc27-ps5.webp",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        },
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [
+        {
+          "name": "VERSION",
+          "values": [
+            "FRANÇAIS",
+            "ANGLE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 234
+    },
+    {
+      "id": "6927",
+      "slug": "fc27-switch",
+      "name": "FC27 SWITCH",
+      "price": 45000,
+      "compareAtPrice": null,
+      "description": "FC27 SWITCH disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc27-switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 235
+    },
+    {
+      "id": "6945",
+      "slug": "iphone-12-battery-95",
+      "name": "IPHONE 12 (battery 95)",
+      "price": 125000,
+      "compareAtPrice": null,
+      "description": "IPHONE 12 (battery 95) disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/iphone-12-battery-95.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 236
+    },
+    {
+      "id": "6947",
+      "slug": "fc27-ps4",
+      "name": "FC27 PS4",
+      "price": 42000,
+      "compareAtPrice": null,
+      "description": "FC27 PS4 VERSION FRANÇAIS",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/fc27-ps4.jpg",
+      "specs": [
+        {
+          "name": "VERSION",
+          "value": "FRANÇAIS"
+        },
+        {
+          "name": "VERSION",
+          "value": "ANGLE"
+        }
+      ],
+      "options": [
+        {
+          "name": "VERSION",
+          "values": [
+            "FRANÇAIS",
+            "ANGLE"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 237
+    },
+    {
+      "id": "6948",
+      "slug": "iphone-14plus",
+      "name": "IPHONE 14PLUS",
+      "price": 225000,
+      "compareAtPrice": null,
+      "description": "IPHONE 14PLUS disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/iphone-14plus.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 238
+    },
+    {
+      "id": "6949",
+      "slug": "macbook-pro-2019-16-pouce-capacite-1tb-16gb-core-i9",
+      "name": "MACBOOK PRO: 2019(16 POUCE ) capacite 1TB /16GB Core I9",
+      "price": 380000,
+      "compareAtPrice": null,
+      "description": "MACBOOK PRO 2019 CORE I9 /1TB /16POUCE",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": "/products/macbook-pro-2019-16-pouce-capacite-1tb-16gb-core-i9.jpg",
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "16POUCE"
+        },
+        {
+          "name": "RAM",
+          "value": "16 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "cote i9"
+        },
+        {
+          "name": "Capacité",
+          "value": "1 To"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 239
+    },
+    {
+      "id": "4372",
+      "slug": "macbook-pro-2019-15-5-pouce",
+      "name": "MACBOOK PRO 2019(15.5 POUCE )",
+      "price": 380000,
+      "compareAtPrice": null,
+      "description": "MACBOOK PRO 2019 CORE I9 /500GB /15.5POUCE 32GB DE RAM",
+      "categorySlugs": [
+        "pc"
+      ],
+      "image": null,
+      "specs": [
+        {
+          "name": "Taille",
+          "value": "16POUCE"
+        },
+        {
+          "name": "Capacité",
+          "value": "1 To"
+        },
+        {
+          "name": "RAM",
+          "value": "16 Go"
+        },
+        {
+          "name": "CORE I et puce M",
+          "value": "cote i9"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 240
+    },
+    {
+      "id": "6951",
+      "slug": "gran-turismo7-ps5",
+      "name": "GRAN TURISMO7 ps5",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "JEU DE COURSE SPORT AUTOMOBILE PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/gran-turismo7-ps5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 241
+    },
+    {
+      "id": "6952",
+      "slug": "playstation-portal",
+      "name": "PlayStation portal",
+      "price": 115000,
+      "compareAtPrice": null,
+      "description": "PlayStation portal disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/playstation-portal.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 242
+    },
+    {
+      "id": "6961",
+      "slug": "montre-connecte-whoop-5-0",
+      "name": "MONTRE CONNECTÉ WHOOP 5.0",
+      "price": 25000,
+      "compareAtPrice": null,
+      "description": "MONTRE CONNECTÉ WHOOP 5.0 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/montre-connecte-whoop-5-0.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 243
+    },
+    {
+      "id": "6962",
+      "slug": "montre-conecte-garmin",
+      "name": "MONTRE CONECTE GARMIN",
+      "price": 22000,
+      "compareAtPrice": null,
+      "description": "MONTRE CONECTE GARMIN disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/montre-conecte-garmin.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 244
+    },
+    {
+      "id": "6970",
+      "slug": "boitier-externe-3-1",
+      "name": "boîtier externe 3.1",
+      "price": 4000,
+      "compareAtPrice": null,
+      "description": "boîtier externe 3.1 disponible chez LKM Boutique à Lomé (Clés USB & mémoire). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cle-usb-et-memoire"
+      ],
+      "image": "/products/boitier-externe-3-1.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 245
+    },
+    {
+      "id": "6971",
+      "slug": "manette-switch-pro",
+      "name": "MANETTE SWITCH PRO",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "MANETTE SWITCH PRO disponible chez LKM Boutique à Lomé (Manettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-switch-pro.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 246
+    },
+    {
+      "id": "6972",
+      "slug": "manette-ps5-edge-version-pro",
+      "name": "MANETTE PS5 Edge version pro",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "MANETTE PS5 dualSense edge version pro avec des bouton Fn arriére",
+      "categorySlugs": [
+        "manette"
+      ],
+      "image": "/products/manette-ps5-edge-version-pro.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 247
+    },
+    {
+      "id": "6975",
+      "slug": "iphone-13",
+      "name": "iphone 13",
+      "price": 185000,
+      "compareAtPrice": null,
+      "description": "iphone 13 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/iphone-13.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "128 Go"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 248
+    },
+    {
+      "id": "6988",
+      "slug": "s26-ultra-ce-model-europeen",
+      "name": "S26 ULTRA(CE ) MODEL EUROPÉEN",
+      "price": 700000,
+      "compareAtPrice": null,
+      "description": "S26 ULTRA(CE ) MODEL EUROPÉEN disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/s26-ultra-ce-model-europeen.jpg",
+      "specs": [
+        {
+          "name": "Capacité",
+          "value": "512 Go"
+        }
+      ],
+      "options": [],
+      "featured": true,
+      "position": 249
+    },
+    {
+      "id": "6993",
+      "slug": "pochette-ipad-10-a16-11",
+      "name": "POCHETTE IPAD 10/A16/11",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "POCHETTE IPAD 10/A16/11 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/pochette-ipad-10-a16-11.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 250
+    },
+    {
+      "id": "6997",
+      "slug": "lg-wing-256gb-8gb",
+      "name": "LG WING (256GB /8GB",
+      "price": 80000,
+      "compareAtPrice": null,
+      "description": "LG WING (256GB /8GB disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/lg-wing-256gb-8gb.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 251
+    },
+    {
+      "id": "7006",
+      "slug": "mortal-11kombat-switch",
+      "name": "MORTAL 11KOMBAT SWITCH",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "MORTAL 11KOMBAT SWITCH disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/mortal-11kombat-switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 252
+    },
+    {
+      "id": "7007",
+      "slug": "minecraft-switch",
+      "name": "Minecraft switch",
+      "price": 30000,
+      "compareAtPrice": null,
+      "description": "Minecraft switch disponible chez LKM Boutique à Lomé (Jeux vidéo). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/minecraft-switch.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 253
+    },
+    {
+      "id": "7009",
+      "slug": "meta-qest3s",
+      "name": "meta qest3s",
+      "price": 250000,
+      "compareAtPrice": null,
+      "description": "meta qest3s disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "consol-de-jeux"
+      ],
+      "image": "/products/meta-qest3s.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 254
+    },
+    {
+      "id": "7024",
+      "slug": "cable-vidvie-typ-c-a-typ-c-2mt",
+      "name": "cable vidvie typ c A typ c 2MT",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "cable vidvie typ c A typ c 2MT disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/cable-vidvie-typ-c-a-typ-c-2mt.webp",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 255
+    },
+    {
+      "id": "7027",
+      "slug": "cable-vidvie-typc-a-iphone",
+      "name": "cable vidvie typc A iphone",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "cable vidvie typc A iphone disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/cable-vidvie-typc-a-iphone.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 256
+    },
+    {
+      "id": "7034",
+      "slug": "ipad-10-64gb",
+      "name": "IPAD 10 (64GB )",
+      "price": 180000,
+      "compareAtPrice": null,
+      "description": "IPAD 10 (64GB ) disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/ipad-10-64gb.png",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 257
+    },
+    {
+      "id": "7035",
+      "slug": "ipad-5",
+      "name": "ipad 5",
+      "price": 35000,
+      "compareAtPrice": null,
+      "description": "ipad 5 disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/ipad-5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 258
+    },
+    {
+      "id": "7054",
+      "slug": "coque-iphone-11pro-max",
+      "name": "coque iphone 11PRO MAX",
+      "price": 12500,
+      "compareAtPrice": null,
+      "description": "coque iphone 11PRO MAX disponible chez LKM Boutique à Lomé (Coques & pochettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "coq-iphone"
+      ],
+      "image": "/products/coque-iphone-11pro-max.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        },
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        },
+        {
+          "name": "Couleur",
+          "value": "Vert"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Blanc",
+            "Vert"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 259
+    },
+    {
+      "id": "7057",
+      "slug": "iphone-11pro-max",
+      "name": "iphone 11pro max",
+      "price": 110000,
+      "compareAtPrice": null,
+      "description": "iphone 11pro max disponible chez LKM Boutique à Lomé (Smartphones & tablettes). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "telephone-samsung"
+      ],
+      "image": "/products/iphone-11pro-max.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 260
+    },
+    {
+      "id": "7059",
+      "slug": "copi-de-jeux-5000f",
+      "name": "copi de jeux 5000F",
+      "price": 5000,
+      "compareAtPrice": null,
+      "description": "copi de jeux 5000F disponible chez LKM Boutique à Lomé (Copies de jeux). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "copie-de-jeux"
+      ],
+      "image": "/products/copi-de-jeux-5000f.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 261
+    },
+    {
+      "id": "7141",
+      "slug": "power-bank-ph102",
+      "name": "power bank PH102",
+      "price": 8000,
+      "compareAtPrice": null,
+      "description": "power bank PH102 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-ph102.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 262
+    },
+    {
+      "id": "7144",
+      "slug": "power-bank-ds-610",
+      "name": "power bank DS 610",
+      "price": 10000,
+      "compareAtPrice": null,
+      "description": "power bank DS 610 disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-ds-610.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 263
+    },
+    {
+      "id": "7147",
+      "slug": "power-bank-oarmio-120000mah",
+      "name": "POWER BANK oarmio 120000mAh",
+      "price": 20000,
+      "compareAtPrice": null,
+      "description": "POWER BANK oarmio 120000mAh disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-oarmio-120000mah.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 264
+    },
+    {
+      "id": "7148",
+      "slug": "power-bank-oarmio-100000mah",
+      "name": "POWER BANK oarmio 100000mAh",
+      "price": 18000,
+      "compareAtPrice": null,
+      "description": "POWER BANK oarmio 100000mAh disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-oarmio-100000mah.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 265
+    },
+    {
+      "id": "7149",
+      "slug": "power-bank-oarmio-80000mah",
+      "name": "POWER BANK oarmio 80000mAh",
+      "price": 17000,
+      "compareAtPrice": null,
+      "description": "POWER BANK oarmio 80000mAh disponible chez LKM Boutique à Lomé (Power banks). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "power-bank"
+      ],
+      "image": "/products/power-bank-oarmio-80000mah.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 266
+    },
+    {
+      "id": "7150",
+      "slug": "chargeur-dans-voiture",
+      "name": "chargeur dans voiture",
+      "price": 8500,
+      "compareAtPrice": null,
+      "description": "chargeur dans voiture disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "chargeur-telephone-porteble"
+      ],
+      "image": "/products/chargeur-dans-voiture.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 267
+    },
+    {
+      "id": "7161",
+      "slug": "tapi-dereparation-grand",
+      "name": "TAPI DEREPARATION GRAND",
+      "price": 15000,
+      "compareAtPrice": null,
+      "description": "TAPI DEREPARATION GRAND disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tapi-dereparation-grand.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Bleu"
+        }
+      ],
+      "options": [],
+      "featured": false,
+      "position": 268
+    },
+    {
+      "id": "7162",
+      "slug": "pachoir-bga-universel",
+      "name": "PACHOIR BGA universel",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "PACHOIR BGA universel disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pachoir-bga-universel.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 269
+    },
+    {
+      "id": "7163",
+      "slug": "tresse-a-dessouder-2-5",
+      "name": "tresse à dessouder 2.5",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "tresse à dessouder 2.5 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tresse-a-dessouder-2-5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 270
+    },
+    {
+      "id": "7164",
+      "slug": "tresse-a-dessouder-2-0",
+      "name": "tresse à dessouder 2.0",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "tresse à dessouder 2.0 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tresse-a-dessouder-2-0.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 271
+    },
+    {
+      "id": "7165",
+      "slug": "tresse-a-dessouder-1-5",
+      "name": "tresse à dessouder 1.5",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "tresse à dessouder 1.5 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tresse-a-dessouder-1-5.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 272
+    },
+    {
+      "id": "7166",
+      "slug": "tresse-a-dessouder-3",
+      "name": "tresse à dessouder 3",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "tresse à dessouder 3 disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tresse-a-dessouder-3.webp",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 273
+    },
+    {
+      "id": "7169",
+      "slug": "spatule-d-ouverture-metallique",
+      "name": "spatule d'ouverture métallique",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "spatule d'ouverture métallique disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/spatule-d-ouverture-metallique.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 274
+    },
+    {
+      "id": "7170",
+      "slug": "pannes-des-fer-a-souder",
+      "name": "pannes des fer à souder",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "pannes des fer à souder disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/pannes-des-fer-a-souder.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 275
+    },
+    {
+      "id": "7171",
+      "slug": "colophane-de-qualite",
+      "name": "colophane de qualite",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "colophane de qualite disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/colophane-de-qualite.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 276
+    },
+    {
+      "id": "7173",
+      "slug": "fil-d-etain-1-0mm-3m",
+      "name": "fil d'étain 1.0mm*3M",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "fil d'étain 1.0mm*3M disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/fil-d-etain-1-0mm-3m.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 277
+    },
+    {
+      "id": "7174",
+      "slug": "tournevis-de-500f",
+      "name": "tournevis de 500F",
+      "price": 500,
+      "compareAtPrice": null,
+      "description": "tournevis de 500F disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/tournevis-de-500f.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 278
+    },
+    {
+      "id": "7175",
+      "slug": "flux-en-seringue",
+      "name": "flux en seringue",
+      "price": 2000,
+      "compareAtPrice": null,
+      "description": "flux en seringue disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/flux-en-seringue.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 279
+    },
+    {
+      "id": "7177",
+      "slug": "boutons-home-universels",
+      "name": "boutons home universels",
+      "price": 500,
+      "compareAtPrice": null,
+      "description": "boutons home universels disponible chez LKM Boutique à Lomé (Pièces de réparation). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
+      "categorySlugs": [
+        "accessoire-de-reparation"
+      ],
+      "image": "/products/boutons-home-universels.jpg",
+      "specs": [
+        {
+          "name": "Couleur",
+          "value": "Noir"
+        },
+        {
+          "name": "Couleur",
+          "value": "Blanc"
+        }
+      ],
+      "options": [
+        {
+          "name": "Couleur",
+          "values": [
+            "Noir",
+            "Blanc"
+          ]
+        }
+      ],
+      "featured": false,
+      "position": 280
+    },
+    {
+      "id": "7179",
+      "slug": "call-of-dutty-modern-warfare-4-ps5",
+      "name": "CALL OF DUTTY MODERN WARFARE 4 PS5",
+      "price": 55000,
+      "compareAtPrice": null,
+      "description": "JEU DE TIR GUERRE FPS PS5",
+      "categorySlugs": [
+        "cd"
+      ],
+      "image": "/products/call-of-dutty-modern-warfare-4-ps5.jpg",
+      "specs": [],
+      "options": [],
+      "featured": false,
+      "position": 281
+    }
+  ],
+  "stats": {
+    "products": 282,
+    "withPrice": 281,
+    "withDescription": 222,
+    "withImage": 275,
+    "sharedPlaceholders": 0,
+    "uncategorized": 0
+  }
+}

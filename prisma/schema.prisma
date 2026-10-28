@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  sales        Sale[]
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String?
+  email     String?
+  address   String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sales     Sale[]
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  shortName   String
+  description String   @default("")
+  icon        String   @default("Package")
+  accent      String   @default("blue")
+  group       String   @default("other")
+  sourceName  String   @default("")
+  position    Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  products    ProductCategory[]
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  name           String
+  price          Int?
+  compareAtPrice Int?
+  description    String   @default("")
+  image          String?
+  specsJson      String   @default("[]")
+  optionsJson    String   @default("[]")
+  featured       Boolean  @default(false)
+  active         Boolean  @default(true)
+  position       Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  categories     ProductCategory[]
+
+  @@index([featured])
+  @@index([active])
+  @@index([position])
+}
+
+model ProductCategory {
+  productId  String
+  categoryId String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([productId, categoryId])
+  @@index([categoryId])
+}
+
+model Sale {
+  id          String     @id @default(cuid())
+  number      String     @unique
+  type        String     @default("FAC")
+  status      String     @default("confirmed")
+  invoiceDate DateTime   @default(now())
+  dueDate     DateTime?
+  source      String?
+  reference   String?
+  notes       String?
+  total       Int        @default(0)
+  customerId  String
+  customer    Customer   @relation(fields: [customerId], references: [id])
+  createdById String?
+  createdBy   User?      @relation(fields: [createdById], references: [id])
+  lines       SaleLine[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([customerId])
+  @@index([invoiceDate])
+  @@index([type])
+}
+
+model SaleLine {
+  id          String  @id @default(cuid())
+  saleId      String
+  sale        Sale    @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  description String
+  quantity    Float   @default(1)
+  unitPrice   Int
+  amount      Int
+  productSlug String?
+  sortOrder   Int     @default(0)
+
+  @@index([saleId])
+}
+
+model Sequence {
+  id         String @id @default(cuid())
+  type       String
+  year       Int
+  lastNumber Int    @default(0)
+
+  @@unique([type, year])
+}
