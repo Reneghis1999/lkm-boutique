@@ -15,7 +15,7 @@ const accents = {
 export function Locations() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-10 max-w-2xl">
+      <div className="mb-10 mx-auto max-w-2xl text-center md:mx-0 md:text-left">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
           Lomé
         </p>
@@ -36,7 +36,7 @@ export function Locations() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
             className={cn(
-              "rounded-2xl border bg-[var(--lkm-surface)] p-6",
+              "rounded-2xl border bg-[var(--lkm-surface)] p-6 text-center md:text-left",
               accents[loc.accent],
             )}
           >
@@ -52,7 +52,10 @@ export function Locations() {
               href={loc.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-6")}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "sm" }),
+                "mt-6",
+              )}
             >
               Itinéraire
               <ExternalLink className="h-3.5 w-3.5" />

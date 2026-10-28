@@ -82,7 +82,7 @@ export function Hero() {
       <div className="hero-orb pointer-events-none absolute right-0 top-32 h-80 w-80 rounded-full bg-[var(--lkm-yellow)]/12 blur-[100px]" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:pt-6">
-        <div className="max-w-xl lg:max-w-none">
+        <div className="mx-auto max-w-xl text-center lg:mx-0 lg:max-w-none lg:text-left">
           <p className="hero-kicker inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
             <span className="font-[family-name:var(--font-display)] normal-case tracking-tight">
               <span className="text-[var(--lkm-blue)]">L</span>
@@ -92,17 +92,17 @@ export function Hero() {
             Tech & Gaming · Lomé
           </p>
 
-          <h1 className="hero-title mt-5 font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
+          <h1 className="hero-title mt-5 font-[family-name:var(--font-display)] text-[2rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
             Consoles, phones &{" "}
             <span className="text-[var(--lkm-yellow)]">réparation</span> à Lomé
           </h1>
 
-          <p className="hero-sub mt-5 max-w-lg text-base leading-relaxed text-white/55 sm:text-lg">
+          <p className="hero-sub mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/55 sm:text-lg lg:mx-0">
             Parcourez les prix en ligne, réservez sur WhatsApp, puis venez
             tester à Léo 2000 ou réparer à Djidjolé.
           </p>
 
-          <div className="hero-cta mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="hero-cta mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
             <Link
               href="/boutique"
               className={cn(buttonVariants({ size: "lg" }), "min-w-[180px]")}
@@ -122,7 +122,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <ul className="hero-trust mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
+          <ul className="hero-trust mt-9 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 lg:items-start lg:justify-start">
             {trust.map((item) => (
               <li
                 key={item.label}

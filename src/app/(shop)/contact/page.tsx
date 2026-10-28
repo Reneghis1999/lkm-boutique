@@ -13,19 +13,19 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pt-20">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 md:text-left lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
           Contact
         </p>
         <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-bold text-white sm:text-5xl">
           Parlons de votre besoin
         </h1>
-        <p className="mt-4 max-w-2xl text-white/50">
+        <p className="mx-auto mt-4 max-w-2xl text-white/50 md:mx-0">
           Commandes, devis réparation ou questions stock — le plus rapide reste
           WhatsApp.
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start">
           <a
             href={`https://wa.me/${shop.whatsapp}`}
             target="_blank"

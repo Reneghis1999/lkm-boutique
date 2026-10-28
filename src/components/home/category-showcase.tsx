@@ -25,7 +25,7 @@ type Group = {
 export function CategoryShowcase({ groups }: { groups: Group[] }) {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mb-10 max-w-2xl">
+      <div className="mb-10 mx-auto max-w-2xl text-center md:mx-0 md:text-left">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
           Catalogue
         </p>

@@ -9,8 +9,8 @@ export async function Footer() {
 
   return (
     <footer className="mt-auto border-t border-white/8 bg-[#070709] text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <div className="space-y-4 lg:col-span-4">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 text-center sm:px-6 md:text-left lg:grid-cols-12 lg:px-8">
+        <div className="flex flex-col items-center space-y-4 md:items-start lg:col-span-4">
           <Link href="/" aria-label="LKM Boutique — Accueil" className="inline-block">
             <Image
               src="/logo-lkm.png"
@@ -23,7 +23,7 @@ export async function Footer() {
           <p className="max-w-sm text-sm leading-relaxed text-white/55">
             {shop.description}
           </p>
-          <div className="flex gap-3">
+          <div className="flex justify-center gap-3 md:justify-start">
             <a
               href={shop.social.instagram}
               target="_blank"
@@ -92,20 +92,23 @@ export async function Footer() {
           </ul>
         </div>
 
-        <div className="space-y-4 lg:col-span-3">
-          <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+        <div className="flex flex-col items-center space-y-4 md:items-start lg:col-span-3">
+          <h3 className="mb-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/40 md:mb-4">
             Boutiques
           </h3>
           {shop.locations.map((loc) => (
-            <div key={loc.id} className="space-y-1.5 text-sm">
+            <div
+              key={loc.id}
+              className="flex flex-col items-center space-y-1.5 text-sm md:items-start"
+            >
               <p className="font-medium text-white">{loc.name}</p>
-              <p className="flex items-start gap-2 text-white/50">
+              <p className="flex items-start justify-center gap-2 text-white/50 md:justify-start">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                {loc.address}
+                <span>{loc.address}</span>
               </p>
             </div>
           ))}
-          <div className="space-y-1.5 pt-2">
+          <div className="flex flex-col items-center space-y-1.5 pt-2 md:items-start">
             {shop.phones.map((phone) => (
               <a
                 key={phone}
@@ -121,7 +124,7 @@ export async function Footer() {
       </div>
 
       <div className="border-t border-white/8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-5 text-center text-xs text-white/40 sm:px-6 md:flex-row md:justify-between md:text-left lg:px-8">
           <p>© {new Date().getFullYear()} — Lomé, Togo</p>
           <p>Commandes via WhatsApp · Paiement en magasin</p>
         </div>
