@@ -1,6 +1,5 @@
 import { shop } from "@/data/shop";
 import { formatPrice, hasPrice } from "@/lib/format";
-import { absoluteUrl, productUrl } from "@/lib/site";
 import type { CartItem, Product } from "@/types";
 
 function selectedOptionsLabel(options?: Record<string, string>) {
@@ -40,7 +39,7 @@ export function buildProductWhatsAppMessage(
     lines.push(`Prix : à confirmer en boutique`);
   }
 
-  lines.push(``, `Lien produit : ${productUrl(product.slug)}`, ``, `Merci !`);
+  lines.push(``, `Merci !`);
   return lines.join("\n");
 }
 
@@ -58,7 +57,6 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
   items.forEach((item, index) => {
     const options = selectedOptionsLabel(item.selectedOptions);
     lines.push(`${index + 1}. ${item.name}${options} × ${item.quantity}`);
-    lines.push(`   ${productUrl(item.slug)}`);
 
     if (hasPrice(item.price)) {
       const lineTotal = item.price * item.quantity;
@@ -85,7 +83,7 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
     lines.push(`Prix à confirmer pour l’ensemble de la commande.`);
   }
 
-  lines.push(``, `Boutique : ${absoluteUrl("/")}`, ``, `Merci !`);
+  lines.push(``, `Merci !`);
   return lines.join("\n");
 }
 
