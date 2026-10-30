@@ -1,43 +1,47 @@
 import catalogData from "@/data/catalog.json";
-import { prisma } from "@/lib/db";
-import { mapCategory, mapProduct } from "@/lib/mappers";
+import { getCatalogSource, isOdooReady } from "@/lib/odoo/config";
+import {
+  fetchOdooCategories,
+  fetchOdooProducts,
+} from "@/lib/odoo/catalog";
 import type { Category, Product, SortOption } from "@/types";
 
 const jsonCategories = catalogData.categories as Category[];
 const jsonProducts = catalogData.products as Product[];
 
-function hasConfiguredDatabase() {
-  const url = process.env.DATABASE_URL || "";
-  if (!url.startsWith("postgresql://") && !url.startsWith("postgres://")) {
-    return false;
+async function loadFromOdoo(): Promise<{
+  products: Product[];
+  categories: Category[];
+} | null> {
+  if (!isOdooReady()) return null;
+  try {
+    const products = await fetchOdooProducts();
+    if (products.length === 0) return null;
+    const categories = await fetchOdooCategories(products);
+    return { products, categories };
+  } catch (e) {
+    console.error("[catalog] Odoo indisponible, fallback JSON:", e);
+    return null;
   }
-  if (
-    url.includes("PASSWORD") ||
-    url.includes("PROJECT_REF") ||
-    url.includes("xxxx")
-  ) {
-    return false;
-  }
-  return true;
 }
 
-async function dbReady() {
-  if (!hasConfiguredDatabase()) return false;
-  try {
-    const count = await prisma.product.count({ where: { active: true } });
-    return count > 0;
-  } catch {
-    return false;
+export async function getCatalogSourceLabel(): Promise<string> {
+  const source = getCatalogSource();
+  if (source === "json") return "json";
+  if (isOdooReady()) {
+    const odoo = await loadFromOdoo();
+    if (odoo) return "odoo";
   }
+  return "json";
 }
 
 export async function getCategories(): Promise<Category[]> {
-  if (await dbReady()) {
-    const rows = await prisma.category.findMany({
-      include: { _count: { select: { products: true } } },
-      orderBy: { position: "asc" },
-    });
-    return rows.map(mapCategory).sort((a, b) => b.count - a.count);
+  const source = getCatalogSource();
+  if (source !== "json") {
+    const odoo = await loadFromOdoo();
+    if (odoo?.categories.length) {
+      return [...odoo.categories].sort((a, b) => b.count - a.count);
+    }
   }
   return [...jsonCategories].sort((a, b) => b.count - a.count);
 }
@@ -45,24 +49,17 @@ export async function getCategories(): Promise<Category[]> {
 export async function getCategoryBySlug(
   slug: string,
 ): Promise<Category | undefined> {
-  if (await dbReady()) {
-    const row = await prisma.category.findUnique({
-      where: { slug },
-      include: { _count: { select: { products: true } } },
-    });
-    return row ? mapCategory(row) : undefined;
-  }
-  return jsonCategories.find((c) => c.slug === slug);
+  const categories = await getCategories();
+  return categories.find((c) => c.slug === slug);
 }
 
 export async function getProducts(): Promise<Product[]> {
-  if (await dbReady()) {
-    const rows = await prisma.product.findMany({
-      where: { active: true },
-      include: { categories: { include: { category: true } } },
-      orderBy: { position: "asc" },
-    });
-    return rows.map(mapProduct);
+  const source = getCatalogSource();
+  if (source !== "json") {
+    const odoo = await loadFromOdoo();
+    if (odoo?.products.length) {
+      return [...odoo.products].sort((a, b) => a.position - b.position);
+    }
   }
   return [...jsonProducts].sort((a, b) => a.position - b.position);
 }
@@ -70,14 +67,8 @@ export async function getProducts(): Promise<Product[]> {
 export async function getProductBySlug(
   slug: string,
 ): Promise<Product | undefined> {
-  if (await dbReady()) {
-    const row = await prisma.product.findFirst({
-      where: { slug, active: true },
-      include: { categories: { include: { category: true } } },
-    });
-    return row ? mapProduct(row) : undefined;
-  }
-  return jsonProducts.find((p) => p.slug === slug);
+  const products = await getProducts();
+  return products.find((p) => p.slug === slug);
 }
 
 export async function getFeaturedProducts(limit = 8): Promise<Product[]> {

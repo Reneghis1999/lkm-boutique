@@ -7,21 +7,15 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  const isLogin =
-    typeof children === "object" &&
-    // login page still uses this layout; detect via session absence on login is fine
-    true;
 
-  // Login page: no shell
-  // We check path via headers would be cleaner; simpler: if no session, render children only
   if (!session?.user) {
-    return <>{children}</>;
+    return (
+      <div className="min-h-screen bg-[#09090c] text-[#f5f5f7]">{children}</div>
+    );
   }
 
-  void isLogin;
-
   return (
-    <div className="min-h-screen bg-[var(--lkm-bg)] text-white lg:flex">
+    <div className="min-h-screen bg-[#09090c] text-[#f5f5f7] lg:flex">
       <AdminNav userName={session.user.name} />
       <div className="flex-1 overflow-auto">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">

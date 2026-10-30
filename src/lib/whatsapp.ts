@@ -10,6 +10,16 @@ function selectedOptionsLabel(options?: Record<string, string>) {
     .join(", ")})`;
 }
 
+/** Message d’accueil — bouton WhatsApp navbar / contact */
+export function buildWelcomeWhatsAppMessage(): string {
+  return [
+    `Bonjour LKM Boutique,`,
+    ``,
+    `Bienvenue — je souhaite être accompagné(e) pour mon achat ou une réparation.`,
+    `Que me conseillez-vous ?`,
+  ].join("\n");
+}
+
 export function buildProductWhatsAppMessage(
   product: Product,
   quantity = 1,
@@ -17,7 +27,7 @@ export function buildProductWhatsAppMessage(
 ): string {
   const options = selectedOptionsLabel(selectedOptions);
   const lines = [
-    `Bonjour LKM Boutique 👋`,
+    `Bonjour LKM Boutique,`,
     ``,
     `Je souhaite commander :`,
     `• ${product.name}${options} × ${quantity}`,
@@ -36,7 +46,7 @@ export function buildProductWhatsAppMessage(
 
 export function buildCartWhatsAppMessage(items: CartItem[]): string {
   const lines = [
-    `Bonjour LKM Boutique 👋`,
+    `Bonjour LKM Boutique,`,
     ``,
     `Je souhaite commander les articles suivants :`,
     ``,

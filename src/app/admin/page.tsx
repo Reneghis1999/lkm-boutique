@@ -1,106 +1,119 @@
-import Link from "next/link";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { getDashboardStats } from "@/lib/sales";
-import { formatCfa, formatDateFr } from "@/lib/invoice";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { getCatalogSource, getOdooConfig, isOdooReady } from "@/lib/odoo/config";
+import { testOdooConnection } from "@/lib/odoo/client";
+import { getCatalogSourceLabel, getProducts } from "@/lib/catalog";
 
 export default async function AdminDashboardPage() {
   const session = await auth();
   if (!session?.user) redirect("/admin/login");
 
-  const stats = await getDashboardStats();
+  const odoo = getOdooConfig();
+  const sourcePref = getCatalogSource();
+  const activeSource = await getCatalogSourceLabel();
+  const products = await getProducts();
+
+  let connection: { ok: boolean; message: string } | null = null;
+  if (odoo.configured) {
+    connection = await testOdooConnection();
+  }
 
   return (
     <div>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-            Vue d’ensemble
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+        Intégration
+      </p>
+      <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold">
+        Connexion Odoo
+      </h1>
+      <p className="mt-3 max-w-2xl text-sm text-white/55">
+        La gestion produits / clients / factures se fait dans Odoo. Ce panneau
+        sert uniquement à vérifier la connexion API et la source du catalogue
+        affiché sur le site.
+      </p>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+          <p className="text-sm text-white/45">Source catalogue (préférence)</p>
+          <p className="mt-2 font-[family-name:var(--font-display)] text-xl font-bold">
+            {sourcePref}
           </p>
-          <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold">
-            Tableau de bord
-          </h1>
+          <p className="mt-2 text-xs text-white/40">
+            Variable <code className="text-white/70">CATALOG_SOURCE</code> =
+            auto | odoo | json
+          </p>
         </div>
-        <Link
-          href="/admin/ventes/nouvelle"
-          className={cn(buttonVariants({ size: "lg" }))}
-        >
-          Nouvelle facture
-        </Link>
+        <div className="rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+          <p className="text-sm text-white/45">Source active maintenant</p>
+          <p className="mt-2 font-[family-name:var(--font-display)] text-xl font-bold">
+            {activeSource}
+          </p>
+          <p className="mt-2 text-xs text-white/40">
+            {products.length} produit{products.length > 1 ? "s" : ""} chargés
+          </p>
+        </div>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          { label: "Clients", value: String(stats.customers) },
-          { label: "Factures", value: String(stats.salesCount) },
-          { label: "Ventes ce mois", value: String(stats.monthCount) },
-          { label: "CA du mois", value: formatCfa(stats.monthTotal) },
-        ].map((card) => (
-          <div
-            key={card.label}
-            className="rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5"
-          >
-            <p className="text-sm text-white/45">{card.label}</p>
-            <p className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold">
-              {card.value}
-            </p>
+      <div className="mt-6 rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+        <h2 className="font-[family-name:var(--font-display)] text-lg font-bold">
+          Statut Odoo
+        </h2>
+        <dl className="mt-4 space-y-2 text-sm">
+          <div className="flex justify-between gap-4">
+            <dt className="text-white/45">URL</dt>
+            <dd className="text-right text-white/85">
+              {odoo.url || "— non défini —"}
+            </dd>
           </div>
-        ))}
+          <div className="flex justify-between gap-4">
+            <dt className="text-white/45">Clé API</dt>
+            <dd className="text-right text-white/85">
+              {odoo.apiKey ? "renseignée" : "— manquante —"}
+            </dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-white/45">Base (optionnel)</dt>
+            <dd className="text-right text-white/85">
+              {odoo.database || "—"}
+            </dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-white/45">Prêt</dt>
+            <dd className="text-right text-white/85">
+              {isOdooReady() ? "oui" : "non"}
+            </dd>
+          </div>
+        </dl>
+
+        {connection ? (
+          <p
+            className={`mt-5 rounded-xl px-4 py-3 text-sm ${
+              connection.ok
+                ? "bg-emerald-500/15 text-emerald-200"
+                : "bg-amber-500/15 text-amber-100"
+            }`}
+          >
+            {connection.message}
+          </p>
+        ) : (
+          <p className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-sm text-white/50">
+            En attente de <code className="text-white/80">ODOO_URL</code> +{" "}
+            <code className="text-white/80">ODOO_API_KEY</code> (et plan Odoo
+            avec API externe).
+          </p>
+        )}
       </div>
 
-      <div className="mt-10">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-[family-name:var(--font-display)] text-xl font-bold">
-            Dernières factures
-          </h2>
-          <Link href="/admin/ventes" className="text-sm text-[var(--lkm-blue)]">
-            Tout voir
-          </Link>
-        </div>
-        <div className="overflow-hidden rounded-2xl border border-white/10">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-white/[0.03] text-white/45">
-              <tr>
-                <th className="px-4 py-3 font-medium">N°</th>
-                <th className="px-4 py-3 font-medium">Client</th>
-                <th className="px-4 py-3 font-medium">Date</th>
-                <th className="px-4 py-3 font-medium text-right">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stats.recentSales.length === 0 ? (
-                <tr>
-                  <td colSpan={4} className="px-4 py-8 text-center text-white/40">
-                    Aucune facture pour le moment.
-                  </td>
-                </tr>
-              ) : (
-                stats.recentSales.map((sale) => (
-                  <tr key={sale.id} className="border-t border-white/8">
-                    <td className="px-4 py-3">
-                      <Link
-                        href={`/admin/ventes/${sale.id}`}
-                        className="text-[var(--lkm-blue)] hover:underline"
-                      >
-                        {sale.number}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-3">{sale.customer.name}</td>
-                    <td className="px-4 py-3 text-white/55">
-                      {formatDateFr(sale.invoiceDate)}
-                    </td>
-                    <td className="px-4 py-3 text-right font-medium">
-                      {formatCfa(sale.total)}
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <ol className="mt-8 list-decimal space-y-2 pl-5 text-sm text-white/55">
+        <li>Confirmer le plan Odoo (API externe = plan Custom).</li>
+        <li>
+          Créer une clé API dans Odoo → Préférences → Sécurité du compte.
+        </li>
+        <li>
+          Ajouter les variables sur Vercel / <code>.env</code> local.
+        </li>
+        <li>Recharger cette page pour tester la connexion.</li>
+      </ol>
     </div>
   );
 }

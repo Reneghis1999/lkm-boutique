@@ -6,8 +6,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
-import { shop } from "@/data/shop";
 import { cn } from "@/lib/utils";
+import {
+  buildWelcomeWhatsAppMessage,
+  getWhatsAppUrl,
+} from "@/lib/whatsapp";
 import { useCart } from "@/store/cart";
 import { Button } from "@/components/ui/button";
 import { SearchDialog } from "@/components/shop/search-dialog";
@@ -169,7 +172,11 @@ export function Header() {
               variant="whatsapp"
               className="hidden sm:inline-flex"
               onClick={() =>
-                window.open(`https://wa.me/${shop.whatsapp}`, "_blank")
+                window.open(
+                  getWhatsAppUrl(buildWelcomeWhatsAppMessage()),
+                  "_blank",
+                  "noopener,noreferrer",
+                )
               }
             >
               WhatsApp
@@ -219,7 +226,11 @@ export function Header() {
                   variant="whatsapp"
                   className="mt-2"
                   onClick={() =>
-                    window.open(`https://wa.me/${shop.whatsapp}`, "_blank")
+                    window.open(
+                      getWhatsAppUrl(buildWelcomeWhatsAppMessage()),
+                      "_blank",
+                      "noopener,noreferrer",
+                    )
                   }
                 >
                   Contacter sur WhatsApp

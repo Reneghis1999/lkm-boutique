@@ -3,6 +3,10 @@ import { AtSign, ExternalLink, MapPin, MessageCircle, Phone } from "lucide-react
 import { buttonVariants } from "@/components/ui/button";
 import { shop } from "@/data/shop";
 import { cn } from "@/lib/utils";
+import {
+  buildWelcomeWhatsAppMessage,
+  getWhatsAppUrl,
+} from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -27,7 +31,7 @@ export default function ContactPage() {
 
         <div className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start">
           <a
-            href={`https://wa.me/${shop.whatsapp}`}
+            href={getWhatsAppUrl(buildWelcomeWhatsAppMessage())}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }))}
