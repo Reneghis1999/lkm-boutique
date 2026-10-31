@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { shop } from "@/data/shop";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const display = Space_Grotesk({
+// Mêmes polices que reinvent-labs.com (Google Fonts, licence libre OFL).
+// Polices « variables » : un seul fichier couvre toutes les graisses.
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
-const body = Plus_Jakarta_Sans({
+const body = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-code",
+  subsets: ["latin"],
+  preload: false, // peu utilisée (blocs <code>) : chargée seulement si besoin
 });
 
 export const metadata: Metadata = {
@@ -55,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="fr" className={`${display.variable} ${body.variable} ${mono.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-[var(--lkm-bg)] text-[var(--foreground)] antialiased">
         <Providers>{children}</Providers>
       </body>

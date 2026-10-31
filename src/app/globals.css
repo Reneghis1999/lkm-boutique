@@ -17,6 +17,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-mono: var(--font-code);
 }
 
 html {
@@ -42,6 +43,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100%;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-code), ui-monospace, monospace;
 }
 
 ::selection {
