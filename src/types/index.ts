@@ -80,12 +80,13 @@ export interface ShopInfo {
     tiktok: string;
   };
   locations: ShopLocation[];
-  /** Heures d’ouverture (heure locale de la boutique). */
+  /**
+   * Heures d’ouverture (heure locale de la boutique), une entrée par jour :
+   * index 0 = dimanche … 6 = samedi ; null = fermé ce jour-là.
+   */
   hours: {
-    opens: number;
-    closes: number;
-    label: string;
     timeZone: string;
+    weekly: ({ opens: number; closes: number } | null)[];
   };
 }
 

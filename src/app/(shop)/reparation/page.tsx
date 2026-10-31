@@ -4,8 +4,7 @@ import { ParticleField } from "@/components/home/motion/particle-field";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RepairCatalog } from "@/components/repair/repair-catalog";
 import { OpeningHours } from "@/components/shop/opening-hours";
-import { shop } from "@/data/shop";
-import { getRepairs } from "@/lib/catalog";
+import { getRepairs, getShopContacts } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -31,8 +30,9 @@ const steps = [
 ];
 
 export default async function RepairPage() {
-  const repairShop = shop.locations[1] ?? shop.locations[0];
-  const repairs = await getRepairs();
+  const [repairs, contacts] = await Promise.all([getRepairs(), getShopContacts()]);
+  const repairShop =
+    contacts.locations.find((l) => l.id === "djidjole") ?? contacts.locations[0];
 
   return (
     <div className="pt-[5.5rem]">
@@ -140,7 +140,7 @@ export default async function RepairPage() {
           ))}
         </ol>
         <p className="mt-8 text-sm text-white/45">
-          {repairShop?.name} — {repairShop?.address}. Tél. {shop.phones.join(" · ")}.
+          {repairShop?.name} — {repairShop?.address}. Tél. {contacts.phones.join(" · ")}.
         </p>
       </section>
     </div>

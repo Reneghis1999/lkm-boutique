@@ -7,6 +7,7 @@ import catalogData from "@/data/catalog.json";
 import { odooCall, odooModelFields } from "@/lib/odoo/client";
 import { getOdooConfig } from "@/lib/odoo/config";
 import type { RepairData } from "@/data/repairs";
+import type { OdooCompany } from "@/lib/shop-contacts";
 import {
   groupAttributes,
   mapOdooCategories,
@@ -44,6 +45,8 @@ export type OdooCatalog = {
   categories: Category[];
   /** Tarifs de réparation gérés dans Odoo (null : catégorie absente). */
   repairs: RepairData | null;
+  /** Sociétés Odoo (téléphone, adresse des boutiques). */
+  companies: OdooCompany[] | null;
   diagnostics: {
     products: number;
     withImage: number;
@@ -103,7 +106,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
   }
 
   // Tous les appels partent en parallèle : ~1 aller-retour vers Odoo.
-  const [templates, categoryRows, imageRows, attributeRows] =
+  const [templates, categoryRows, imageRows, attributeRows, companies] =
     await Promise.all([
       odooCall<OdooTemplateRow[]>("product.template", "search_read", {
         domain,
@@ -144,6 +147,13 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       ).catch((e) => {
         warnings.push(`Variantes / attributs illisibles : ${String(e)}`);
         return [] as OdooAttributeValueRow[];
+      }),
+      odooCall<OdooCompany[]>("res.company", "search_read", {
+        domain: [],
+        fields: ["name", "phone", "email", "street", "street2", "city"],
+      }).catch((e) => {
+        warnings.push(`Coordonnées des sociétés illisibles : ${String(e)}`);
+        return null;
       }),
     ]);
 
@@ -218,6 +228,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     products,
     categories,
     repairs,
+    companies: Array.isArray(companies) ? companies : null,
     diagnostics: {
       products: products.length,
       withImage: products.filter((p) => p.image).length,

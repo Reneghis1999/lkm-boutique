@@ -2,7 +2,7 @@
 
 import { MapPin } from "lucide-react";
 import { OpeningHours } from "@/components/shop/opening-hours";
-import { shop } from "@/data/shop";
+import type { ShopLocation } from "@/types";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RevealOnScroll, RevealTitle } from "@/components/home/motion/reveal";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ const accents = {
   yellow: "bg-[var(--lkm-yellow)]",
 };
 
-export function Locations() {
+export function Locations({ locations }: { locations: ShopLocation[] }) {
   return (
     <RevealOnScroll className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8">
       <span data-reveal className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
@@ -28,7 +28,7 @@ export function Locations() {
       </p>
 
       <div className="mt-12 grid gap-3 md:grid-cols-2">
-        {shop.locations.map((loc) => (
+        {locations.map((loc) => (
           <article
             key={loc.id}
             data-reveal

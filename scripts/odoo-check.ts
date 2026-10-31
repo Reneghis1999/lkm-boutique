@@ -142,6 +142,15 @@ async function main() {
       30,
     );
   }
+  const { mergeShopContacts } = await import("../src/lib/shop-contacts");
+  const contacts = mergeShopContacts(catalog.companies);
+  if (contacts.fromOdoo.length) {
+    ok(`Coordonnées reprises d’Odoo : ${contacts.fromOdoo.join(", ")}`);
+  } else {
+    console.log(
+      "  ℹ️  Téléphones / adresses vides dans les sociétés Odoo → le site garde les siens",
+    );
+  }
   for (const w of d.warnings) warn(w);
   if (d.missingFields.length) {
     console.log(`  ℹ️  Champs absents (ignorés) : ${d.missingFields.join(", ")}`);

@@ -61,6 +61,16 @@ réparation n’est publiée, le site affiche les tarifs de secours de
 Les rubans « Épuisé » / « En rupture de stock » ne mettent pas un produit en
 avant sur l’accueil.
 
+## Coordonnées et horaires des boutiques
+
+- **Téléphones et adresses** : lus dans les **sociétés Odoo** (Paramètres →
+  Sociétés → « LKM Boutique Leo 2000 » / « LKM Boutique Djidjole » : champs
+  Téléphone, Rue, Ville). Champ vide → valeur du site (`src/data/shop.ts`).
+  Le numéro WhatsApp reste celui du site (`shop.whatsapp`).
+- **Horaires** : `src/data/shop.ts` (`hours.weekly`) — lundi au samedi 8h–21h,
+  dimanche 10h–20h. Badge « Ouvert maintenant / Fermé » calculé à l’heure de
+  Lomé (pied de page, Contact, accueil, Réparation).
+
 ## Prérequis côté Odoo
 
 1. Abonnement **Custom** : l’API externe n’existe pas sur les plans *Standard*

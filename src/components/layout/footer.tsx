@@ -3,10 +3,14 @@ import Link from "next/link";
 import { AtSign, MapPin, Phone } from "lucide-react";
 import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
-import { getCategories } from "@/lib/catalog";
+import { getCategories, getShopContacts } from "@/lib/catalog";
 
 export async function Footer() {
-  const categories = (await getCategories()).slice(0, 8);
+  const [allCategories, contacts] = await Promise.all([
+    getCategories(),
+    getShopContacts(),
+  ]);
+  const categories = allCategories.slice(0, 8);
 
   return (
     <footer className="mt-auto border-t border-white/8 bg-[#070709] text-white">
@@ -97,7 +101,7 @@ export async function Footer() {
           <h3 className="mb-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/40 md:mb-4">
             Boutiques
           </h3>
-          {shop.locations.map((loc) => (
+          {contacts.locations.map((loc) => (
             <div
               key={loc.id}
               className="flex flex-col items-center space-y-1.5 text-sm md:items-start"
@@ -111,7 +115,7 @@ export async function Footer() {
           ))}
           <OpeningHours className="justify-center md:justify-start" />
           <div className="flex flex-col items-center space-y-1.5 pt-2 md:items-start">
-            {shop.phones.map((phone) => (
+            {contacts.phones.map((phone) => (
               <a
                 key={phone}
                 href={`tel:${phone.replace(/\s/g, "")}`}

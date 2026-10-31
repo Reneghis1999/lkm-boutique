@@ -12,6 +12,7 @@ import catalogData from "@/data/catalog.json";
 import { fallbackRepairs, type RepairData } from "@/data/repairs";
 import { categorySlugsForGroup } from "@/lib/catalog-filter";
 import { getCatalogSource, isOdooReady } from "@/lib/odoo/config";
+import { mergeShopContacts, type OdooCompany, type ShopContacts } from "@/lib/shop-contacts";
 import { fetchOdooCatalog, type OdooCatalog } from "@/lib/odoo/catalog";
 import type { Category, Product } from "@/types";
 
@@ -30,6 +31,8 @@ export type LoadedCatalog = {
   ageSeconds?: number;
   /** Tarifs de réparation lus dans Odoo (null : on garde ceux du site). */
   repairs?: RepairData | null;
+  /** Sociétés Odoo (coordonnées des boutiques). */
+  companies?: OdooCompany[] | null;
   diagnostics?: OdooCatalog["diagnostics"];
 };
 
@@ -89,6 +92,7 @@ const loadCatalog = cache(async (): Promise<LoadedCatalog> => {
         error,
         ageSeconds: Math.round((Date.now() - at) / 1000),
         repairs: odoo.repairs,
+        companies: odoo.companies,
         diagnostics: odoo.diagnostics,
       };
     } catch (e) {
@@ -113,6 +117,12 @@ export { loadCatalog };
 export async function getCatalogSourceLabel(): Promise<string> {
   if (getCatalogSource() === "json") return "json";
   return (await loadCatalog()).source;
+}
+
+/** Téléphones et adresses des boutiques : Odoo quand c’est rempli, sinon le site. */
+export async function getShopContacts(): Promise<ShopContacts> {
+  const { companies } = await loadCatalog();
+  return mergeShopContacts(companies);
 }
 
 /**

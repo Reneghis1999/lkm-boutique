@@ -12,10 +12,16 @@ export const shop: ShopInfo = {
   whatsapp: "22890002591",
   /** Horaires d’ouverture des boutiques (heure de Lomé). */
   hours: {
-    opens: 8,
-    closes: 21,
-    label: "8h – 21h",
     timeZone: "Africa/Lome",
+    weekly: [
+      { opens: 10, closes: 20 }, // dimanche
+      { opens: 8, closes: 21 }, // lundi
+      { opens: 8, closes: 21 }, // mardi
+      { opens: 8, closes: 21 }, // mercredi
+      { opens: 8, closes: 21 }, // jeudi
+      { opens: 8, closes: 21 }, // vendredi
+      { opens: 8, closes: 21 }, // samedi
+    ],
   },
   social: {
     instagram: "https://www.instagram.com/lkm.boutique1/",

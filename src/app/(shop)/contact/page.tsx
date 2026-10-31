@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AtSign, ExternalLink, MapPin, MessageCircle, Phone } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { OpeningHours } from "@/components/shop/opening-hours";
+import { getShopContacts } from "@/lib/catalog";
 import { shop } from "@/data/shop";
 import { cn } from "@/lib/utils";
 import {
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
     "Contactez LKM Boutique à Lomé — WhatsApp, Instagram, TikTok et adresses Léo 2000 & Djidjolé.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const contacts = await getShopContacts();
   return (
     <div className="pt-20">
       <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 md:text-left lg:px-8">
@@ -39,7 +41,7 @@ export default function ContactPage() {
             className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }))}
           >
             <MessageCircle className="h-4 w-4" />
-            WhatsApp {shop.phones[0]}
+            WhatsApp {contacts.phones[0]}
           </a>
           <a
             href={shop.social.instagram}
@@ -61,7 +63,7 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2">
-          {shop.locations.map((loc) => (
+          {contacts.locations.map((loc) => (
             <article
               key={loc.id}
               className="rounded-2xl border border-white/8 bg-[var(--lkm-surface)] p-6"
@@ -102,7 +104,7 @@ export default function ContactPage() {
         <div className="mt-10 rounded-2xl border border-white/8 bg-white/[0.03] p-6">
           <h2 className="text-lg font-semibold text-white">Téléphones</h2>
           <ul className="mt-4 space-y-2">
-            {shop.phones.map((phone) => (
+            {contacts.phones.map((phone) => (
               <li key={phone}>
                 <a
                   href={`tel:${phone.replace(/\s/g, "")}`}
