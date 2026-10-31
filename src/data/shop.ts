@@ -10,6 +10,13 @@ export const shop: ShopInfo = {
   phones: ["+228 90 00 25 91", "+228 90 16 22 16"],
   /** Numéro WhatsApp officiel (sans + ni espaces) — facilement remplaçable */
   whatsapp: "22890002591",
+  /** Horaires d’ouverture des boutiques (heure de Lomé). */
+  hours: {
+    opens: 8,
+    closes: 21,
+    label: "8h – 21h",
+    timeZone: "Africa/Lome",
+  },
   social: {
     instagram: "https://www.instagram.com/lkm.boutique1/",
     tiktok: "https://www.tiktok.com/@lkm.boutique1",

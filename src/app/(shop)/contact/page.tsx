@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AtSign, ExternalLink, MapPin, MessageCircle, Phone } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
 import { cn } from "@/lib/utils";
 import {
@@ -28,6 +29,7 @@ export default function ContactPage() {
           Commandes, devis réparation ou questions stock — le plus rapide reste
           WhatsApp.
         </p>
+        <OpeningHours className="mt-4 justify-center md:justify-start" />
 
         <div className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start">
           <a
@@ -72,6 +74,7 @@ export default function ContactPage() {
               </h2>
               <p className="mt-2 text-sm text-white/55">{loc.address}</p>
               <p className="mt-1 text-sm text-white/40">{loc.description}</p>
+              <OpeningHours className="mt-3" />
               {loc.phone && (
                 <a
                   href={`tel:${loc.phone.replace(/\s/g, "")}`}

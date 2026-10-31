@@ -52,6 +52,7 @@ Réparation (et plus dans la boutique) ; dépubliée, elle disparaît.
 | Prix à 0 | « Sur devis » |
 | Ruban (Nouveau !, Ventes…) | « Le plus demandé » |
 | Nom contenant iPhone / PC / console… | Onglet Téléphones / Ordinateurs / Consoles (téléphone par défaut) |
+| Photo de la fiche | Photo de la carte (mise à jour dès qu’elle change) ; sans photo, une icône |
 
 Le bouton WhatsApp reprend le nom et le prix d’Odoo. Tant qu’aucune fiche de
 réparation n’est publiée, le site affiche les tarifs de secours de

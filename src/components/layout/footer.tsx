@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AtSign, MapPin, Phone } from "lucide-react";
+import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
 import { getCategories } from "@/lib/catalog";
 
@@ -108,6 +109,7 @@ export async function Footer() {
               </p>
             </div>
           ))}
+          <OpeningHours className="justify-center md:justify-start" />
           <div className="flex flex-col items-center space-y-1.5 pt-2 md:items-start">
             {shop.phones.map((phone) => (
               <a

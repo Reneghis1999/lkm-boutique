@@ -80,6 +80,13 @@ export interface ShopInfo {
     tiktok: string;
   };
   locations: ShopLocation[];
+  /** Heures d’ouverture (heure locale de la boutique). */
+  hours: {
+    opens: number;
+    closes: number;
+    label: string;
+    timeZone: string;
+  };
 }
 
 export interface RepairService {

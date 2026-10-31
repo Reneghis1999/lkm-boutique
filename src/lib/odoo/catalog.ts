@@ -184,6 +184,8 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       repairIds,
       categoryNames: new Map(allCategoryRows.map((c) => [c.id, c.name || ""])),
       tagNames: new Map(tagRows.map((t) => [t.id, t.name])),
+      images,
+      publicImageBase: publishedFilter ? getOdooConfig().url : null,
     });
   }
 

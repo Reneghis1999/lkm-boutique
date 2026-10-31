@@ -3,6 +3,7 @@ import { Clock, MapPin, Wrench } from "lucide-react";
 import { ParticleField } from "@/components/home/motion/particle-field";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RepairCatalog } from "@/components/repair/repair-catalog";
+import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
 import { getRepairs } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
@@ -86,6 +87,9 @@ export default async function RepairPage() {
                 <li className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lkm-green)]" />
                   {repairShop?.name} — {repairShop?.address}
+                </li>
+                <li className="flex items-start gap-2">
+                  <OpeningHours tone="light" />
                 </li>
                 <li className="flex items-start gap-2">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lkm-green)]" />

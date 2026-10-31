@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
+import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RevealOnScroll, RevealTitle } from "@/components/home/motion/reveal";
@@ -47,6 +48,7 @@ export function Locations() {
               </h3>
               <p className="mt-2 text-white/60">{loc.address}</p>
               <p className="mt-1 text-sm text-white/40">{loc.description}</p>
+              <OpeningHours className="mt-4" />
             </div>
             <div>
               <PillLink href={loc.mapsUrl} external variant="light">

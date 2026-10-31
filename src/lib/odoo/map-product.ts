@@ -496,6 +496,8 @@ export function mapOdooRepairs(
     repairIds: Set<number>;
     categoryNames: Map<number, string>;
     tagNames: Map<number, string>;
+    images?: ImageInfo;
+    publicImageBase?: string | null;
   },
 ): RepairData {
   let laborProduct: number | null = null;
@@ -535,8 +537,16 @@ export function mapOdooRepairs(
     const partMatch = normalize(description).match(/piece[^0-9]{0,30}(\d[\d\s.]*)/);
     const partFrom = partMatch ? Number(partMatch[1].replace(/[\s.]/g, "")) || null : null;
 
+    const version = imageVersion(row, ctx.images ?? null);
+    const image = version
+      ? ctx.publicImageBase
+        ? `${ctx.publicImageBase}/web/image/product.template/${row.id}/image_512?unique=${version}`
+        : `/api/odoo/image/${row.id}/${version}`
+      : null;
+
     items.push({
       id: `odoo-${row.id}`,
+      image,
       category,
       title: title.replace(/\s*\(?forfait\)?\s*$/i, "").trim() || title,
       description,

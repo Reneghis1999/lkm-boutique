@@ -22,6 +22,8 @@ export type RepairItem = {
   service?: number | null;
   /** Main d’œuvre propre à cette réparation (pièce selon le modèle en plus). */
   labor?: number | null;
+  /** Photo (fiche Odoo) ; sinon une icône est affichée. */
+  image?: string | null;
   popular?: boolean;
 };
 

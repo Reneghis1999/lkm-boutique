@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
   BatteryCharging,
@@ -143,16 +144,33 @@ export function RepairCatalog({
               className="flex flex-col justify-between gap-6 rounded-[1.5rem] border border-white/10 bg-[var(--lkm-surface)] p-6 transition hover:border-white/25"
             >
               <div>
-                <div className="flex items-start justify-between gap-3">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--lkm-green)]/15 text-[#3ddc8a]">
-                    <Icon className="h-5 w-5" strokeWidth={1.9} />
-                  </span>
-                  {item.popular ? (
-                    <span className="rounded-full bg-[var(--lkm-yellow)] px-2.5 py-1 text-[11px] font-bold text-[#1a1400]">
-                      Le plus demandé
+                {item.image ? (
+                  <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-2xl bg-black/30">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 1280px) 45vw, 420px"
+                      className="object-cover"
+                    />
+                    {item.popular ? (
+                      <span className="absolute left-3 top-3 rounded-full bg-[var(--lkm-yellow)] px-2.5 py-1 text-[11px] font-bold text-[#1a1400]">
+                        Le plus demandé
+                      </span>
+                    ) : null}
+                  </div>
+                ) : (
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--lkm-green)]/15 text-[#3ddc8a]">
+                      <Icon className="h-5 w-5" strokeWidth={1.9} />
                     </span>
-                  ) : null}
-                </div>
+                    {item.popular ? (
+                      <span className="rounded-full bg-[var(--lkm-yellow)] px-2.5 py-1 text-[11px] font-bold text-[#1a1400]">
+                        Le plus demandé
+                      </span>
+                    ) : null}
+                  </div>
+                )}
                 <h3 className="mt-5 font-[family-name:var(--font-display)] text-xl font-semibold text-white">
                   {item.title}
                 </h3>
