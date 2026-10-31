@@ -1,3 +1,4 @@
+import { REPAIR_LABOR, type RepairItem } from "@/data/repairs";
 import { shop } from "@/data/shop";
 import { formatPrice, hasPrice } from "@/lib/format";
 import type { CartItem, Product } from "@/types";
@@ -85,6 +86,53 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
 
   lines.push(``, `Merci !`);
   return lines.join("\n");
+}
+
+/** Prix d’une réparation en une ligne (pièce + main d’œuvre, ou forfait). */
+export function repairPriceLine(item: RepairItem): string {
+  if (item.service != null) {
+    return `Forfait ${formatPrice(item.service)} (main d’œuvre comprise)`;
+  }
+  if (item.partFrom != null) {
+    return `Pièce à partir de ${formatPrice(item.partFrom)} + main d’œuvre ${formatPrice(REPAIR_LABOR)}`;
+  }
+  return `Main d’œuvre ${formatPrice(REPAIR_LABOR)} + pièce selon le modèle`;
+}
+
+/** Message WhatsApp pour une réparation choisie sur le site. */
+export function buildRepairWhatsAppMessage(
+  item: RepairItem,
+  device?: string,
+): string {
+  return [
+    `Bonjour LKM Boutique,`,
+    ``,
+    `Je souhaite une réparation :`,
+    `• ${item.title}`,
+    `• Appareil : ${device?.trim() || "(marque et modèle à préciser)"}`,
+    `• Prix indiqué sur le site : ${repairPriceLine(item)}`,
+    ``,
+    `Pouvez-vous me confirmer le prix exact et le délai ?`,
+    `Merci !`,
+  ].join("\n");
+}
+
+/** Message WhatsApp pour une panne non listée (devis personnalisé). */
+export function buildRepairQuoteMessage(input: {
+  deviceType: string;
+  device: string;
+  issue: string;
+}): string {
+  return [
+    `Bonjour LKM Boutique,`,
+    ``,
+    `J’aimerais un devis de réparation :`,
+    `• Type d’appareil : ${input.deviceType || "(à préciser)"}`,
+    `• Marque et modèle : ${input.device.trim() || "(à préciser)"}`,
+    `• Panne : ${input.issue.trim() || "(à préciser)"}`,
+    ``,
+    `Merci !`,
+  ].join("\n");
 }
 
 export function getWhatsAppUrl(message: string, phone = shop.whatsapp) {

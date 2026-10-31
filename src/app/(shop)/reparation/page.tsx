@@ -1,114 +1,142 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  Laptop,
-  MessageCircle,
-  Search,
-  Smartphone,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { repairServices } from "@/data/services";
+import { Clock, MapPin, Wrench } from "lucide-react";
+import { ParticleField } from "@/components/home/motion/particle-field";
+import { PillLink } from "@/components/home/motion/pill-link";
+import { RepairCatalog } from "@/components/repair/repair-catalog";
+import { REPAIR_LABOR } from "@/data/repairs";
 import { shop } from "@/data/shop";
-import { cn } from "@/lib/utils";
-
-const serviceIcons: Record<string, LucideIcon> = {
-  Search,
-  Smartphone,
-  Laptop,
-  Wrench,
-};
+import { formatPrice } from "@/lib/format";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Réparation",
+  title: "Réparation téléphone, PC & console",
   description:
-    "Service professionnel de réparation informatique et mobile chez LKM Boutique — Djidjolé, Lomé.",
+    "Changement d’écran, batterie, caméra, connecteur de charge, PC et consoles à Lomé. Prix indicatifs en CFA, main d’œuvre 2 000 CFA, devis sur WhatsApp.",
 };
 
+const steps = [
+  {
+    title: "Choisissez la réparation",
+    text: "Repérez votre panne et son prix indicatif ci-dessous.",
+  },
+  {
+    title: "Écrivez-nous sur WhatsApp",
+    text: "Le message part tout prêt : on vous confirme le prix exact et le délai.",
+  },
+  {
+    title: "Passez à Djidjolé",
+    text: "On répare votre appareil avec les pièces en stock dès que possible.",
+  },
+];
+
 export default function RepairPage() {
+  const repairShop = shop.locations[1] ?? shop.locations[0];
+
   return (
-    <div className="pt-20">
-      <section className="relative overflow-hidden border-b border-white/6">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_30%_0%,rgba(0,168,89,0.22),transparent_55%),linear-gradient(180deg,#09090c,transparent)]" />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--lkm-green)]">
-            Service atelier
-          </p>
-          <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Réparation informatique & mobile
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/55">
-            Diagnostic rapide, maintenance et interventions sur mesure pour PC
-            et téléphones. Atelier & stock à Djidjolé — contactez-nous pour un
-            devis.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={`https://wa.me/${shop.whatsapp}?text=${encodeURIComponent("Bonjour LKM Boutique, j’aimerais un devis de réparation.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }))}
-            >
-              <MessageCircle className="h-4 w-4" />
-              Demander un devis WhatsApp
-            </a>
-            <Link
-              href="/contact"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
-            >
-              Voir les adresses
-            </Link>
+    <div className="pt-[5.5rem]">
+      {/* En-tête */}
+      <section className="px-3 sm:px-4 lg:px-5">
+        <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[2rem] bg-[#052a1c] px-7 py-14 sm:px-12 sm:py-20 lg:px-16">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_10%,rgba(0,168,89,0.45),transparent_55%)]" />
+          <ParticleField
+            className="absolute inset-0 h-full w-full opacity-60"
+            colors={["#7dffb6", "#ffffff", "#f5c518"]}
+            density={9000}
+          />
+          <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85">
+                <Wrench className="h-3.5 w-3.5" /> Atelier réparation · Djidjolé
+              </span>
+              <h1 className="mt-6 font-[family-name:var(--font-display)] text-[2.6rem] font-semibold leading-[1] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+                Réparation téléphone,
+                <br />
+                PC & console.
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+                Écran, batterie, caméra, charge, clavier, HDMI… Consultez nos
+                prix indicatifs et envoyez votre demande sur WhatsApp en un
+                clic.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PillLink href="#tarifs" variant="yellow">
+                  Voir les tarifs
+                </PillLink>
+                <PillLink
+                  href={getWhatsAppUrl(
+                    "Bonjour LKM Boutique, j’aimerais un devis de réparation.",
+                  )}
+                  external
+                  variant="whatsapp"
+                >
+                  Devis sur WhatsApp
+                </PillLink>
+              </div>
+            </div>
+            <div className="rounded-[1.5rem] bg-white/95 p-6 text-[#0b0b0f]">
+              <p className="text-sm text-[#0b0b0f]/55">Main d’œuvre</p>
+              <p className="mt-1 font-[family-name:var(--font-display)] text-5xl font-semibold tracking-[-0.03em]">
+                {formatPrice(REPAIR_LABOR)}
+              </p>
+              <p className="mt-2 text-sm text-[#0b0b0f]/55">
+                + le prix de la pièce, selon votre modèle.
+              </p>
+              <ul className="mt-5 space-y-2 border-t border-black/10 pt-4 text-sm text-[#0b0b0f]/70">
+                <li className="flex items-start gap-2">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lkm-green)]" />
+                  {repairShop?.name} — {repairShop?.address}
+                </li>
+                <li className="flex items-start gap-2">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lkm-green)]" />
+                  Prix exact et délai confirmés sur WhatsApp
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {repairServices.map((service) => {
-            const Icon = serviceIcons[service.icon] ?? Wrench;
-            return (
-            <article
-              key={service.id}
-              className="rounded-2xl border border-white/8 bg-[var(--lkm-surface)] p-6"
-            >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-[var(--lkm-blue)]">
-                <Icon className="h-5 w-5" strokeWidth={1.75} />
-              </div>
-              <h2 className="font-[family-name:var(--font-display)] text-xl font-bold text-white">
-                {service.title}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/50">
-                {service.description}
-              </p>
-            </article>
-            );
-          })}
+      {/* Tarifs */}
+      <section id="tarifs" className="mx-auto max-w-[1440px] scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20">
+        <span className="inline-flex rounded-full bg-[var(--lkm-yellow)] px-3 py-1 text-xs font-semibold text-[#1a1400]">
+          Tarifs
+        </span>
+        <h2 className="mt-5 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1] tracking-[-0.035em] text-white sm:text-6xl">
+          Quelle est la panne ?
+        </h2>
+        <p className="mt-4 max-w-2xl text-white/55">
+          Choisissez votre appareil, puis la réparation : le bouton WhatsApp
+          envoie votre demande avec le prix affiché.
+        </p>
+        <div className="mt-10">
+          <RepairCatalog />
         </div>
+      </section>
 
-        <div className="mt-12 rounded-3xl border border-white/8 bg-gradient-to-br from-white/[0.04] to-transparent p-8 sm:p-10">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white">
-            Comment ça se passe ?
-          </h2>
-          <ol className="mt-6 space-y-4 text-sm text-white/60">
-            <li>
-              <span className="mr-2 font-bold text-[var(--lkm-yellow)]">1.</span>
-              Contactez-nous sur WhatsApp ou venez à Djidjolé avec votre appareil.
+      {/* Déroulé */}
+      <section className="mx-auto max-w-[1440px] px-5 pb-20 sm:px-8">
+        <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
+          Comment ça se passe ?
+        </h2>
+        <ol className="mt-10 grid gap-3 md:grid-cols-3">
+          {steps.map((s, i) => (
+            <li
+              key={s.title}
+              className="rounded-[1.5rem] border border-white/10 bg-[var(--lkm-surface)] p-6"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--lkm-yellow)] font-[family-name:var(--font-display)] text-sm font-bold text-[#0b0b0f]">
+                {i + 1}
+              </span>
+              <h3 className="mt-5 font-[family-name:var(--font-display)] text-xl font-semibold text-white">
+                {s.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/55">{s.text}</p>
             </li>
-            <li>
-              <span className="mr-2 font-bold text-[var(--lkm-yellow)]">2.</span>
-              Nous réalisons un diagnostic et vous proposons une intervention.
-            </li>
-            <li>
-              <span className="mr-2 font-bold text-[var(--lkm-yellow)]">3.</span>
-              Réparation avec pièces disponibles en magasin lorsque possible.
-            </li>
-          </ol>
-          <p className="mt-6 text-sm text-white/40">
-            Boutique Djidjolé — {shop.locations[1]?.address}. Tél.{" "}
-            {shop.phones.join(" · ")}.
-          </p>
-        </div>
+          ))}
+        </ol>
+        <p className="mt-8 text-sm text-white/45">
+          {repairShop?.name} — {repairShop?.address}. Tél. {shop.phones.join(" · ")}.
+        </p>
       </section>
     </div>
   );

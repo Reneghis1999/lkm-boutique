@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Variant = "dark" | "yellow" | "light" | "blue" | "outline";
+type Variant = "dark" | "yellow" | "light" | "blue" | "outline" | "whatsapp";
 
 const styles: Record<Variant, { pill: string; dot: string }> = {
   dark: {
@@ -24,6 +24,10 @@ const styles: Record<Variant, { pill: string; dot: string }> = {
   outline: {
     pill: "border border-white/20 bg-white/5 text-white hover:bg-white/10",
     dot: "bg-white/12 text-white",
+  },
+  whatsapp: {
+    pill: "bg-[#25D366] text-[#052e14] hover:bg-[#2fe472]",
+    dot: "bg-[#052e14] text-[#25D366]",
   },
 };
 
