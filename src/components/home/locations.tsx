@@ -1,68 +1,61 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { shop } from "@/data/shop";
-import { buttonVariants } from "@/components/ui/button";
+import { PillLink } from "@/components/home/motion/pill-link";
+import { RevealOnScroll, RevealTitle } from "@/components/home/motion/reveal";
 import { cn } from "@/lib/utils";
 
 const accents = {
-  blue: "border-[var(--lkm-blue)]/30",
-  green: "border-[var(--lkm-green)]/30",
-  yellow: "border-[var(--lkm-yellow)]/30",
+  blue: "bg-[var(--lkm-blue)]",
+  green: "bg-[var(--lkm-green)]",
+  yellow: "bg-[var(--lkm-yellow)]",
 };
 
 export function Locations() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-10 mx-auto max-w-2xl text-center md:mx-0 md:text-left">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
-          Lomé
-        </p>
-        <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold text-white sm:text-4xl">
-          Nos boutiques
-        </h2>
-        <p className="mt-3 text-white/50">
-          Consultez les prix en ligne, puis venez tester et acheter sur place.
-        </p>
-      </div>
+    <RevealOnScroll className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8">
+      <span data-reveal className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+        Lomé
+      </span>
+      <RevealTitle
+        lines={["Nos boutiques."]}
+        className="mt-5 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1] tracking-[-0.035em] text-white sm:text-6xl"
+      />
+      <p data-reveal className="mt-4 max-w-xl text-white/55">
+        Consultez les prix en ligne, puis venez tester et acheter sur place.
+      </p>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {shop.locations.map((loc, i) => (
-          <motion.article
+      <div className="mt-12 grid gap-3 md:grid-cols-2">
+        {shop.locations.map((loc) => (
+          <article
             key={loc.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className={cn(
-              "rounded-2xl border bg-[var(--lkm-surface)] p-6 text-center md:text-left",
-              accents[loc.accent],
-            )}
+            data-reveal
+            className="flex flex-col justify-between gap-10 rounded-[1.75rem] border border-white/10 bg-[var(--lkm-surface)] p-7 sm:p-9"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/70">
-              <MapPin className="h-4 w-4" />
+            <div>
+              <span
+                className={cn(
+                  "inline-flex h-11 w-11 items-center justify-center rounded-full text-[#0b0b0f]",
+                  accents[loc.accent],
+                )}
+              >
+                <MapPin className="h-5 w-5" />
+              </span>
+              <h3 className="mt-6 font-[family-name:var(--font-display)] text-2xl font-semibold text-white sm:text-3xl">
+                {loc.name}
+              </h3>
+              <p className="mt-2 text-white/60">{loc.address}</p>
+              <p className="mt-1 text-sm text-white/40">{loc.description}</p>
             </div>
-            <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-white">
-              {loc.name}
-            </h3>
-            <p className="mt-2 text-sm text-white/55">{loc.address}</p>
-            <p className="mt-1 text-sm text-white/40">{loc.description}</p>
-            <a
-              href={loc.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "sm" }),
-                "mt-6",
-              )}
-            >
-              Itinéraire
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
-          </motion.article>
+            <div>
+              <PillLink href={loc.mapsUrl} external variant="light">
+                Itinéraire
+              </PillLink>
+            </div>
+          </article>
         ))}
       </div>
-    </section>
+    </RevealOnScroll>
   );
 }

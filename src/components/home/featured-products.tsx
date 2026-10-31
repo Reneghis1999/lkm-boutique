@@ -1,34 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
-import { buttonVariants } from "@/components/ui/button";
+import { PillLink } from "@/components/home/motion/pill-link";
+import { RevealOnScroll, RevealTitle } from "@/components/home/motion/reveal";
 import type { Product } from "@/types";
-import { cn } from "@/lib/utils";
 
 export function FeaturedProducts({ products }: { products: Product[] }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-10 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
+    <section className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8">
+      <RevealOnScroll className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
+          <span data-reveal className="inline-flex rounded-full bg-[var(--lkm-blue)] px-3 py-1 text-xs font-semibold text-white">
             Sélection
-          </p>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Coups de cœur tech
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-white/50 sm:mx-0">
+          </span>
+          <RevealTitle
+            lines={["Coups de cœur", "tech."]}
+            className="mt-5 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1] tracking-[-0.035em] text-white sm:text-6xl"
+          />
+          <p data-reveal className="mt-4 max-w-xl text-white/55">
             Consoles, smartphones et accessoires mis en avant — prix affichés
             en CFA, commande via WhatsApp.
           </p>
         </div>
-        <Link
-          href="/boutique"
-          className={cn(buttonVariants({ variant: "outline" }))}
-        >
-          Tout voir
-        </Link>
-      </div>
+        <div data-reveal>
+          <PillLink href="/boutique" variant="light">
+            Tout voir
+          </PillLink>
+        </div>
+      </RevealOnScroll>
 
       <ProductGrid>
         {products.map((product, index) => (

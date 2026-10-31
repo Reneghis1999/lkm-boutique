@@ -24,6 +24,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Défilement fluide Lenis (page d’accueil) : il gère lui-même le scroll */
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
