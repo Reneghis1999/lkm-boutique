@@ -104,7 +104,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="ml-1 hidden items-center gap-0.5 md:flex">
+          <nav className="ml-1 hidden items-center gap-0.5 lg:flex">
             {links.map((link) => {
               const active =
                 link.href === "/"
@@ -184,7 +184,7 @@ export function Header() {
 
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white/85 md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white/85 lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Menu"
             >
@@ -199,7 +199,7 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-white/8 bg-[#0a0a0c]/98 backdrop-blur-xl md:hidden"
+              className="border-t border-white/8 bg-[#0a0a0c]/98 backdrop-blur-xl lg:hidden"
             >
               <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
                 {links.map((link) => (
