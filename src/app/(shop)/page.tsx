@@ -3,6 +3,7 @@ import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Locations } from "@/components/home/locations";
 import { Marquee } from "@/components/home/marquee";
+import { Promotions } from "@/components/home/promotions";
 import { SmoothScroll } from "@/components/home/motion/smooth-scroll";
 import { RepairCta } from "@/components/home/repair-cta";
 import { StackedGroups } from "@/components/home/stacked-groups";
@@ -15,16 +16,18 @@ import {
   getFeaturedProducts,
   getMainCategoryGroups,
   getProducts,
+  getPromoProducts,
   getShopContacts,
 } from "@/lib/catalog";
 
 export default async function HomePage() {
-  const [featured, groups, products, categories, contacts] = await Promise.all([
+  const [featured, groups, products, categories, contacts, promos] = await Promise.all([
     getFeaturedProducts(8),
     getMainCategoryGroups(),
     getProducts(),
     getCategories(),
     getShopContacts(),
+    getPromoProducts(),
   ]);
 
   const live = featured.find((p) => p.price) ?? featured[0] ?? null;
@@ -34,6 +37,7 @@ export default async function HomePage() {
     <>
       <SmoothScroll />
       <Hero liveProduct={live ? { name: live.name, price: live.price } : null} />
+      <Promotions products={promos.slice(0, 8)} total={promos.length} />
       <Marquee />
       <Statement />
       <StackedGroups groups={groups} />

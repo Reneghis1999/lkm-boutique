@@ -21,6 +21,10 @@ export function ProductCard({
   const addItem = useCart((s) => s.addItem);
   const pushToast = useToast((s) => s.push);
   const available = hasPrice(product.price);
+  const discount =
+    product.compareAtPrice && product.price && product.compareAtPrice > product.price
+      ? Math.round((1 - product.price / product.compareAtPrice) * 100)
+      : null;
 
   return (
     <motion.article
@@ -54,6 +58,11 @@ export function ProductCard({
         <span className="absolute left-2.5 top-2.5 rounded-md bg-[var(--lkm-yellow)] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-[#1a1400] shadow-sm sm:left-3 sm:top-3 sm:text-[11px]">
           En boutique
         </span>
+        {product.promo || discount ? (
+          <span className="absolute right-2.5 top-2.5 rounded-md bg-[#e5322d] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-white shadow-sm sm:right-3 sm:top-3 sm:text-[11px]">
+            {discount ? `Promo -${discount}%` : "Promo"}
+          </span>
+        ) : null}
       </Link>
 
       <div className="flex flex-1 flex-col px-1.5 pb-1.5 pt-3 sm:px-2 sm:pt-3.5">
@@ -71,6 +80,11 @@ export function ProductCard({
             )}
           >
             {formatPrice(product.price)}
+            {discount ? (
+              <span className="ml-2 text-xs font-medium text-[#1a1410]/45 line-through sm:text-sm">
+                {formatPrice(product.compareAtPrice)}
+              </span>
+            ) : null}
           </p>
           <p className="inline-flex items-center gap-1.5 text-xs font-medium text-[#5c6570] sm:text-[13px]">
             <span

@@ -111,6 +111,24 @@ export function ProductDetail({
           >
             {formatPrice(product.price)}
           </p>
+          {product.compareAtPrice &&
+          product.price &&
+          product.compareAtPrice > product.price ? (
+            <p className="mt-1 flex items-center gap-2 text-sm">
+              <span className="text-white/40 line-through">
+                {formatPrice(product.compareAtPrice)}
+              </span>
+              <span className="rounded-md bg-[#e5322d] px-2 py-0.5 text-xs font-bold text-white">
+                -{Math.round((1 - product.price / product.compareAtPrice) * 100)}%
+              </span>
+            </p>
+          ) : product.promo ? (
+            <p className="mt-1">
+              <span className="rounded-md bg-[#e5322d] px-2 py-0.5 text-xs font-bold text-white">
+                Promo
+              </span>
+            </p>
+          ) : null}
 
           {product.description ? (
             <p className="mt-5 text-base leading-relaxed text-white/55">

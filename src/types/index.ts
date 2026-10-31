@@ -31,6 +31,8 @@ export interface Product {
   options: ProductOption[];
   featured: boolean;
   position: number;
+  /** Produit rangé dans la catégorie « Promotions » d’Odoo. */
+  promo?: boolean;
 }
 
 export interface Category {

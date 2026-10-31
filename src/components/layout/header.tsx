@@ -18,6 +18,7 @@ import { SearchDialog } from "@/components/shop/search-dialog";
 const links = [
   { href: "/", label: "Accueil" },
   { href: "/boutique", label: "Boutique" },
+  { href: "/promotions", label: "Promotions" },
   { href: "/categories", label: "Catégories" },
   { href: "/reparation", label: "Réparation" },
   { href: "/contact", label: "Contact" },
@@ -31,7 +32,16 @@ function useHydratedCartCount() {
   );
 }
 
-export function Header() {
+function PromoCount({ count }: { count: number }) {
+  if (count <= 0) return null;
+  return (
+    <span className="ml-1.5 inline-flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[var(--lkm-yellow)] px-1 text-[10px] font-bold leading-none text-[#1a1400]">
+      {count}
+    </span>
+  );
+}
+
+export function Header({ promoCount = 0 }: { promoCount?: number }) {
   const pathname = usePathname();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
@@ -122,6 +132,7 @@ export function Header() {
                   )}
                 >
                   {link.label}
+                  {link.href === "/promotions" ? <PromoCount count={promoCount} /> : null}
                   {active && (
                     <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-[var(--lkm-blue)]" />
                   )}
@@ -132,7 +143,7 @@ export function Header() {
 
           <form
             onSubmit={onSearchSubmit}
-            className="relative ml-auto hidden min-w-0 max-w-xs flex-1 lg:block xl:max-w-sm"
+            className="relative ml-auto hidden min-w-0 max-w-xs flex-1 xl:block 2xl:max-w-sm"
           >
             <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" />
             <input
@@ -143,11 +154,11 @@ export function Header() {
             />
           </form>
 
-          <div className={cn("flex items-center gap-1.5 sm:gap-2", "ml-auto lg:ml-0")}>
+          <div className={cn("flex items-center gap-1.5 sm:gap-2", "ml-auto xl:ml-0")}>
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white/70 transition hover:bg-white/8 hover:text-white lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white/70 transition hover:bg-white/8 hover:text-white xl:hidden"
               aria-label="Rechercher"
             >
               <Search className="h-5 w-5" />
@@ -210,6 +221,7 @@ export function Header() {
                     className="rounded-xl px-3 py-3 text-base font-medium text-white/80 hover:bg-white/8"
                   >
                     {link.label}
+                    {link.href === "/promotions" ? <PromoCount count={promoCount} /> : null}
                   </Link>
                 ))}
                 <button

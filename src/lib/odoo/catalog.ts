@@ -13,7 +13,9 @@ import {
   mapOdooCategories,
   mapOdooRepairs,
   mapOdooTemplates,
+  isPromoInternalCategory,
   isRepairInternalCategory,
+  promoCategoryIds,
   repairCategoryIds,
   type LegacyCategory,
   type OdooAttributeValueRow,
@@ -58,6 +60,7 @@ export type OdooCatalog = {
     missingFields: string[];
     warnings: string[];
     repairs: number | null;
+    promos: number;
   };
 };
 
@@ -199,9 +202,17 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     });
   }
 
+  // Promotions : catégorie « Promotions » (site web ou interne). Les produits
+  // restent dans la boutique ; la catégorie a sa propre page et son menu.
+  const wantedPromo = process.env.ODOO_PROMO_CATEGORY;
+  const promoIds = promoCategoryIds(allCategoryRows, wantedPromo);
+  const isPromo = (row: OdooTemplateRow) =>
+    isPromoInternalCategory(row.categ_id, wantedPromo) ||
+    (row.public_categ_ids ?? []).some((id) => promoIds.has(id));
+
   const { legacyCategories, legacyCategorySlugs } = legacyData();
   const mappedCategories = mapOdooCategories(
-    allCategoryRows.filter((c) => !repairIds.has(c.id)),
+    allCategoryRows.filter((c) => !repairIds.has(c.id) && !promoIds.has(c.id)),
     legacyCategories,
   );
 
@@ -214,6 +225,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     images,
     publicImageBase: publishedFilter ? getOdooConfig().url : null,
     legacyCategorySlugs,
+    isPromo,
   });
 
   // Nombre de produits par catégorie ; on masque les catégories vides.
@@ -240,6 +252,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       missingFields,
       warnings,
       repairs: repairs ? repairs.items.length : null,
+      promos: products.filter((p) => p.promo).length,
     },
   };
 }

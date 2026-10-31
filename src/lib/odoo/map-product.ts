@@ -342,6 +342,8 @@ export function mapOdooTemplates(
     publicImageBase?: string | null;
     /** Catégories du catalogue historique, par slug produit (secours). */
     legacyCategorySlugs: Map<string, string[]>;
+    /** Produit dans la catégorie « Promotions » ? */
+    isPromo?: (row: OdooTemplateRow) => boolean;
   },
 ): { products: Product[]; withoutOdooCategory: Product[] } {
   const usedSlugs = new Set<string>();
@@ -411,6 +413,7 @@ export function mapOdooTemplates(
       // sauf les rubans de stock (Épuisé, En rupture…).
       featured: isHighlightRibbon(row.website_ribbon_id),
       position: row.website_sequence ?? row.id,
+      promo: ctx.isPromo?.(row) ?? false,
     };
 
     products.push(product);
@@ -561,4 +564,44 @@ export function mapOdooRepairs(
   const laborValues = items.map((i) => i.labor).filter((v): v is number => v != null);
   const labor = laborProduct ?? (laborValues.length ? Math.min(...laborValues) : REPAIR_LABOR);
   return { items, labor, source: "odoo" };
+}
+
+// ---------------------------------------------------------------------------
+// Promotions (catégorie « Promotions », site web ou interne)
+// ---------------------------------------------------------------------------
+
+/** « Promo », « Promos », « Promotion », « Promotions », « Promotions du moment »… */
+export function isPromoName(name: string, wanted?: string): boolean {
+  const n = normalize(name);
+  if (wanted && n === normalize(wanted)) return true;
+  return /^promo(tion)?s?( du moment)?$/.test(n);
+}
+
+/** Ids de la catégorie du site web « Promotions » et de ses sous-catégories. */
+export function promoCategoryIds(
+  rows: OdooPublicCategoryRow[],
+  wanted?: string,
+): Set<number> {
+  const ids = new Set(rows.filter((r) => isPromoName(r.name || "", wanted)).map((r) => r.id));
+  let grew = true;
+  while (grew) {
+    grew = false;
+    for (const r of rows) {
+      const parent = many2oneId(r.parent_id);
+      if (parent && ids.has(parent) && !ids.has(r.id)) {
+        ids.add(r.id);
+        grew = true;
+      }
+    }
+  }
+  return ids;
+}
+
+/** Catégorie interne (Inventaire) « Promotions » à n’importe quel niveau. */
+export function isPromoInternalCategory(
+  categ: Many2one | undefined,
+  wanted?: string,
+): boolean {
+  if (!Array.isArray(categ)) return false;
+  return categ[1].split("/").some((segment) => isPromoName(segment.trim(), wanted));
 }

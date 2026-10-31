@@ -61,6 +61,19 @@ réparation n’est publiée, le site affiche les tarifs de secours de
 Les rubans « Épuisé » / « En rupture de stock » ne mettent pas un produit en
 avant sur l’accueil.
 
+## Promotions (accueil, menu, page /promotions)
+
+Catégorie **« PROMOTION »** (interne, comme celle du client) ou catégorie du
+site web « Promotions ». Tout produit **publié** qui y est rangé :
+- apparaît dans la section « Les promos du moment » de l’accueil (8 max ;
+  section masquée s’il n’y a aucune promo) et sur la page `/promotions` ;
+- fait apparaître le nombre de promos à côté du menu « Promotions » ;
+- reste visible dans la boutique, avec un badge « Promo ».
+
+Avec un **prix barré** (champ « Prix barré » / compare price dans Odoo), la carte
+affiche l’ancien prix barré et le badge « Promo -X% ». Sortir le produit de la
+catégorie = fin de la promo sur le site. Nom personnalisable : `ODOO_PROMO_CATEGORY`.
+
 ## Coordonnées et horaires des boutiques
 
 - **Téléphones et adresses** : lus dans les **sociétés Odoo** (Paramètres →

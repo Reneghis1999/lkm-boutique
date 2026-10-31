@@ -142,6 +142,14 @@ async function main() {
       30,
     );
   }
+  if (d.promos > 0) {
+    ok(`${d.promos} produit(s) en promotion (catégorie « Promotions ») :`);
+    list(catalog.products.filter((p) => p.promo).map((p) => p.name));
+  } else {
+    console.log(
+      "  ℹ️  Promotions : aucun produit publié dans une catégorie « Promotions » (section masquée sur l’accueil)",
+    );
+  }
   const { mergeShopContacts } = await import("../src/lib/shop-contacts");
   const contacts = mergeShopContacts(catalog.companies);
   if (contacts.fromOdoo.length) {

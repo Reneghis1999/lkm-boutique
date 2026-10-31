@@ -152,6 +152,12 @@ export async function getProducts(): Promise<Product[]> {
   return (await loadCatalog()).products;
 }
 
+/** Produits de la catégorie « Promotions » d’Odoo (ordre de la boutique). */
+export async function getPromoProducts(limit?: number): Promise<Product[]> {
+  const promos = (await getProducts()).filter((p) => p.promo);
+  return typeof limit === "number" ? promos.slice(0, limit) : promos;
+}
+
 export async function getProductBySlug(
   slug: string,
 ): Promise<Product | undefined> {
