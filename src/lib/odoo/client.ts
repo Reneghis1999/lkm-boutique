@@ -50,18 +50,29 @@ export async function odooCall<T = unknown>(
     ...((body.context as Record<string, unknown> | undefined) ?? {}),
   };
 
-  let res: Response;
-  try {
-    res = await fetch(endpoint, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ ...body, context }),
-      cache: "no-store",
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    });
-  } catch (e) {
-    const reason = e instanceof Error ? e.message : String(e);
-    throw new OdooApiError(`Odoo ${model}.${method} injoignable : ${reason}`);
+  let res: Response | undefined;
+  // Odoo Online limite le nombre d’appels : on réessaie (2 fois max) si
+  // Odoo répond « trop de requêtes » (429) ou « indisponible » (503).
+  for (let attempt = 0; ; attempt++) {
+    try {
+      res = await fetch(endpoint, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ ...body, context }),
+        cache: "no-store",
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+    } catch (e) {
+      const reason = e instanceof Error ? e.message : String(e);
+      throw new OdooApiError(`Odoo ${model}.${method} injoignable : ${reason}`);
+    }
+    if ((res.status !== 429 && res.status !== 503) || attempt >= 2) break;
+    const retryAfter = Number(res.headers.get("retry-after"));
+    const delay =
+      Number.isFinite(retryAfter) && retryAfter > 0
+        ? Math.min(retryAfter * 1000, 3000)
+        : 500 * 2 ** attempt;
+    await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
   if (!res.ok) {

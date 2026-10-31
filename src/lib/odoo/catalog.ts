@@ -5,6 +5,7 @@
  */
 import catalogData from "@/data/catalog.json";
 import { odooCall, odooModelFields } from "@/lib/odoo/client";
+import { getOdooConfig } from "@/lib/odoo/config";
 import {
   groupAttributes,
   mapOdooCategories,
@@ -162,6 +163,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       Array.isArray(attributeRows) ? attributeRows : [],
     ),
     images,
+    publicImageBase: publishedFilter ? getOdooConfig().url : null,
     legacyCategorySlugs,
   });
 

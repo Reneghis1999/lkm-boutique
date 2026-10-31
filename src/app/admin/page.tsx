@@ -135,8 +135,10 @@ export default async function AdminDashboardPage() {
 
         {catalog.error && (
           <p className="mt-3 rounded-xl bg-red-500/15 px-4 py-3 text-sm text-red-100">
-            Le site affiche le catalogue JSON de secours car Odoo a renvoyé une
-            erreur : {catalog.error}
+            {catalog.source === "odoo"
+              ? `Odoo a refusé le dernier appel : le site affiche les dernières données Odoo reçues (il y a ${catalog.ageSeconds ?? "?"} s). Erreur : `
+              : "Le site affiche le catalogue JSON de secours car Odoo a renvoyé une erreur : "}
+            {catalog.error}
           </p>
         )}
 

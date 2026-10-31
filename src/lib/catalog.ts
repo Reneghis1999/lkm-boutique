@@ -23,10 +23,51 @@ export type LoadedCatalog = {
   products: Product[];
   categories: Category[];
   source: "odoo" | "json";
-  /** Erreur Odoo si on a dû basculer sur le JSON de secours. */
+  /** Erreur Odoo (catalogue JSON de secours, ou dernières données Odoo). */
   error?: string;
+  /** Âge des données Odoo affichées, en secondes. */
+  ageSeconds?: number;
   diagnostics?: OdooCatalog["diagnostics"];
 };
+
+/**
+ * Le catalogue Odoo est gardé en mémoire quelques secondes : Odoo Online
+ * limite le nombre d’appels API (erreur 429 au-delà). Une modification faite
+ * dans Odoo apparaît donc sur le site au plus tard après ce délai.
+ */
+const CACHE_MS = Math.max(0, Number(process.env.ODOO_CACHE_SECONDS ?? 15)) * 1000;
+let lastGood: { at: number; data: OdooCatalog } | null = null;
+let inflight: Promise<OdooCatalog> | null = null;
+
+async function getOdooCatalog(): Promise<{
+  data: OdooCatalog;
+  at: number;
+  error?: string;
+}> {
+  if (lastGood && Date.now() - lastGood.at < CACHE_MS) return lastGood;
+  if (!inflight) {
+    inflight = fetchOdooCatalog()
+      .then((data) => {
+        lastGood = { at: Date.now(), data };
+        return data;
+      })
+      .finally(() => {
+        inflight = null;
+      });
+  }
+  try {
+    const data = await inflight;
+    return { data, at: lastGood?.at ?? Date.now() };
+  } catch (e) {
+    // Odoo refuse ou ne répond pas : on garde les dernières données reçues.
+    if (lastGood) {
+      const error = e instanceof Error ? e.message : String(e);
+      console.error("[catalog] Odoo indisponible, dernières données gardées :", error);
+      return { ...lastGood, error };
+    }
+    throw e;
+  }
+}
 
 /**
  * Chargé une seule fois par requête (layout + page + metadata partagent le
@@ -37,11 +78,13 @@ const loadCatalog = cache(async (): Promise<LoadedCatalog> => {
     // Rendu à chaque visite (pas de page figée au build).
     await connection();
     try {
-      const odoo = await fetchOdooCatalog();
+      const { data: odoo, at, error } = await getOdooCatalog();
       return {
         products: [...odoo.products].sort((a, b) => a.position - b.position),
         categories: [...odoo.categories].sort((a, b) => b.count - a.count),
         source: "odoo",
+        error,
+        ageSeconds: Math.round((Date.now() - at) / 1000),
         diagnostics: odoo.diagnostics,
       };
     } catch (e) {

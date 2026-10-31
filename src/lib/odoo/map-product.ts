@@ -318,6 +318,11 @@ export function mapOdooTemplates(
     parentOf: Map<number, number>;
     attributes: Map<number, { options: ProductOption[]; specs: ProductSpec[] }>;
     images: ImageInfo;
+    /**
+     * Adresse publique d’Odoo (produits publiés) : les photos sont alors
+     * servies par la boutique en ligne Odoo, sans consommer d’appels API.
+     */
+    publicImageBase?: string | null;
     /** Catégories du catalogue historique, par slug produit (secours). */
     legacyCategorySlugs: Map<string, string[]>;
   },
@@ -378,7 +383,11 @@ export function mapOdooTemplates(
       compareAtPrice: compare,
       description,
       categorySlugs,
-      image: version ? `/api/odoo/image/${row.id}/${version}` : null,
+      image: version
+        ? ctx.publicImageBase
+          ? `${ctx.publicImageBase}/web/image/product.template/${row.id}/image_1024?unique=${version}`
+          : `/api/odoo/image/${row.id}/${version}`
+        : null,
       specs: attrs?.specs ?? [],
       options: attrs?.options ?? [],
       // « Mis en avant » = un ruban (Nouveau, Promo…) posé dans Odoo.
