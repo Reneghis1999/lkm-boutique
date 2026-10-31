@@ -89,20 +89,24 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
 }
 
 /** Prix d’une réparation en une ligne (pièce + main d’œuvre, ou forfait). */
-export function repairPriceLine(item: RepairItem): string {
+export function repairPriceLine(
+  item: RepairItem,
+  labor: number = REPAIR_LABOR,
+): string {
   if (item.service != null) {
     return `Forfait ${formatPrice(item.service)} (main d’œuvre comprise)`;
   }
   if (item.partFrom != null) {
-    return `Pièce à partir de ${formatPrice(item.partFrom)} + main d’œuvre ${formatPrice(REPAIR_LABOR)}`;
+    return `Pièce à partir de ${formatPrice(item.partFrom)} + main d’œuvre ${formatPrice(labor)}`;
   }
-  return `Main d’œuvre ${formatPrice(REPAIR_LABOR)} + pièce selon le modèle`;
+  return `Sur devis (main d’œuvre ${formatPrice(labor)} + pièce selon le modèle)`;
 }
 
 /** Message WhatsApp pour une réparation choisie sur le site. */
 export function buildRepairWhatsAppMessage(
   item: RepairItem,
   device?: string,
+  labor: number = REPAIR_LABOR,
 ): string {
   return [
     `Bonjour LKM Boutique,`,
@@ -110,7 +114,7 @@ export function buildRepairWhatsAppMessage(
     `Je souhaite une réparation :`,
     `• ${item.title}`,
     `• Appareil : ${device?.trim() || "(marque et modèle à préciser)"}`,
-    `• Prix indiqué sur le site : ${repairPriceLine(item)}`,
+    `• Prix indiqué sur le site : ${repairPriceLine(item, labor)}`,
     ``,
     `Pouvez-vous me confirmer le prix exact et le délai ?`,
     `Merci !`,

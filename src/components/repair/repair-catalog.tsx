@@ -23,11 +23,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import {
-  REPAIR_LABOR,
   deviceTypes,
   repairCategories,
-  repairItems,
   type RepairCategory,
+  type RepairItem,
 } from "@/data/repairs";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -62,14 +61,25 @@ function openWhatsApp(message: string) {
 }
 
 /** Tarifs de réparation par appareil + demande WhatsApp en un clic. */
-export function RepairCatalog() {
-  const [category, setCategory] = useState<RepairCategory>("phone");
+export function RepairCatalog({
+  items: allItems,
+  labor,
+}: {
+  items: RepairItem[];
+  labor: number;
+}) {
+  const tabs = repairCategories.filter((c) =>
+    allItems.some((item) => item.category === c.id),
+  );
+  const [category, setCategory] = useState<RepairCategory>(
+    tabs[0]?.id ?? "phone",
+  );
   const [device, setDevice] = useState("");
   const [quote, setQuote] = useState({ deviceType: deviceTypes[0], device: "", issue: "" });
 
   const items = useMemo(
-    () => repairItems.filter((item) => item.category === category),
-    [category],
+    () => allItems.filter((item) => item.category === category),
+    [allItems, category],
   );
 
   return (
@@ -95,7 +105,7 @@ export function RepairCatalog() {
           aria-label="Type d’appareil"
           className="flex flex-wrap gap-2"
         >
-          {repairCategories.map((c) => {
+          {tabs.map((c) => {
             const Icon = icons[c.icon] ?? Wrench;
             const active = c.id === category;
             return (
@@ -125,6 +135,7 @@ export function RepairCatalog() {
         {items.map((item) => {
           const Icon = icons[item.icon] ?? Wrench;
           const isService = item.service != null;
+          const onQuote = !isService && item.partFrom == null;
           return (
             <article
               key={item.id}
@@ -151,7 +162,17 @@ export function RepairCatalog() {
 
               <div>
                 <div className="rounded-2xl bg-black/25 p-4">
-                  {isService ? (
+                  {onQuote ? (
+                    <>
+                      <p className="text-xs text-white/45">Prix</p>
+                      <p className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-white">
+                        Sur devis
+                      </p>
+                      <p className="mt-1 text-xs text-[var(--lkm-yellow)]">
+                        main d’œuvre {formatPrice(labor)} + pièce selon le modèle
+                      </p>
+                    </>
+                  ) : isService ? (
                     <>
                       <p className="text-xs text-white/45">Forfait</p>
                       <p className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-white">
@@ -168,14 +189,16 @@ export function RepairCatalog() {
                         {formatPrice(item.partFrom)}
                       </p>
                       <p className="mt-1 text-xs text-[var(--lkm-yellow)]">
-                        + main d’œuvre {formatPrice(REPAIR_LABOR)}
+                        + main d’œuvre {formatPrice(labor)}
                       </p>
                     </>
                   )}
                 </div>
                 <button
                   type="button"
-                  onClick={() => openWhatsApp(buildRepairWhatsAppMessage(item, device))}
+                  onClick={() =>
+                    openWhatsApp(buildRepairWhatsAppMessage(item, device, labor))
+                  }
                   className="mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#25D366] text-sm font-semibold text-[#052e14] transition hover:bg-[#2fe472]"
                 >
                   <MessageCircle className="h-4 w-4" />

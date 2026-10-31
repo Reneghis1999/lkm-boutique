@@ -4,14 +4,25 @@ import { Wrench } from "lucide-react";
 import { ParticleField } from "@/components/home/motion/particle-field";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RevealOnScroll, RevealTitle } from "@/components/home/motion/reveal";
-import { REPAIR_LABOR, repairItems } from "@/data/repairs";
+import type { RepairItem } from "@/data/repairs";
 import { formatPrice } from "@/lib/format";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const SPARKS = ["#7dffb6", "#ffffff", "#f5c518"];
-const popular = repairItems.filter((item) => item.popular).slice(0, 6);
 
-export function RepairCta() {
+export function RepairCta({
+  items,
+  labor,
+}: {
+  items: RepairItem[];
+  labor: number;
+}) {
+  // Réparations avec ruban d’abord, complétées par les autres (6 maximum).
+  const popular = [
+    ...items.filter((item) => item.popular),
+    ...items.filter((item) => !item.popular),
+  ].slice(0, 6);
+
   return (
     <section className="px-3 py-10 sm:px-4 lg:px-5">
       <RevealOnScroll className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[2.5rem] bg-[#052a1c] px-7 py-16 sm:px-12 sm:py-20 lg:px-16">
@@ -28,7 +39,7 @@ export function RepairCta() {
             />
             <p data-reveal className="mt-6 max-w-md text-base leading-relaxed text-white/65 sm:text-lg">
               Écran, batterie, caméra, connecteur de charge… Main d’œuvre{" "}
-              <strong className="text-[var(--lkm-yellow)]">{formatPrice(REPAIR_LABOR)}</strong>{" "}
+              <strong className="text-[var(--lkm-yellow)]">{formatPrice(labor)}</strong>{" "}
               + la pièce. Votre demande part directement sur WhatsApp.
             </p>
             <div data-reveal className="mt-8 flex flex-wrap gap-3">
@@ -53,13 +64,21 @@ export function RepairCta() {
               >
                 <p className="text-sm font-semibold text-white">{item.title}</p>
                 <p className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-white">
-                  <span className="text-sm font-normal text-white/50">dès </span>
-                  {formatPrice(item.partFrom ?? item.service)}
+                  {item.partFrom == null && item.service == null ? (
+                    "Sur devis"
+                  ) : (
+                    <>
+                      <span className="text-sm font-normal text-white/50">
+                        {item.service != null ? "forfait " : "dès "}
+                      </span>
+                      {formatPrice(item.partFrom ?? item.service)}
+                    </>
+                  )}
                 </p>
                 <p className="mt-0.5 text-xs text-[var(--lkm-yellow)]">
                   {item.service != null
-                    ? "Forfait, main d’œuvre comprise"
-                    : `+ ${formatPrice(REPAIR_LABOR)} de main d’œuvre`}
+                    ? "Main d’œuvre comprise"
+                    : `+ ${formatPrice(labor)} de main d’œuvre`}
                 </p>
               </li>
             ))}

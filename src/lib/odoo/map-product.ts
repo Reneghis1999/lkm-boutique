@@ -1,6 +1,13 @@
 /**
  * Conversion des enregistrements Odoo → types du site (fonctions pures).
  */
+import {
+  REPAIR_LABOR,
+  repairIcon,
+  type RepairCategory,
+  type RepairData,
+  type RepairItem,
+} from "@/data/repairs";
 import { slugify } from "@/lib/slug";
 import type {
   AccentColor,
@@ -27,6 +34,7 @@ export type OdooTemplateRow = {
   website_sequence?: number;
   website_ribbon_id?: Many2one;
   product_variant_id?: Many2one;
+  product_tag_ids?: number[];
   write_date?: string;
 };
 
@@ -302,6 +310,14 @@ export function groupAttributes(rows: OdooAttributeValueRow[]): Map<
 
 export type ImageInfo = Map<number, string> | null;
 
+/** Ruban qui met en avant (Nouveau, Ventes, Promo…), pas un ruban de stock. */
+export function isHighlightRibbon(ribbon: Many2one | undefined): boolean {
+  if (!Array.isArray(ribbon)) return false;
+  return !/(epuis|rupture|sold out|out of stock|indisponible)/.test(
+    normalize(ribbon[1] || ""),
+  );
+}
+
 function imageVersion(row: OdooTemplateRow, images: ImageInfo): string | null {
   if (images) {
     const checksum = images.get(row.id);
@@ -390,8 +406,9 @@ export function mapOdooTemplates(
         : null,
       specs: attrs?.specs ?? [],
       options: attrs?.options ?? [],
-      // « Mis en avant » = un ruban (Nouveau, Promo…) posé dans Odoo.
-      featured: Boolean(many2oneId(row.website_ribbon_id)),
+      // « Mis en avant » = un ruban (Nouveau, Promo…) posé dans Odoo,
+      // sauf les rubans de stock (Épuisé, En rupture…).
+      featured: isHighlightRibbon(row.website_ribbon_id),
       position: row.website_sequence ?? row.id,
     };
 
@@ -400,4 +417,113 @@ export function mapOdooTemplates(
   }
 
   return { products, withoutOdooCategory };
+}
+
+// ---------------------------------------------------------------------------
+// Réparations (catégorie du site web « Services de réparation »)
+// ---------------------------------------------------------------------------
+
+/** Nom de la catégorie racine des réparations (ACCESSOIRE DE réparation exclu). */
+export function isRepairRootName(name: string, wanted?: string): boolean {
+  const n = normalize(name);
+  if (wanted && n === normalize(wanted)) return true;
+  return /^(services? (de )?)?reparations?$/.test(n);
+}
+
+/** Ids de la catégorie « Services de réparation » et de ses sous-catégories. */
+export function repairCategoryIds(
+  rows: OdooPublicCategoryRow[],
+  wanted?: string,
+): Set<number> {
+  const roots = rows.filter((r) => isRepairRootName(r.name || "", wanted));
+  const ids = new Set(roots.map((r) => r.id));
+  let grew = true;
+  while (grew) {
+    grew = false;
+    for (const r of rows) {
+      const parent = many2oneId(r.parent_id);
+      if (parent && ids.has(parent) && !ids.has(r.id)) {
+        ids.add(r.id);
+        grew = true;
+      }
+    }
+  }
+  return ids;
+}
+
+const REPAIR_TAB_RULES: [RepairCategory, RegExp][] = [
+  ["console", /(console|manette|playstation|\bps[2-5]\b|xbox|switch|nintendo)/],
+  ["computer", /(ordinateur|\bpc\b|laptop|macbook|\bmac\b|imprimante|clavier)/],
+  ["phone", /(telephone|phone|smartphone|tablette|ipad|mobile|iphone|samsung|tecno|infinix|itel)/],
+];
+
+function repairTab(text: string): RepairCategory | null {
+  const n = normalize(text);
+  for (const [tab, re] of REPAIR_TAB_RULES) if (re.test(n)) return tab;
+  return null;
+}
+
+/**
+ * Fiches Odoo de la catégorie « Services de réparation » → tarifs du site.
+ * - prix de vente = prix de la pièce « à partir de » (+ main d’œuvre) ;
+ * - étiquette « Forfait » (ou « forfait » dans le nom) = forfait tout compris ;
+ * - prix à 0 = sur devis ;
+ * - fiche « Main d’œuvre » = prix de la main d’œuvre affiché partout ;
+ * - un ruban (Nouveau, Ventes…) = « Le plus demandé ».
+ * L’onglet (téléphone, ordinateur, console) vient de la sous-catégorie, ou
+ * à défaut du nom de la réparation.
+ */
+export function mapOdooRepairs(
+  rows: OdooTemplateRow[],
+  ctx: {
+    repairIds: Set<number>;
+    categoryNames: Map<number, string>;
+    tagNames: Map<number, string>;
+  },
+): RepairData {
+  let labor = REPAIR_LABOR;
+  const items: RepairItem[] = [];
+
+  for (const row of rows) {
+    const title = (row.name || "").trim();
+    if (!title) continue;
+    const price =
+      typeof row.list_price === "number" && row.list_price > 0
+        ? Math.round(row.list_price)
+        : null;
+
+    if (/^main d/.test(normalize(title))) {
+      if (price) labor = price;
+      continue;
+    }
+
+    const subNames = (row.public_categ_ids ?? [])
+      .filter((id) => ctx.repairIds.has(id))
+      .map((id) => ctx.categoryNames.get(id) || "");
+    const category =
+      subNames.map(repairTab).find(Boolean) ?? repairTab(title) ?? "other";
+
+    const tags = (row.product_tag_ids ?? []).map((id) =>
+      normalize(ctx.tagNames.get(id) || ""),
+    );
+    const flat = tags.some((t) => t.includes("forfait")) || /forfait/.test(normalize(title));
+
+    const description =
+      htmlToText(row.description_ecommerce) ||
+      htmlToText(row.website_description) ||
+      (typeof row.description_sale === "string" ? row.description_sale.trim() : "");
+
+    items.push({
+      id: `odoo-${row.id}`,
+      category,
+      title: title.replace(/\s*\(?forfait\)?\s*$/i, "").trim() || title,
+      description,
+      icon: repairIcon(title, category),
+      partFrom: flat ? null : price,
+      service: flat ? price : null,
+      popular: isHighlightRibbon(row.website_ribbon_id),
+    });
+  }
+
+  return { items, labor, source: "odoo" };
 }

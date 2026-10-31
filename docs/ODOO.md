@@ -36,6 +36,28 @@ Une **nouvelle catégorie** créée dans Odoo apparaît automatiquement ; sa rub
 catégorie parente. Les catégories existantes gardent leur adresse et leur
 présentation ; si le client les renomme, le nouveau nom s’affiche.
 
+## Réparations (page /reparation et accueil)
+
+Gérées dans Odoo comme des produits, dans une **catégorie du site web
+« Services de réparation »** (ou « Réparations ») :
+
+| Dans Odoo | Sur le site |
+|---|---|
+| Sous-catégories (« Réparation téléphone », « … ordinateur », « … console ») | Onglets Téléphones & tablettes / Ordinateurs / Consoles & manettes (sinon « Autres réparations ») |
+| Fiche **« Main d’œuvre »** (prix de vente) | Prix de la main d’œuvre affiché partout (2 000 CFA par défaut) |
+| Fiche réparation : nom, prix de vente, description | Réparation « pièce à partir de [prix] + main d’œuvre » |
+| Étiquette **« Forfait »** sur la fiche | « Forfait [prix], main d’œuvre comprise » |
+| Prix à 0 | « Sur devis » |
+| Ruban (Nouveau !, Ventes…) | « Le plus demandé » + en tête sur l’accueil |
+| **Publié** / dépublié | Affichée / retirée |
+
+Ces fiches n’apparaissent pas dans la boutique. Tant que la catégorie n’existe
+pas (ou est vide), le site affiche les tarifs de secours de
+`src/data/repairs.ts`. Nom de catégorie personnalisable : `ODOO_REPAIR_CATEGORY`.
+
+Les rubans « Épuisé » / « En rupture de stock » ne mettent pas un produit en
+avant sur l’accueil.
+
 ## Prérequis côté Odoo
 
 1. Abonnement **Custom** : l’API externe n’existe pas sur les plans *Standard*

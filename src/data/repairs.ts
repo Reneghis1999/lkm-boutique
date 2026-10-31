@@ -1,13 +1,16 @@
 /**
- * Tarifs de réparation affichés sur le site.
+ * Tarifs de réparation.
  *
- * ⚠️ Prix INDICATIFS (provisoires) : à ajuster avec le client.
- * - `partFrom` : prix de la pièce « à partir de » (+ main d’œuvre REPAIR_LABOR)
+ * Source principale : Odoo (catégorie du site web « Services de réparation »,
+ * voir docs/ODOO.md). La liste ci-dessous ne sert que de secours, tant que
+ * cette catégorie n’existe pas dans Odoo (prix indicatifs provisoires).
+ * - `partFrom` : prix de la pièce « à partir de » (+ main d’œuvre)
  * - `service`  : forfait sans pièce (main d’œuvre comprise)
+ * - ni l’un ni l’autre : prix sur devis
  */
 export const REPAIR_LABOR = 2000;
 
-export type RepairCategory = "phone" | "computer" | "console";
+export type RepairCategory = "phone" | "computer" | "console" | "other";
 
 export type RepairItem = {
   id: string;
@@ -15,15 +18,22 @@ export type RepairItem = {
   title: string;
   description: string;
   icon: string;
-  partFrom?: number;
-  service?: number;
+  partFrom?: number | null;
+  service?: number | null;
   popular?: boolean;
+};
+
+export type RepairData = {
+  items: RepairItem[];
+  labor: number;
+  source: "odoo" | "site";
 };
 
 export const repairCategories: { id: RepairCategory; label: string; icon: string }[] = [
   { id: "phone", label: "Téléphones & tablettes", icon: "Smartphone" },
   { id: "computer", label: "Ordinateurs", icon: "Laptop" },
   { id: "console", label: "Consoles & manettes", icon: "Gamepad2" },
+  { id: "other", label: "Autres réparations", icon: "Wrench" },
 ];
 
 export const repairItems: RepairItem[] = [
@@ -233,3 +243,39 @@ export const deviceTypes = [
   "Manette",
   "Autre",
 ];
+
+const ICON_RULES: [RegExp, string][] = [
+  [/(batter)/, "BatteryCharging"],
+  [/(camera|photo)/, "Camera"],
+  [/(bout de charge|connecteur|charge|alimentation)/, "Plug"],
+  [/(eau|oxyd)/, "Droplets"],
+  [/(tablette|ipad)/, "Tablet"],
+  [/(flash|mise a jour|logiciel|windows|format|virus)/, "RefreshCw"],
+  [/(donnee|recuperation)/, "HardDrive"],
+  [/(clavier)/, "Keyboard"],
+  [/(nettoyage|pate thermique|ventil|chauffe)/, "Fan"],
+  [/(ssd|ram|memoire)/, "Cpu"],
+  [/(hdmi)/, "MonitorPlay"],
+  [/(lecteur|disque)/, "Disc3"],
+  [/(joystick|manette|drift)/, "Gamepad2"],
+  [/(haut-parleur|haut parleur|ecoute|micro|son)/, "Speaker"],
+];
+
+/** Icône d’une réparation, déduite de son nom. */
+export function repairIcon(title: string, category: RepairCategory): string {
+  const n = title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  for (const [re, icon] of ICON_RULES) if (re.test(n)) return icon;
+  if (category === "computer") return "Laptop";
+  if (category === "console") return "Gamepad2";
+  if (category === "phone") return "Smartphone";
+  return "Wrench";
+}
+
+export const fallbackRepairs: RepairData = {
+  items: repairItems,
+  labor: REPAIR_LABOR,
+  source: "site",
+};

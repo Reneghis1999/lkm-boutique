@@ -6,10 +6,13 @@
 import catalogData from "@/data/catalog.json";
 import { odooCall, odooModelFields } from "@/lib/odoo/client";
 import { getOdooConfig } from "@/lib/odoo/config";
+import type { RepairData } from "@/data/repairs";
 import {
   groupAttributes,
   mapOdooCategories,
+  mapOdooRepairs,
   mapOdooTemplates,
+  repairCategoryIds,
   type LegacyCategory,
   type OdooAttributeValueRow,
   type OdooPublicCategoryRow,
@@ -30,12 +33,15 @@ const TEMPLATE_FIELDS = [
   "website_sequence",
   "website_ribbon_id",
   "product_variant_id",
+  "product_tag_ids",
   "write_date",
 ] as const;
 
 export type OdooCatalog = {
   products: Product[];
   categories: Category[];
+  /** Tarifs de réparation gérés dans Odoo (null : catégorie absente). */
+  repairs: RepairData | null;
   diagnostics: {
     products: number;
     withImage: number;
@@ -46,6 +52,7 @@ export type OdooCatalog = {
     publishedFilter: boolean;
     missingFields: string[];
     warnings: string[];
+    repairs: number | null;
   };
 };
 
@@ -150,13 +157,41 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       )
     : null;
 
+  const allCategoryRows = Array.isArray(categoryRows) ? categoryRows : [];
+
+  // Réparations : fiches rangées dans « Services de réparation » (et sous-catégories).
+  const repairIds = repairCategoryIds(
+    allCategoryRows,
+    process.env.ODOO_REPAIR_CATEGORY,
+  );
+  const isRepair = (row: OdooTemplateRow) =>
+    (row.public_categ_ids ?? []).some((id) => repairIds.has(id));
+  const repairRows = templates.filter(isRepair);
+  const shopTemplates = templates.filter((row) => !isRepair(row));
+
+  let repairs: RepairData | null = null;
+  if (repairIds.size > 0) {
+    const tagIds = [...new Set(repairRows.flatMap((r) => r.product_tag_ids ?? []))];
+    const tagRows = tagIds.length
+      ? await odooCall<{ id: number; name: string }[]>("product.tag", "search_read", {
+          domain: [["id", "in", tagIds]],
+          fields: ["name"],
+        }).catch(() => [] as { id: number; name: string }[])
+      : [];
+    repairs = mapOdooRepairs(repairRows, {
+      repairIds,
+      categoryNames: new Map(allCategoryRows.map((c) => [c.id, c.name || ""])),
+      tagNames: new Map(tagRows.map((t) => [t.id, t.name])),
+    });
+  }
+
   const { legacyCategories, legacyCategorySlugs } = legacyData();
   const mappedCategories = mapOdooCategories(
-    Array.isArray(categoryRows) ? categoryRows : [],
+    allCategoryRows.filter((c) => !repairIds.has(c.id)),
     legacyCategories,
   );
 
-  const { products, withoutOdooCategory } = mapOdooTemplates(templates, {
+  const { products, withoutOdooCategory } = mapOdooTemplates(shopTemplates, {
     categoriesById: mappedCategories.byId,
     parentOf: mappedCategories.parentOf,
     attributes: groupAttributes(
@@ -178,6 +213,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
   return {
     products,
     categories,
+    repairs,
     diagnostics: {
       products: products.length,
       withImage: products.filter((p) => p.image).length,
@@ -188,6 +224,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
       publishedFilter,
       missingFields,
       warnings,
+      repairs: repairs ? repairs.items.length : null,
     },
   };
 }

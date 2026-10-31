@@ -15,14 +15,16 @@ import {
   getFeaturedProducts,
   getMainCategoryGroups,
   getProducts,
+  getRepairs,
 } from "@/lib/catalog";
 
 export default async function HomePage() {
-  const [featured, groups, products, categories] = await Promise.all([
+  const [featured, groups, products, categories, repairs] = await Promise.all([
     getFeaturedProducts(8),
     getMainCategoryGroups(),
     getProducts(),
     getCategories(),
+    getRepairs(),
   ]);
 
   const live = featured.find((p) => p.price) ?? featured[0] ?? null;
@@ -45,7 +47,7 @@ export default async function HomePage() {
       />
       <FeaturedProducts products={featured} />
       <HowItWorks />
-      <RepairCta />
+      <RepairCta items={repairs.items} labor={repairs.labor} />
       <Locations />
       <Wordmark />
     </>

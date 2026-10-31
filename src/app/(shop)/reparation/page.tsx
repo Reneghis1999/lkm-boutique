@@ -3,8 +3,8 @@ import { Clock, MapPin, Wrench } from "lucide-react";
 import { ParticleField } from "@/components/home/motion/particle-field";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RepairCatalog } from "@/components/repair/repair-catalog";
-import { REPAIR_LABOR } from "@/data/repairs";
 import { shop } from "@/data/shop";
+import { getRepairs } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -29,8 +29,9 @@ const steps = [
   },
 ];
 
-export default function RepairPage() {
+export default async function RepairPage() {
   const repairShop = shop.locations[1] ?? shop.locations[0];
+  const repairs = await getRepairs();
 
   return (
     <div className="pt-[5.5rem]">
@@ -76,7 +77,7 @@ export default function RepairPage() {
             <div className="rounded-[1.5rem] bg-white/95 p-6 text-[#0b0b0f]">
               <p className="text-sm text-[#0b0b0f]/55">Main d’œuvre</p>
               <p className="mt-1 font-[family-name:var(--font-display)] text-5xl font-semibold tracking-[-0.03em]">
-                {formatPrice(REPAIR_LABOR)}
+                {formatPrice(repairs.labor)}
               </p>
               <p className="mt-2 text-sm text-[#0b0b0f]/55">
                 + le prix de la pièce, selon votre modèle.
@@ -109,7 +110,7 @@ export default function RepairPage() {
           envoie votre demande avec le prix affiché.
         </p>
         <div className="mt-10">
-          <RepairCatalog />
+          <RepairCatalog items={repairs.items} labor={repairs.labor} />
         </div>
       </section>
 

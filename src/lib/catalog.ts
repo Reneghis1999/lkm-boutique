@@ -9,6 +9,7 @@
 import { cache } from "react";
 import { connection } from "next/server";
 import catalogData from "@/data/catalog.json";
+import { fallbackRepairs, type RepairData } from "@/data/repairs";
 import { categorySlugsForGroup } from "@/lib/catalog-filter";
 import { getCatalogSource, isOdooReady } from "@/lib/odoo/config";
 import { fetchOdooCatalog, type OdooCatalog } from "@/lib/odoo/catalog";
@@ -27,6 +28,8 @@ export type LoadedCatalog = {
   error?: string;
   /** Âge des données Odoo affichées, en secondes. */
   ageSeconds?: number;
+  /** Tarifs de réparation lus dans Odoo (null : on garde ceux du site). */
+  repairs?: RepairData | null;
   diagnostics?: OdooCatalog["diagnostics"];
 };
 
@@ -85,6 +88,7 @@ const loadCatalog = cache(async (): Promise<LoadedCatalog> => {
         source: "odoo",
         error,
         ageSeconds: Math.round((Date.now() - at) / 1000),
+        repairs: odoo.repairs,
         diagnostics: odoo.diagnostics,
       };
     } catch (e) {
@@ -109,6 +113,18 @@ export { loadCatalog };
 export async function getCatalogSourceLabel(): Promise<string> {
   if (getCatalogSource() === "json") return "json";
   return (await loadCatalog()).source;
+}
+
+/**
+ * Tarifs de réparation : ceux d’Odoo dès que la catégorie « Services de
+ * réparation » contient des fiches, sinon la liste de secours du site.
+ */
+export async function getRepairs(): Promise<RepairData> {
+  const { repairs } = await loadCatalog();
+  if (repairs && repairs.items.length > 0) return repairs;
+  // Catégorie créée mais encore vide : liste du site, main d’œuvre d’Odoo.
+  if (repairs) return { ...fallbackRepairs, labor: repairs.labor };
+  return fallbackRepairs;
 }
 
 export async function getCategories(): Promise<Category[]> {

@@ -126,6 +126,22 @@ async function main() {
     warn(`${d.withoutPrice.length} produit(s) sans prix :`);
     list(d.withoutPrice);
   }
+  if (d.repairs === null) {
+    console.log(
+      "  ℹ️  Réparations : catégorie « Services de réparation » absente → le site affiche ses tarifs de secours",
+    );
+  } else if (catalog.repairs) {
+    ok(
+      `${d.repairs} réparation(s) lue(s) dans Odoo — main d’œuvre ${catalog.repairs.labor} CFA`,
+    );
+    list(
+      catalog.repairs.items.map(
+        (r) =>
+          `[${r.category}] ${r.title} : ${r.service != null ? `forfait ${r.service}` : r.partFrom != null ? `dès ${r.partFrom}` : "sur devis"}${r.popular ? " ★" : ""}`,
+      ),
+      30,
+    );
+  }
   for (const w of d.warnings) warn(w);
   if (d.missingFields.length) {
     console.log(`  ℹ️  Champs absents (ignorés) : ${d.missingFields.join(", ")}`);
