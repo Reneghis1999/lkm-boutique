@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from "lucide-react";
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
 import { Input } from "@/components/ui/input";
-import { filterProducts } from "@/lib/catalog";
+import { filterProducts } from "@/lib/catalog-filter";
 import type { Category, Product, SortOption } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -82,8 +82,9 @@ export function Catalog({
           maxPrice: maxPrice ? Number(maxPrice) : undefined,
         },
         products,
+        categories,
       ),
-    [products, query, category, group, sort, minPrice, maxPrice],
+    [products, categories, query, category, group, sort, minPrice, maxPrice],
   );
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));

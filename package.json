@@ -12,7 +12,8 @@
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
     "db:setup": "prisma db push && tsx prisma/seed.ts",
-    "catalog:fix": "node scripts/fix-catalog.mjs"
+    "catalog:fix": "node scripts/fix-catalog.mjs",
+    "odoo:check": "tsx scripts/odoo-check.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

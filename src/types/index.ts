@@ -43,6 +43,8 @@ export interface Category {
   group: CategoryGroup;
   sourceName: string;
   count: number;
+  /** Id de la catégorie eCommerce Odoo (product.public.category) */
+  odooId?: number;
 }
 
 export interface CartItem {

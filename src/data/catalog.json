@@ -9,7 +9,8 @@
       "accent": "yellow",
       "group": "gaming",
       "sourceName": "CD",
-      "count": 97
+      "count": 97,
+      "odooId": 1
     },
     {
       "slug": "pencil",
@@ -20,7 +21,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "PENCIL",
-      "count": 15
+      "count": 15,
+      "odooId": 2
     },
     {
       "slug": "consol-de-jeux",
@@ -31,7 +33,8 @@
       "accent": "yellow",
       "group": "gaming",
       "sourceName": "CONSOL DE JEUX",
-      "count": 23
+      "count": 23,
+      "odooId": 3
     },
     {
       "slug": "manette",
@@ -42,7 +45,8 @@
       "accent": "yellow",
       "group": "gaming",
       "sourceName": "MANETTE",
-      "count": 7
+      "count": 7,
+      "odooId": 4
     },
     {
       "slug": "power-bank",
@@ -53,7 +57,8 @@
       "accent": "blue",
       "group": "mobile",
       "sourceName": "power bank",
-      "count": 13
+      "count": 13,
+      "odooId": 5
     },
     {
       "slug": "pc",
@@ -64,7 +69,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "PC",
-      "count": 9
+      "count": 9,
+      "odooId": 6
     },
     {
       "slug": "mp3",
@@ -75,7 +81,8 @@
       "accent": "yellow",
       "group": "audio",
       "sourceName": "MP3",
-      "count": 5
+      "count": 5,
+      "odooId": 7
     },
     {
       "slug": "telephone-samsung",
@@ -86,7 +93,8 @@
       "accent": "blue",
       "group": "mobile",
       "sourceName": "TELEPHONE SAMSUNG",
-      "count": 17
+      "count": 17,
+      "odooId": 8
     },
     {
       "slug": "cle-usb-et-memoire",
@@ -97,7 +105,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "cle usb et memoire",
-      "count": 10
+      "count": 10,
+      "odooId": 11
     },
     {
       "slug": "adaptateur-pc",
@@ -108,7 +117,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "ADAPTAteur PC",
-      "count": 15
+      "count": 15,
+      "odooId": 12
     },
     {
       "slug": "accessoire-de-reparation",
@@ -119,7 +129,8 @@
       "accent": "green",
       "group": "repair",
       "sourceName": "ACCESSOIRE DE réparation",
-      "count": 30
+      "count": 30,
+      "odooId": 13
     },
     {
       "slug": "sac-et-pose-pc",
@@ -130,7 +141,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "SAC ET POSE PC",
-      "count": 6
+      "count": 6,
+      "odooId": 14
     },
     {
       "slug": "chargeur-pc",
@@ -141,7 +153,8 @@
       "accent": "green",
       "group": "pc",
       "sourceName": "CHARGEUR PC",
-      "count": 3
+      "count": 3,
+      "odooId": 15
     },
     {
       "slug": "chargeur-telephone-porteble",
@@ -152,7 +165,8 @@
       "accent": "blue",
       "group": "mobile",
       "sourceName": "CHARGEUR TELEPHONE PORTEBLE",
-      "count": 28
+      "count": 28,
+      "odooId": 16
     },
     {
       "slug": "motorola-piecs-de-rechange",
@@ -163,7 +177,8 @@
       "accent": "blue",
       "group": "mobile",
       "sourceName": "MOTOROLA PIECS DE RECHANGE",
-      "count": 2
+      "count": 2,
+      "odooId": 17
     },
     {
       "slug": "coq-iphone",
@@ -174,7 +189,8 @@
       "accent": "blue",
       "group": "mobile",
       "sourceName": "coq iphone",
-      "count": 1
+      "count": 1,
+      "odooId": 18
     },
     {
       "slug": "copie-de-jeux",
@@ -185,7 +201,8 @@
       "accent": "yellow",
       "group": "gaming",
       "sourceName": "copie de jeux",
-      "count": 1
+      "count": 1,
+      "odooId": 19
     }
   ],
   "products": [

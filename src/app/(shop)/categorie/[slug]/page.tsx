@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
 import {
-  getCategories,
   getCategoryBySlug,
   getProductsByCategory,
 } from "@/lib/catalog";
@@ -12,10 +11,8 @@ import { cn } from "@/lib/utils";
 
 type Params = Promise<{ slug: string }>;
 
-export async function generateStaticParams() {
-  const categories = await getCategories();
-  return categories.map((c) => ({ slug: c.slug }));
-}
+// Pas de generateStaticParams : la page est rendue à chaque visite pour
+// refléter immédiatement ce que le client modifie dans Odoo.
 
 export async function generateMetadata({
   params,

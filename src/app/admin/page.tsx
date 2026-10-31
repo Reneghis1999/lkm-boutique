@@ -1,8 +1,32 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { getCatalogSource, getOdooConfig, isOdooReady } from "@/lib/odoo/config";
-import { testOdooConnection } from "@/lib/odoo/client";
-import { getCatalogSourceLabel, getProducts } from "@/lib/catalog";
+import {
+  fetchApiKeyExpirations,
+  testOdooConnection,
+} from "@/lib/odoo/client";
+import { loadCatalog } from "@/lib/catalog";
+
+function daysUntil(date: string) {
+  const ms = new Date(date).getTime() - Date.now();
+  return Math.ceil(ms / (24 * 60 * 60 * 1000));
+}
+
+function NameList({ title, names }: { title: string; names: string[] }) {
+  if (names.length === 0) return null;
+  return (
+    <details className="mt-3 text-sm">
+      <summary className="cursor-pointer text-amber-100/90">
+        {title} : {names.length}
+      </summary>
+      <ul className="mt-2 max-h-48 list-disc overflow-auto pl-5 text-white/55">
+        {names.map((n) => (
+          <li key={n}>{n}</li>
+        ))}
+      </ul>
+    </details>
+  );
+}
 
 export default async function AdminDashboardPage() {
   const session = await auth();
@@ -10,12 +34,18 @@ export default async function AdminDashboardPage() {
 
   const odoo = getOdooConfig();
   const sourcePref = getCatalogSource();
-  const activeSource = await getCatalogSourceLabel();
-  const products = await getProducts();
+  const catalog = await loadCatalog();
+  const activeSource = catalog.source;
+  const products = catalog.products;
+  const diag = catalog.diagnostics;
 
   let connection: { ok: boolean; message: string } | null = null;
+  let keys: Awaited<ReturnType<typeof fetchApiKeyExpirations>> = null;
   if (odoo.configured) {
-    connection = await testOdooConnection();
+    [connection, keys] = await Promise.all([
+      testOdooConnection(),
+      fetchApiKeyExpirations(),
+    ]);
   }
 
   return (
@@ -102,12 +132,85 @@ export default async function AdminDashboardPage() {
             avec API externe).
           </p>
         )}
+
+        {catalog.error && (
+          <p className="mt-3 rounded-xl bg-red-500/15 px-4 py-3 text-sm text-red-100">
+            Le site affiche le catalogue JSON de secours car Odoo a renvoyé une
+            erreur : {catalog.error}
+          </p>
+        )}
+
+        {keys && keys.length > 0 && (
+          <ul className="mt-3 space-y-1 text-sm text-white/60">
+            {keys.map((k, i) => {
+              const days = k.expiration ? daysUntil(k.expiration) : null;
+              return (
+                <li key={`${k.name}-${i}`}>
+                  Clé « {k.name} » :{" "}
+                  {k.expiration ? (
+                    <span
+                      className={
+                        days != null && days <= 14
+                          ? "text-amber-200"
+                          : "text-white/80"
+                      }
+                    >
+                      expire le {k.expiration.slice(0, 10)} ({days} j)
+                    </span>
+                  ) : (
+                    "sans date d’expiration"
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
+
+      {diag && (
+        <div className="mt-6 rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold">
+            Ce que le site lit dans Odoo
+          </h2>
+          <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+            <div className="flex justify-between gap-4">
+              <dt className="text-white/45">Produits publiés</dt>
+              <dd className="text-white/85">{diag.products}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-white/45">Avec photo</dt>
+              <dd className="text-white/85">{diag.withImage}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-white/45">Catégories (non vides)</dt>
+              <dd className="text-white/85">{diag.categories}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-white/45">Filtre « Publié »</dt>
+              <dd className="text-white/85">
+                {diag.publishedFilter ? "actif" : "indisponible"}
+              </dd>
+            </div>
+          </dl>
+          <NameList title="Sans photo" names={diag.withoutImage} />
+          <NameList
+            title="Sans catégorie du site web dans Odoo"
+            names={diag.withoutOdooCategory}
+          />
+          <NameList title="Sans prix" names={diag.withoutPrice} />
+          <NameList title="Avertissements" names={diag.warnings} />
+          <NameList
+            title="Champs Odoo absents (ignorés)"
+            names={diag.missingFields}
+          />
+        </div>
+      )}
 
       <ol className="mt-8 list-decimal space-y-2 pl-5 text-sm text-white/55">
         <li>Confirmer le plan Odoo (API externe = plan Custom).</li>
         <li>
-          Créer une clé API dans Odoo → Préférences → Sécurité du compte.
+          Créer une clé API dans Odoo → Préférences → Sécurité du compte (3 mois
+          maximum : à renouveler avant expiration).
         </li>
         <li>
           Ajouter les variables sur Vercel / <code>.env</code> local.

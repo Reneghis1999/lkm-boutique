@@ -11,6 +11,7 @@ import {
   useCart,
   useCartCount,
   useCartTotal,
+  useSyncCartWithCatalog,
 } from "@/store/cart";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +20,7 @@ export default function CartPage() {
   const count = useCartCount();
   const total = useCartTotal();
   const hasUnpriced = items.some((i) => !hasPrice(i.price));
+  useSyncCartWithCatalog();
 
   return (
     <div className="pt-20">

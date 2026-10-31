@@ -4,17 +4,14 @@ import { ProductDetail } from "@/components/products/product-detail";
 import {
   getCategories,
   getProductBySlug,
-  getProducts,
   getRelatedProducts,
 } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 
 type Params = Promise<{ slug: string }>;
 
-export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.map((p) => ({ slug: p.slug }));
-}
+// Pas de generateStaticParams : la page est rendue à chaque visite pour
+// refléter immédiatement ce que le client modifie dans Odoo.
 
 export async function generateMetadata({
   params,

@@ -11,6 +11,7 @@ import {
   useCart,
   useCartCount,
   useCartTotal,
+  useSyncCartWithCatalog,
 } from "@/store/cart";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +20,7 @@ export function CartDrawer() {
   const count = useCartCount();
   const total = useCartTotal();
   const hasUnpriced = items.some((i) => !hasPrice(i.price));
+  useSyncCartWithCatalog(isOpen);
 
   return (
     <AnimatePresence>
