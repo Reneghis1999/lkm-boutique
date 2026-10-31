@@ -36,23 +36,25 @@ Une **nouvelle catégorie** créée dans Odoo apparaît automatiquement ; sa rub
 catégorie parente. Les catégories existantes gardent leur adresse et leur
 présentation ; si le client les renomme, le nouveau nom s’affiche.
 
-## Réparations (page /reparation et accueil)
+## Réparations (page /reparation)
 
-Gérées dans Odoo comme des produits, dans une **catégorie du site web
-« Services de réparation »** (ou « Réparations ») :
+Gérées dans Odoo comme le client le fait déjà : fiches (type Service) dans sa
+**catégorie interne « REPARATION »** (Inventaire), ou dans une catégorie du
+site web « Services de réparation ». Une fiche **publiée** apparaît sur la page
+Réparation (et plus dans la boutique) ; dépubliée, elle disparaît.
 
 | Dans Odoo | Sur le site |
 |---|---|
-| Sous-catégories (« Réparation téléphone », « … ordinateur », « … console ») | Onglets Téléphones & tablettes / Ordinateurs / Consoles & manettes (sinon « Autres réparations ») |
-| Fiche **« Main d’œuvre »** (prix de vente) | Prix de la main d’œuvre affiché partout (2 000 CFA par défaut) |
-| Fiche réparation : nom, prix de vente, description | Réparation « pièce à partir de [prix] + main d’œuvre » |
-| Étiquette **« Forfait »** sur la fiche | « Forfait [prix], main d’œuvre comprise » |
+| « Changement … » / « Remplacement … » au prix de 2 000 | « Main d’œuvre 2 000 CFA + pièce selon le modèle » |
+| … avec « Pièce à partir de 15000 » dans la description | « Pièce à partir de 15 000 CFA + main d’œuvre 2 000 CFA » |
+| Autre service (flash, mise à jour, récupération…) | « Forfait [prix], main d’œuvre comprise » |
+| Étiquette « Forfait » | Forfait, quel que soit le nom |
 | Prix à 0 | « Sur devis » |
-| Ruban (Nouveau !, Ventes…) | « Le plus demandé » + en tête sur l’accueil |
-| **Publié** / dépublié | Affichée / retirée |
+| Ruban (Nouveau !, Ventes…) | « Le plus demandé » |
+| Nom contenant iPhone / PC / console… | Onglet Téléphones / Ordinateurs / Consoles (téléphone par défaut) |
 
-Ces fiches n’apparaissent pas dans la boutique. Tant que la catégorie n’existe
-pas (ou est vide), le site affiche les tarifs de secours de
+Le bouton WhatsApp reprend le nom et le prix d’Odoo. Tant qu’aucune fiche de
+réparation n’est publiée, le site affiche les tarifs de secours de
 `src/data/repairs.ts`. Nom de catégorie personnalisable : `ODOO_REPAIR_CATEGORY`.
 
 Les rubans « Épuisé » / « En rupture de stock » ne mettent pas un produit en

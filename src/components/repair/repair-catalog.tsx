@@ -135,7 +135,8 @@ export function RepairCatalog({
         {items.map((item) => {
           const Icon = icons[item.icon] ?? Wrench;
           const isService = item.service != null;
-          const onQuote = !isService && item.partFrom == null;
+          const laborOnly = !isService && item.partFrom == null && item.labor != null;
+          const onQuote = !isService && item.partFrom == null && item.labor == null;
           return (
             <article
               key={item.id}
@@ -162,7 +163,17 @@ export function RepairCatalog({
 
               <div>
                 <div className="rounded-2xl bg-black/25 p-4">
-                  {onQuote ? (
+                  {laborOnly ? (
+                    <>
+                      <p className="text-xs text-white/45">Main d’œuvre</p>
+                      <p className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-white">
+                        {formatPrice(item.labor)}
+                      </p>
+                      <p className="mt-1 text-xs text-[var(--lkm-yellow)]">
+                        + pièce selon le modèle (prix sur WhatsApp)
+                      </p>
+                    </>
+                  ) : onQuote ? (
                     <>
                       <p className="text-xs text-white/45">Prix</p>
                       <p className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-white">
@@ -189,7 +200,7 @@ export function RepairCatalog({
                         {formatPrice(item.partFrom)}
                       </p>
                       <p className="mt-1 text-xs text-[var(--lkm-yellow)]">
-                        + main d’œuvre {formatPrice(labor)}
+                        + main d’œuvre {formatPrice(item.labor ?? labor)}
                       </p>
                     </>
                   )}

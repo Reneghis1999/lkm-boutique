@@ -12,6 +12,7 @@ import {
   mapOdooCategories,
   mapOdooRepairs,
   mapOdooTemplates,
+  isRepairInternalCategory,
   repairCategoryIds,
   type LegacyCategory,
   type OdooAttributeValueRow,
@@ -34,6 +35,7 @@ const TEMPLATE_FIELDS = [
   "website_ribbon_id",
   "product_variant_id",
   "product_tag_ids",
+  "categ_id",
   "write_date",
 ] as const;
 
@@ -159,18 +161,18 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
 
   const allCategoryRows = Array.isArray(categoryRows) ? categoryRows : [];
 
-  // Réparations : fiches rangées dans « Services de réparation » (et sous-catégories).
-  const repairIds = repairCategoryIds(
-    allCategoryRows,
-    process.env.ODOO_REPAIR_CATEGORY,
-  );
+  // Réparations : fiches de la catégorie interne « REPARATION » (habitude du
+  // client) ou de la catégorie du site web « Services de réparation ».
+  const wantedRepair = process.env.ODOO_REPAIR_CATEGORY;
+  const repairIds = repairCategoryIds(allCategoryRows, wantedRepair);
   const isRepair = (row: OdooTemplateRow) =>
+    isRepairInternalCategory(row.categ_id, wantedRepair) ||
     (row.public_categ_ids ?? []).some((id) => repairIds.has(id));
   const repairRows = templates.filter(isRepair);
   const shopTemplates = templates.filter((row) => !isRepair(row));
 
   let repairs: RepairData | null = null;
-  if (repairIds.size > 0) {
+  if (repairIds.size > 0 || repairRows.length > 0) {
     const tagIds = [...new Set(repairRows.flatMap((r) => r.product_tag_ids ?? []))];
     const tagRows = tagIds.length
       ? await odooCall<{ id: number; name: string }[]>("product.tag", "search_read", {

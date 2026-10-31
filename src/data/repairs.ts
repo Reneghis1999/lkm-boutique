@@ -20,6 +20,8 @@ export type RepairItem = {
   icon: string;
   partFrom?: number | null;
   service?: number | null;
+  /** Main d’œuvre propre à cette réparation (pièce selon le modèle en plus). */
+  labor?: number | null;
   popular?: boolean;
 };
 

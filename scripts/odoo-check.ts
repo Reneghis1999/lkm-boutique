@@ -128,7 +128,7 @@ async function main() {
   }
   if (d.repairs === null) {
     console.log(
-      "  ℹ️  Réparations : catégorie « Services de réparation » absente → le site affiche ses tarifs de secours",
+      "  ℹ️  Réparations : aucune fiche publiée dans la catégorie « REPARATION » → le site affiche ses tarifs de secours",
     );
   } else if (catalog.repairs) {
     ok(
@@ -137,7 +137,7 @@ async function main() {
     list(
       catalog.repairs.items.map(
         (r) =>
-          `[${r.category}] ${r.title} : ${r.service != null ? `forfait ${r.service}` : r.partFrom != null ? `dès ${r.partFrom}` : "sur devis"}${r.popular ? " ★" : ""}`,
+          `[${r.category}] ${r.title} : ${r.service != null ? `forfait ${r.service}` : r.labor != null ? `main d’œuvre ${r.labor} + pièce${r.partFrom ? ` dès ${r.partFrom}` : " selon modèle"}` : r.partFrom != null ? `pièce dès ${r.partFrom}` : "sur devis"}${r.popular ? " ★" : ""}`,
       ),
       30,
     );

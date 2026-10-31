@@ -35,6 +35,7 @@ export type OdooTemplateRow = {
   website_ribbon_id?: Many2one;
   product_variant_id?: Many2one;
   product_tag_ids?: number[];
+  categ_id?: Many2one;
   write_date?: string;
 };
 
@@ -430,6 +431,20 @@ export function isRepairRootName(name: string, wanted?: string): boolean {
   return /^(services? (de )?)?reparations?$/.test(n);
 }
 
+/**
+ * Catégorie interne (Inventaire) de réparation : « REPARATION », « Services
+ * de réparation »… à n’importe quel niveau du chemin (« Tous / REPARATION »).
+ */
+export function isRepairInternalCategory(
+  categ: Many2one | undefined,
+  wanted?: string,
+): boolean {
+  if (!Array.isArray(categ)) return false;
+  return categ[1]
+    .split("/")
+    .some((segment) => isRepairRootName(segment.trim(), wanted));
+}
+
 /** Ids de la catégorie « Services de réparation » et de ses sous-catégories. */
 export function repairCategoryIds(
   rows: OdooPublicCategoryRow[],
@@ -452,7 +467,7 @@ export function repairCategoryIds(
 }
 
 const REPAIR_TAB_RULES: [RepairCategory, RegExp][] = [
-  ["console", /(console|manette|playstation|\bps[2-5]\b|xbox|switch|nintendo)/],
+  ["console", /(console|manette|playstation|\bps[2-5]\b|xbox|switch|nintendo|\bjeux?\b)/],
   ["computer", /(ordinateur|\bpc\b|laptop|macbook|\bmac\b|imprimante|clavier)/],
   ["phone", /(telephone|phone|smartphone|tablette|ipad|mobile|iphone|samsung|tecno|infinix|itel)/],
 ];
@@ -464,14 +479,16 @@ function repairTab(text: string): RepairCategory | null {
 }
 
 /**
- * Fiches Odoo de la catégorie « Services de réparation » → tarifs du site.
- * - prix de vente = prix de la pièce « à partir de » (+ main d’œuvre) ;
- * - étiquette « Forfait » (ou « forfait » dans le nom) = forfait tout compris ;
- * - prix à 0 = sur devis ;
- * - fiche « Main d’œuvre » = prix de la main d’œuvre affiché partout ;
- * - un ruban (Nouveau, Ventes…) = « Le plus demandé ».
- * L’onglet (téléphone, ordinateur, console) vient de la sous-catégorie, ou
- * à défaut du nom de la réparation.
+ * Fiches de réparation Odoo → tarifs du site, en suivant les habitudes du
+ * client (catégorie interne « REPARATION ») :
+ * - « Changement … » / « Remplacement … » : le prix Odoo est la main d’œuvre,
+ *   la pièce est en plus selon le modèle (ou « Pièce à partir de 15000 »
+ *   écrit dans la description) ;
+ * - autres services (flash, mise à jour, récupération…) : forfait ;
+ * - étiquette « Forfait » : forfait dans tous les cas ;
+ * - prix à 0 : sur devis ;
+ * - un ruban (Nouveau !, Ventes…) : « Le plus demandé ».
+ * La fiche « Main d’œuvre » (facultative) fixe la main d’œuvre affichée.
  */
 export function mapOdooRepairs(
   rows: OdooTemplateRow[],
@@ -481,49 +498,57 @@ export function mapOdooRepairs(
     tagNames: Map<number, string>;
   },
 ): RepairData {
-  let labor = REPAIR_LABOR;
+  let laborProduct: number | null = null;
   const items: RepairItem[] = [];
 
   for (const row of rows) {
-    const title = (row.name || "").trim();
-    if (!title) continue;
+    const rawTitle = (row.name || "").trim();
+    if (!rawTitle) continue;
+    const n = normalize(rawTitle);
     const price =
       typeof row.list_price === "number" && row.list_price > 0
         ? Math.round(row.list_price)
         : null;
 
-    if (/^main d/.test(normalize(title))) {
-      if (price) labor = price;
+    if (/^main d/.test(n)) {
+      if (price) laborProduct = price;
       continue;
     }
 
+    const title = rawTitle.charAt(0).toUpperCase() + rawTitle.slice(1);
     const subNames = (row.public_categ_ids ?? [])
       .filter((id) => ctx.repairIds.has(id))
       .map((id) => ctx.categoryNames.get(id) || "");
     const category =
-      subNames.map(repairTab).find(Boolean) ?? repairTab(title) ?? "other";
+      subNames.map(repairTab).find(Boolean) ?? repairTab(rawTitle) ?? "phone";
 
     const tags = (row.product_tag_ids ?? []).map((id) =>
       normalize(ctx.tagNames.get(id) || ""),
     );
-    const flat = tags.some((t) => t.includes("forfait")) || /forfait/.test(normalize(title));
-
     const description =
       htmlToText(row.description_ecommerce) ||
       htmlToText(row.website_description) ||
       (typeof row.description_sale === "string" ? row.description_sale.trim() : "");
+
+    const flat = tags.some((t) => t.includes("forfait")) || /forfait/.test(n);
+    const partSwap = !flat && /^(changement|remplacement|reparation)\b/.test(n);
+    const partMatch = normalize(description).match(/piece[^0-9]{0,30}(\d[\d\s.]*)/);
+    const partFrom = partMatch ? Number(partMatch[1].replace(/[\s.]/g, "")) || null : null;
 
     items.push({
       id: `odoo-${row.id}`,
       category,
       title: title.replace(/\s*\(?forfait\)?\s*$/i, "").trim() || title,
       description,
-      icon: repairIcon(title, category),
-      partFrom: flat ? null : price,
-      service: flat ? price : null,
+      icon: repairIcon(rawTitle, category),
+      service: partSwap || price == null ? null : price,
+      labor: partSwap ? price : null,
+      partFrom: partSwap && price != null ? partFrom : null,
       popular: isHighlightRibbon(row.website_ribbon_id),
     });
   }
 
+  const laborValues = items.map((i) => i.labor).filter((v): v is number => v != null);
+  const labor = laborProduct ?? (laborValues.length ? Math.min(...laborValues) : REPAIR_LABOR);
   return { items, labor, source: "odoo" };
 }

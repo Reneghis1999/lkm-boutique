@@ -97,7 +97,10 @@ export function repairPriceLine(
     return `Forfait ${formatPrice(item.service)} (main d’œuvre comprise)`;
   }
   if (item.partFrom != null) {
-    return `Pièce à partir de ${formatPrice(item.partFrom)} + main d’œuvre ${formatPrice(labor)}`;
+    return `Pièce à partir de ${formatPrice(item.partFrom)} + main d’œuvre ${formatPrice(item.labor ?? labor)}`;
+  }
+  if (item.labor != null) {
+    return `Main d’œuvre ${formatPrice(item.labor)} + pièce selon le modèle`;
   }
   return `Sur devis (main d’œuvre ${formatPrice(labor)} + pièce selon le modèle)`;
 }
