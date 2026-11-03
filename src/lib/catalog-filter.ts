@@ -8,7 +8,7 @@ import type { Category, CategoryGroup, Product, SortOption } from "@/types";
 export const GROUP_CATEGORY_SLUGS: Record<string, string[]> = {
   mobile: [
     "telephone-samsung",
-    "chargeur-telephone-porteble",
+    "chargeur-telephone-portable",
     "power-bank",
     "coq-iphone",
     "motorola-piecs-de-rechange",
@@ -21,7 +21,7 @@ export const GROUP_CATEGORY_SLUGS: Record<string, string[]> = {
     "cle-usb-et-memoire",
     "pencil",
   ],
-  gaming: ["consol-de-jeux", "cd", "manette", "copie-de-jeux"],
+  gaming: ["console-de-jeux", "cd", "manette", "copie-de-jeux"],
   audio: ["mp3"],
   repair: ["accessoire-de-reparation", "motorola-piecs-de-rechange"],
 };

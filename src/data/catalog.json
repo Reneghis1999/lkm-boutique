@@ -25,7 +25,7 @@
       "odooId": 2
     },
     {
-      "slug": "consol-de-jeux",
+      "slug": "console-de-jeux",
       "name": "Consoles",
       "shortName": "Consoles",
       "description": "PlayStation, Xbox, Nintendo Switch et accessoires console.",
@@ -157,7 +157,7 @@
       "odooId": 15
     },
     {
-      "slug": "chargeur-telephone-porteble",
+      "slug": "chargeur-telephone-portable",
       "name": "Chargeurs & câbles",
       "shortName": "Chargeurs",
       "description": "Chargeurs téléphone, câbles USB-C et Lightning.",
@@ -235,7 +235,7 @@
       "compareAtPrice": null,
       "description": "chargeur complet Y-G06 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-complet-y-g06.jpg",
       "specs": [
@@ -378,7 +378,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR IPH 16 PM disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-iph-16-pm.jpg",
       "specs": [],
@@ -427,7 +427,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR 14 PM disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-14-pm.webp",
       "specs": [],
@@ -443,7 +443,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TYPEC C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-typec-c.webp",
       "specs": [],
@@ -459,7 +459,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR IP disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-ip.webp",
       "specs": [],
@@ -512,7 +512,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR YOO FACE W65-01 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-yoo-face-w65-01.png",
       "specs": [],
@@ -1120,7 +1120,7 @@
       "compareAtPrice": null,
       "description": "chargeur moxom cpl disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-moxom-cpl.jpg",
       "specs": [
@@ -1153,7 +1153,7 @@
       "compareAtPrice": null,
       "description": "STATION D'ACCUEIL SWITCH disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/station-d-accueil-switch.jpg",
       "specs": [],
@@ -1169,7 +1169,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TRANYOO T-AP2L disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-tranyoo-t-ap2l.jpg",
       "specs": [
@@ -1329,7 +1329,7 @@
       "compareAtPrice": null,
       "description": "🔥 LA SWITCH OLED EST LÀ — 220 000 FCFA Un écran OLED 7\" qui change tout : couleurs éclatantes, son puissant, jeu partout — TV, table ou dans la main. 🎁 EA SPORTS FC 26 OFFERT avec ta console. Oui, gratuit. Stock limité chez LKM Lomé. 📞 90 00 25 91 — WhatsApp",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/switch-oled.jpg",
       "specs": [],
@@ -1556,7 +1556,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TRANYOO T-EU13C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-tranyoo-t-eu13c.webp",
       "specs": [
@@ -2808,7 +2808,7 @@
       "compareAtPrice": null,
       "description": "chargeur Yoo face PD 25W disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-yoo-face-pd-25w.jpg",
       "specs": [],
@@ -2845,7 +2845,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TRANYOO T-EU25C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-tranyoo-t-eu25c.webp",
       "specs": [
@@ -2878,7 +2878,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TRANYOO T-EU9C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-tranyoo-t-eu9c.webp",
       "specs": [
@@ -3013,7 +3013,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR AK-224 TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-ak-224-type-c.png",
       "specs": [],
@@ -3029,7 +3029,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR AK-224 V8 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-ak-224-v8.png",
       "specs": [],
@@ -3094,7 +3094,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR YSY-6097 disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-ysy-6097.png",
       "specs": [],
@@ -3169,7 +3169,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-type-c.png",
       "specs": [],
@@ -3185,7 +3185,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR 120W PD disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-120w-pd.png",
       "specs": [],
@@ -3267,7 +3267,7 @@
       "compareAtPrice": null,
       "description": "XBOX ONE 500GB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/xbox-one-500gb.jpg",
       "specs": [],
@@ -3328,7 +3328,7 @@
       "compareAtPrice": null,
       "description": "TETE SURI european bathroom disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/tete-suri-european-bathroom.png",
       "specs": [],
@@ -3344,7 +3344,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TRANYOO T-EU13L disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-tranyoo-t-eu13l.webp",
       "specs": [
@@ -3639,7 +3639,7 @@
       "compareAtPrice": null,
       "description": "PS4 FAT 1TB (HAK v13.52) disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-fat-1tb-hak-v13-52.webp",
       "specs": [],
@@ -3655,7 +3655,7 @@
       "compareAtPrice": null,
       "description": "XBOX ONE S 1Tb disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/xbox-one-s-1tb.webp",
       "specs": [],
@@ -3671,7 +3671,7 @@
       "compareAtPrice": null,
       "description": "XBOX One S 500Go disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/xbox-one-s-500go.jpg",
       "specs": [],
@@ -3703,7 +3703,7 @@
       "compareAtPrice": null,
       "description": "XBOX ONE X 1TB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/xbox-one-x-1tb.jpg",
       "specs": [],
@@ -3940,7 +3940,7 @@
       "compareAtPrice": null,
       "description": "TOY-CON GRIP SWTICH disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/toy-con-grip-swtich.jpg",
       "specs": [
@@ -3961,7 +3961,7 @@
       "compareAtPrice": null,
       "description": "PS4 SLIM 500GB , livrée avec une manette ,et les câbles et chargeur . 11 JEUX : 1.GTA 5 , 2. FC26 3. NARUTO SHIPPUDEN : Ultimate storm collection 4. RESIDENT EVIL , 5. DEMON SLAYER Kimetsu no yaiba- The Hinokami 6.Chronicles 2, 7. RISE OF TOMB RAIDER 8. inFAMOUS FIRST LIGHT 9. A WAY OUT 10. NINJA GAIDEN 3 : RAZOR'S EDGE 11. NEED FOR SPEED",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-slim-hak-500gb.jpg",
       "specs": [],
@@ -4213,7 +4213,7 @@
       "compareAtPrice": null,
       "description": "Switch disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/switch.jpg",
       "specs": [],
@@ -4295,7 +4295,7 @@
       "compareAtPrice": null,
       "description": "PS4 fat DIREC V13.02 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-fat-direc-v13-02.webp",
       "specs": [],
@@ -4690,7 +4690,7 @@
       "compareAtPrice": null,
       "description": "TETE CHARGEUR 40W DYNAMIC disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/tete-chargeur-40w-dynamic.jpg",
       "specs": [
@@ -4860,7 +4860,7 @@
       "compareAtPrice": null,
       "description": "MANETTE PS4 AVEC POCHETTE disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/manette-ps4-avec-pochette.jpg",
       "specs": [],
@@ -5008,7 +5008,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR TYPE C 40W DYNAMIC POWER ADAPTER disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-type-c-40w-dynamic-power-adapter.jpg",
       "specs": [],
@@ -5024,7 +5024,7 @@
       "compareAtPrice": null,
       "description": "LA PS5 FAT STANDARD AVEC COMPTE , UNE MANETTE ET CABLE D'ALIMENTATION , CHARGEUR 6 JEUX: EA SORTS FC26 ( EN CD ) THE LAST OF US PARTI 2 REMASTERED STAR WARS JEDI: SURVIVOR FAE CRY 6 THE WITCHER 3: WILD HUNT ASTRO'S PLAYROOM",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps5-fat-1tb-standar-2-manette.jpg",
       "specs": [],
@@ -5040,7 +5040,7 @@
       "compareAtPrice": null,
       "description": "PS5 SLIM DIGITAL AVEC COMPTE, UNE MANETTE ET CABLE D'ALIMENTATION ET CHARGEUR 6 JEUX: GTA 5 EA SPORTS FC 26 ASPHALT ASTRO'S PLAYROOM ROBLOX FORTNITE",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps5-slim-1tb-direct-digital.jpg",
       "specs": [],
@@ -5056,7 +5056,7 @@
       "compareAtPrice": null,
       "description": "PS4 FAT (HAK 500Go V13.52 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-fat-hak-500go-v13-52.webp",
       "specs": [],
@@ -5072,7 +5072,7 @@
       "compareAtPrice": null,
       "description": "PS4 SLIME DIRECT 500Go V13.52 disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-slime-direct-500go-v13-52.webp",
       "specs": [],
@@ -5088,7 +5088,7 @@
       "compareAtPrice": null,
       "description": "⁡︁⁢⁢⁡︅⁡‏⁢⁡‎⁢‏︂⁢‎⁣⁡‎⁡︅⁢⁢⁤⁤︂⁢‎⁣⁡‎⁡︅⁢⁡⁤⁡⁤︃PS5 FAT 1Tb digital disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps5-fat-1tb-digital.jpg",
       "specs": [],
@@ -5104,7 +5104,7 @@
       "compareAtPrice": null,
       "description": "CHARGEUR APPLE WATCH disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-apple-watch.jpg",
       "specs": [
@@ -5175,7 +5175,7 @@
       "compareAtPrice": null,
       "description": "PS5 SLIM STANDARD AVEC 1 MANETTE , CABLE D'ALIMENTATION ET CHARGEUR 1 JEU CD: FC26",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps5-slime-standard.jpg",
       "specs": [],
@@ -5191,7 +5191,7 @@
       "compareAtPrice": null,
       "description": "PS5 FAT STANDARD AVEC COMPTE UNE MANETTE ET LES cable 2 JEUX EA SPORTS FC25 ( EN CD) CALL OF DUTTY",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps5-fat-1tb-standard.jpg",
       "specs": [],
@@ -5207,7 +5207,7 @@
       "compareAtPrice": null,
       "description": "PS3 SLIM 128GB disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps3-slim-128gb.jpg",
       "specs": [],
@@ -5223,7 +5223,7 @@
       "compareAtPrice": null,
       "description": "PS5 SLIM DIGITAL , 2 MANETTE , CABLE D'ALIMENTATION , CHARGEUR 5 JEUX: EA SPORTS FC26 MORTAL KOMBAT EFOOTBALL DEAD BY DAYLIGHT ASTRO'S PLAYROOM",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/ps4-pro-1tb-hak.jpg",
       "specs": [],
@@ -5591,7 +5591,7 @@
       "compareAtPrice": null,
       "description": "CABLE USB-IPHONE disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/cable-usb-iphone.jpg",
       "specs": [
@@ -5624,7 +5624,7 @@
       "compareAtPrice": null,
       "description": "CABLE USB-TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/cable-usb-type-c.jpg",
       "specs": [
@@ -5657,7 +5657,7 @@
       "compareAtPrice": null,
       "description": "CABLE TYPE C-TYPE C disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/cable-type-c-type-c.jpg",
       "specs": [
@@ -5690,7 +5690,7 @@
       "compareAtPrice": null,
       "description": "CABLE TYPE C- IPHONE disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/cable-type-c-iphone.jpg",
       "specs": [
@@ -6006,7 +6006,7 @@
       "compareAtPrice": null,
       "description": "PlayStation portal disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/playstation-portal.webp",
       "specs": [],
@@ -6237,7 +6237,7 @@
       "compareAtPrice": null,
       "description": "meta qest3s disponible chez LKM Boutique à Lomé (Consoles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "consol-de-jeux"
+        "console-de-jeux"
       ],
       "image": "/products/meta-qest3s.jpg",
       "specs": [],
@@ -6253,7 +6253,7 @@
       "compareAtPrice": null,
       "description": "cable vidvie typ c A typ c 2MT disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/cable-vidvie-typ-c-a-typ-c-2mt.webp",
       "specs": [
@@ -6520,7 +6520,7 @@
       "compareAtPrice": null,
       "description": "chargeur dans voiture disponible chez LKM Boutique à Lomé (Chargeurs & câbles). Prix affiché en CFA — venez tester en magasin ou commandez via WhatsApp.",
       "categorySlugs": [
-        "chargeur-telephone-porteble"
+        "chargeur-telephone-portable"
       ],
       "image": "/products/chargeur-dans-voiture.jpg",
       "specs": [],

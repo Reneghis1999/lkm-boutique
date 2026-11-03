@@ -10,6 +10,13 @@ const odooHost = (() => {
 })();
 
 const nextConfig: NextConfig = {
+  // Anciennes adresses de catégories (fautes corrigées) → nouvelles adresses.
+  async redirects() {
+    return [
+      { source: "/categorie/chargeur-telephone-porteble", destination: "/categorie/chargeur-telephone-portable", permanent: true },
+      { source: "/categorie/consol-de-jeux", destination: "/categorie/console-de-jeux", permanent: true },
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
