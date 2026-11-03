@@ -225,7 +225,7 @@ export async function getMainCategoryGroups() {
       href: "/boutique?group=mobile",
       slugs: [
         "telephone-samsung",
-        "chargeur-telephone-porteble",
+        "chargeur-telephone-portable",
         "power-bank",
         "coq-iphone",
         "motorola-piecs-de-rechange",
@@ -245,7 +245,7 @@ export async function getMainCategoryGroups() {
       description: "PlayStation, Xbox, Switch, manettes et jeux originaux.",
       accent: "yellow" as const,
       href: "/boutique?group=gaming",
-      slugs: ["consol-de-jeux", "cd", "manette", "copie-de-jeux"],
+      slugs: ["console-de-jeux", "cd", "manette", "copie-de-jeux"],
     },
     {
       id: "repair",

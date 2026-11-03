@@ -26,7 +26,7 @@ function inferCategory(name) {
       /\b(slim|one s|oled|portal|console|500go|500gb|1to|hak)\b/.test(n) ||
       /\b(xbox one|ps4 slim|ps5|playstation portal|switch oled)\b/.test(n)
     ) {
-      return "consol-de-jeux";
+      return "console-de-jeux";
     }
   }
   if (
@@ -47,7 +47,7 @@ function inferCategory(name) {
   }
   if (/\b(imac|macbook|pc\b|ordinateur)\b/.test(n)) return "pc";
   if (/\b(cable|c[aâ]ble|chargeur|vidvie|typ\s*c|usb[- ]?c)\b/.test(n)) {
-    return "chargeur-telephone-porteble";
+    return "chargeur-telephone-portable";
   }
   if (/\b(pochette|coque|etui)\b/.test(n)) return "coq-iphone";
   if (/\b(montre|garmin|whoop|watch)\b/.test(n)) return "telephone-samsung";
@@ -75,7 +75,7 @@ const categoryMeta = {
     shortName: "Pencil",
     description: "Stylos numériques et accessoires tablette.",
   },
-  "consol-de-jeux": {
+  "console-de-jeux": {
     name: "Consoles",
     shortName: "Consoles",
     description: "PlayStation, Xbox, Nintendo Switch et accessoires console.",
@@ -130,7 +130,7 @@ const categoryMeta = {
     shortName: "Chargeurs PC",
     description: "Chargeurs et alimentations pour ordinateurs.",
   },
-  "chargeur-telephone-porteble": {
+  "chargeur-telephone-portable": {
     name: "Chargeurs & câbles",
     shortName: "Chargeurs",
     description: "Chargeurs téléphone, câbles USB-C et Lightning.",
