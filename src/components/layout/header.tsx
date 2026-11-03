@@ -17,6 +17,7 @@ import { SearchDialog } from "@/components/shop/search-dialog";
 
 const links = [
   { href: "/", label: "Accueil" },
+  { href: "/portables", label: "Portables" },
   { href: "/boutique", label: "Boutique" },
   { href: "/promotions", label: "Promotions" },
   { href: "/categories", label: "Catégories" },
