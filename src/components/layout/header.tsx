@@ -190,7 +190,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
                 )
               }
             >
-              WhatsApp
+              WhatsApp 90 00 25 91
             </Button>
 
             <button
@@ -245,7 +245,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
                     )
                   }
                 >
-                  Contacter sur WhatsApp
+                  WhatsApp : 90 00 25 91
                 </Button>
               </nav>
             </motion.div>
