@@ -17,6 +17,7 @@ import { SearchDialog } from "@/components/shop/search-dialog";
 
 const links = [
   { href: "/", label: "Accueil" },
+  { href: "/portables", label: "Portables" },
   { href: "/boutique", label: "Boutique" },
   { href: "/promotions", label: "Promotions" },
   { href: "/categories", label: "Catégories" },
@@ -190,7 +191,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
                 )
               }
             >
-              WhatsApp 90 00 25 91
+              WhatsApp<span className="hidden xl:inline">&nbsp;90 00 25 91</span>
             </Button>
 
             <button
