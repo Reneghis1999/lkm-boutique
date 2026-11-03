@@ -33,7 +33,7 @@ export const shop: ShopInfo = {
       name: "Boutique Léo 2000",
       address: "En face de la clinique de Léo 2000, Lomé",
       description: "Point de vente — testez et achetez sur place",
-      phone: "+228 90 00 25 91",
+      phone: "+228 90 16 22 16",
       mapsUrl:
         "https://www.google.com/maps/dir/?api=1&destination=6.2138385,1.1742867",
       accent: "blue",
@@ -43,7 +43,7 @@ export const shop: ShopInfo = {
       name: "Boutique Djidjolé",
       address: "Quartier Djidjolé, Lomé",
       description: "Service réparation & stock",
-      phone: "+228 90 16 22 16",
+      phone: "+228 90 00 25 91",
       mapsUrl: "https://www.google.com/maps?q=Djidjol%C3%A9,+Lom%C3%A9",
       accent: "green",
     },
