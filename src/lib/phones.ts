@@ -30,7 +30,7 @@ export const PHONE_BRANDS: PhoneBrand[] = [
 
 /** Accessoires, pièces et objets qui ne sont pas des téléphones. */
 const NOT_A_PHONE =
-  /(coque|\bcoq\b|pochette|chargeur|cable|ecouteur|airpod|power ?bank|verre|protection|\bfilm\b|vitre|ecran|nappe|connecteur|support|stylet|pencil|montre|watch|piece|rechange|adaptateur|cle usb|memoire)/;
+  /(coque|\bcoq\b|pochette|chargeur|cable|ecouteur|airpod|power ?bank|verre|protection|\bfilm\b|vitre|ecran|nappe|connecteur|support|stylet|pencil|montre|watch|piec|rechange|\bbaf\b|batterie|adaptateur|cle usb|memoire)/;
 
 function normalize(value: string) {
   return value
@@ -55,9 +55,13 @@ function phoneBrandOf(
     .map((s) => categories.get(s))
     .filter((c): c is Category => Boolean(c));
 
-  // Catégorie Odoo d’une marque (« IPHONE », « MOTOROLA »…), hors pièces.
+  // Produit rangé dans une catégorie de pièces ou d’accessoires : exclu.
+  const isAccessoryCategory = (c: Category) =>
+    c.group === "repair" || NOT_A_PHONE.test(normalize(`${c.name} ${c.sourceName}`));
+  if (cats.some(isAccessoryCategory)) return undefined;
+
+  // Catégorie Odoo d’une marque (« IPHONE », « MOTOROLA »…).
   for (const c of cats) {
-    if (c.group === "repair" || NOT_A_PHONE.test(normalize(c.name + " " + c.sourceName))) continue;
     const brand = brandOf(c.sourceName) ?? brandOf(c.name);
     if (brand && brand.slug !== "tablettes") return brandOf(product.name) ?? brand;
   }

@@ -191,7 +191,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
                 )
               }
             >
-              WhatsApp 90 00 25 91
+              WhatsApp<span className="hidden xl:inline">&nbsp;90 00 25 91</span>
             </Button>
 
             <button
