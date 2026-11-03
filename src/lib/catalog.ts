@@ -219,7 +219,7 @@ export async function getMainCategoryGroups() {
   const groups = [
     {
       id: "mobile",
-      title: "Phones & Accessoires",
+      title: "Téléphones & Accessoires",
       description: "Smartphones, batteries, power banks et pièces détachées.",
       accent: "blue" as const,
       href: "/boutique?group=mobile",

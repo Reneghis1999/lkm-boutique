@@ -14,8 +14,8 @@
     },
     {
       "slug": "pencil",
-      "name": "Stylos & Pencil",
-      "shortName": "Pencil",
+      "name": "Stylets",
+      "shortName": "Stylets",
       "description": "Stylos numériques et accessoires tablette.",
       "icon": "PenTool",
       "accent": "green",
@@ -87,7 +87,7 @@
     {
       "slug": "telephone-samsung",
       "name": "Smartphones & tablettes",
-      "shortName": "Phones",
+      "shortName": "Téléphones",
       "description": "Smartphones, iPhone, iPad et montres connectées.",
       "icon": "Smartphone",
       "accent": "blue",
