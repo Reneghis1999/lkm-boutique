@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Réparation téléphone, PC & console",
   description:
     "Changement d’écran, batterie, caméra, connecteur de charge, PC et consoles à Lomé. Prix indicatifs en CFA, main d’œuvre 2 000 CFA, devis sur WhatsApp.",
+  alternates: { canonical: "/reparation" },
 };
 
 const steps = [

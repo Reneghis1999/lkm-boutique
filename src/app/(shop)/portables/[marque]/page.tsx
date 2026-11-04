@@ -19,6 +19,7 @@ export async function generateMetadata({
   return {
     title: `${brand.name} — Portables`,
     description: `${brand.name} chez LKM Boutique à Lomé : prix en CFA, commande sur WhatsApp.`,
+    alternates: { canonical: `/portables/${brand.slug}` },
   };
 }
 

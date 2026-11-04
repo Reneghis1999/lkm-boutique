@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Catégories",
   description:
     "Parcourez toutes les catégories LKM Boutique — jeux, consoles, smartphones, PC, chargeurs et réparation.",
+  alternates: { canonical: "/categories" },
 };
 
 export default async function CategoriesPage() {

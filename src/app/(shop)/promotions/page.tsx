@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Promotions",
   description:
     "Les promotions du moment chez LKM Boutique à Lomé : consoles, smartphones, PC et accessoires à prix réduit.",
+  alternates: { canonical: "/promotions" },
 };
 
 export default async function PromotionsPage() {

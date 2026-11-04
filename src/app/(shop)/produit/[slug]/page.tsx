@@ -26,6 +26,7 @@ export async function generateMetadata({
     description:
       product.description ||
       `${product.name} — ${formatPrice(product.price)} chez LKM Boutique`,
+    alternates: { canonical: `/produit/${product.slug}` },
   };
 }
 

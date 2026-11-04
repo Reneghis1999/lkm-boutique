@@ -50,9 +50,6 @@ export const metadata: Metadata = {
     description: shop.tagline,
     images: ["/logo-lkm.png"],
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({

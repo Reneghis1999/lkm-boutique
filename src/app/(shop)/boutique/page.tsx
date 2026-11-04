@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Boutique",
   description:
     "Catalogue complet LKM Boutique — smartphones, PC, consoles, jeux et accessoires à Lomé.",
+  alternates: { canonical: "/boutique" },
 };
 
 type SearchParams = Promise<{

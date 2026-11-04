@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { FeaturedProducts } from "@/components/home/featured-products";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
@@ -19,6 +20,10 @@ import {
   getPromoProducts,
   getShopContacts,
 } from "@/lib/catalog";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const [featured, groups, products, categories, contacts, promos] = await Promise.all([
