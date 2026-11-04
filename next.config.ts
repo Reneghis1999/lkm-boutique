@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
   // Anciennes adresses de catégories (fautes corrigées) → nouvelles adresses.
   async redirects() {
     return [
+      // Ancienne adresse Vercel → domaine officiel (évite le contenu en double
+      // sur Google). Les routes /api restent servies telles quelles.
+      {
+        source: "/:path((?!api/).*)",
+        has: [{ type: "host", value: "lkm-boutique.vercel.app" }],
+        destination: "https://www.lkm-boutique.com/:path",
+        permanent: true,
+      },
       { source: "/categorie/chargeur-telephone-porteble", destination: "/categorie/chargeur-telephone-portable", permanent: true },
       { source: "/categorie/consol-de-jeux", destination: "/categorie/console-de-jeux", permanent: true },
     ];

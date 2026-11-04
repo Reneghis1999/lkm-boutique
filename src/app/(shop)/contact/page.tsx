@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contactez LKM Boutique à Lomé — WhatsApp, Instagram, TikTok et adresses Léo 2000 & Djidjolé.",
+  alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage() {

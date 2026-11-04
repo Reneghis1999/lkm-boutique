@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Portables",
   description:
     "Téléphones portables chez LKM Boutique à Lomé : iPhone, Samsung, Motorola et autres marques. Prix en CFA, commande sur WhatsApp.",
+  alternates: { canonical: "/portables" },
 };
 
 export default async function PortablesPage() {
