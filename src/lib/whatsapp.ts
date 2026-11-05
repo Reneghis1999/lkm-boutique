@@ -44,7 +44,28 @@ export function buildProductWhatsAppMessage(
   return lines.join("\n");
 }
 
-export function buildCartWhatsAppMessage(items: CartItem[]): string {
+/** Mode de réception choisi dans le panier. */
+export type DeliveryInfo =
+  | { mode: "pickup"; shop: string }
+  | { mode: "delivery"; area: string };
+
+function deliveryLines(delivery?: DeliveryInfo): string[] {
+  if (!delivery) return [];
+  if (delivery.mode === "pickup") {
+    return [``, `Réception : retrait en boutique (${delivery.shop})`];
+  }
+  return [
+    ``,
+    `Réception : livraison à domicile à Lomé`,
+    `Quartier / adresse : ${delivery.area.trim() || "(à préciser)"}`,
+    `Merci de me confirmer les frais de livraison.`,
+  ];
+}
+
+export function buildCartWhatsAppMessage(
+  items: CartItem[],
+  delivery?: DeliveryInfo,
+): string {
   const lines = [
     `Bonjour LKM Boutique,`,
     ``,
@@ -84,6 +105,7 @@ export function buildCartWhatsAppMessage(items: CartItem[]): string {
     lines.push(`Prix à confirmer pour l’ensemble de la commande.`);
   }
 
+  lines.push(...deliveryLines(delivery));
   lines.push(``, `Merci !`);
   return lines.join("\n");
 }
