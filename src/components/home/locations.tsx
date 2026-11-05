@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
+import { LocationMap } from "@/components/shop/location-map";
 import { OpeningHours } from "@/components/shop/opening-hours";
 import type { ShopLocation } from "@/types";
 import { PillLink } from "@/components/home/motion/pill-link";
@@ -32,7 +33,7 @@ export function Locations({ locations }: { locations: ShopLocation[] }) {
           <article
             key={loc.id}
             data-reveal
-            className="flex flex-col justify-between gap-10 rounded-[1.75rem] border border-white/10 bg-[var(--lkm-surface)] p-7 sm:p-9"
+            className="flex flex-col justify-between gap-8 rounded-[1.75rem] border border-white/10 bg-[var(--lkm-surface)] p-7 sm:p-9"
           >
             <div>
               <span
@@ -50,6 +51,9 @@ export function Locations({ locations }: { locations: ShopLocation[] }) {
               <p className="mt-1 text-sm text-white/40">{loc.description}</p>
               <OpeningHours className="mt-4" />
             </div>
+            {loc.mapQuery && (
+              <LocationMap query={loc.mapQuery} title={`Carte — ${loc.name}`} />
+            )}
             <div>
               <PillLink href={loc.mapsUrl} external variant="light">
                 Itinéraire

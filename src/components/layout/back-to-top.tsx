@@ -62,7 +62,7 @@ export function BackToTop() {
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
       className={cn(
-        "group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0f]/90 text-white shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)] ring-1 ring-white/15 backdrop-blur transition-all duration-300 hover:bg-[var(--lkm-yellow)] hover:text-[#0b0b0f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--lkm-yellow)] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14",
+        "group fixed bottom-[calc(max(1rem,env(safe-area-inset-bottom))+4.25rem)] right-5 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-[#0b0b0f]/90 text-white shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)] ring-1 ring-white/15 backdrop-blur transition-all duration-300 hover:bg-[var(--lkm-yellow)] hover:text-[#0b0b0f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--lkm-yellow)] sm:bottom-[6.5rem] sm:right-7 sm:h-14 sm:w-14",
         visible
           ? "pointer-events-auto translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0",
