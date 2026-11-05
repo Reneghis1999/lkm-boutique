@@ -46,7 +46,6 @@ export const shop: ShopInfo = {
       description: "Service réparation & stock",
       phone: "+228 90 00 25 91",
       mapsUrl: "https://www.google.com/maps?q=Djidjol%C3%A9,+Lom%C3%A9",
-      mapQuery: "Djidjolé, Lomé, Togo",
       accent: "green",
     },
   ],
