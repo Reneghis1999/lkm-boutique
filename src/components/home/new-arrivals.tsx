@@ -28,8 +28,8 @@ export function NewArrivals({ products }: { products: Product[] }) {
           </p>
         </div>
         <div data-reveal>
-          <PillLink href="/boutique" variant="light">
-            Tout le catalogue
+          <PillLink href="/nouveautes" variant="light">
+            Voir toutes les nouveautés
           </PillLink>
         </div>
       </RevealOnScroll>

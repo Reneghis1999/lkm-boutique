@@ -20,6 +20,7 @@ const links = [
   { href: "/portables", label: "Portables" },
   { href: "/boutique", label: "Boutique" },
   { href: "/promotions", label: "Promotions" },
+  { href: "/nouveautes", label: "Nouveautés" },
   { href: "/categories", label: "Catégories" },
   { href: "/reparation", label: "Réparation" },
   { href: "/contact", label: "Contact" },
