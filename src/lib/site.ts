@@ -1,6 +1,6 @@
 import { shop } from "@/data/shop";
 
-const PRODUCTION_SITE_URL = "https://lkm-boutique.vercel.app";
+const PRODUCTION_SITE_URL = "https://www.lkmboutique.store";
 
 function normalizeSiteUrl(raw: string | undefined): string | null {
   if (!raw) return null;
