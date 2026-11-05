@@ -146,7 +146,8 @@ export default async function RepairPage() {
             </h3>
             <p className="mt-1 text-sm text-white/60">
               Un tampon par achat ou réparation. Au bout de 10 tampons :{" "}
-              <strong className="text-[var(--lkm-yellow)]">-20 % sur tous vos achats du jour</strong>.
+              <strong className="text-[var(--lkm-yellow)]">-20 % sur tous vos achats du jour</strong>.{" "}
+              <span className="text-white/45">Offre valable jusqu’au 5 décembre 2026.</span>
             </p>
           </div>
           <span className="shrink-0 rounded-full bg-[var(--lkm-yellow)] px-4 py-2 text-sm font-semibold text-[#1a1400]">
