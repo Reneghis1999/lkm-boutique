@@ -12,7 +12,7 @@ function fmtHour(h: number) {
   return min ? `${whole}h${String(min).padStart(2, "0")}` : `${whole}h`;
 }
 
-/** « Lun – Sam : 8h – 21h », « Dim : 10h – 20h » (jours consécutifs regroupés). */
+/** « Lun – Dim : 10h – 20h » (jours consécutifs regroupés). */
 export function hoursSummary(weekly: Slot[] = shop.hours.weekly): string[] {
   const order = [1, 2, 3, 4, 5, 6, 0]; // lundi → dimanche
   const groups: { days: number[]; slot: Slot }[] = [];

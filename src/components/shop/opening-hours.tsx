@@ -41,7 +41,7 @@ export function OpeningStatus({ className }: { className?: string }) {
   );
 }
 
-/** Horaires (« Lun – Sam : 8h – 21h · Dim : 10h – 20h ») + badge ouvert / fermé. */
+/** Horaires (« Lun – Dim : 10h – 20h ») + badge ouvert / fermé. */
 export function OpeningHours({
   className,
   tone = "dark",
