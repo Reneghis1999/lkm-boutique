@@ -58,7 +58,7 @@ function deliveryLines(delivery?: DeliveryInfo): string[] {
     ``,
     `Réception : livraison à domicile à Lomé`,
     `Quartier / adresse : ${delivery.area.trim() || "(à préciser)"}`,
-    `Merci de me confirmer les frais de livraison.`,
+    `Frais de livraison selon la distance.`,
   ];
 }
 

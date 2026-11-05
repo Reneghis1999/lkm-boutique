@@ -89,7 +89,7 @@ export function DeliveryChoice({
             />
           </label>
           <p className="text-xs text-white/40">
-            Frais de livraison confirmés sur WhatsApp selon le quartier.
+            Frais de livraison selon la distance.
           </p>
         </div>
       )}
