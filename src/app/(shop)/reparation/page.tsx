@@ -145,7 +145,7 @@ export default async function RepairPage() {
               Carte de fidélité LKM
             </h3>
             <p className="mt-1 text-sm text-white/60">
-              Un tampon par achat ou réparation. Au bout de 5 tampons :{" "}
+              Un tampon par achat ou réparation. Au bout de 10 tampons :{" "}
               <strong className="text-[var(--lkm-yellow)]">-20 % sur tous vos achats du jour</strong>.
             </p>
           </div>
