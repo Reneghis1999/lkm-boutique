@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { BusinessJsonLd } from "@/components/seo/business-json-ld";
 import { shop } from "@/data/shop";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -50,9 +51,6 @@ export const metadata: Metadata = {
     description: shop.tagline,
     images: ["/logo-lkm.png"],
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({
@@ -63,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${display.variable} ${body.variable} ${mono.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-[var(--lkm-bg)] text-[var(--foreground)] antialiased">
+        <BusinessJsonLd />
         <Providers>{children}</Providers>
       </body>
     </html>
