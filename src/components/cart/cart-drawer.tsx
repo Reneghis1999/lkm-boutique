@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { formatPrice, hasPrice } from "@/lib/format";
 import { buildCartWhatsAppMessage, getWhatsAppUrl } from "@/lib/whatsapp";
+import { DeliveryChoice, useDeliveryChoice } from "@/components/cart/delivery-choice";
 import {
   getCartItemKey,
   useCart,
@@ -17,6 +18,7 @@ import { Button } from "@/components/ui/button";
 
 export function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem } = useCart();
+  const deliveryChoice = useDeliveryChoice();
   const count = useCartCount();
   const total = useCartTotal();
   const hasUnpriced = items.some((i) => !hasPrice(i.price));
@@ -171,13 +173,14 @@ export function CartDrawer() {
                     sur WhatsApp.
                   </p>
                 )}
+                <DeliveryChoice {...deliveryChoice} />
                 <Button
                   variant="whatsapp"
                   size="lg"
                   className="w-full"
                   onClick={() => {
                     window.open(
-                      getWhatsAppUrl(buildCartWhatsAppMessage(items)),
+                      getWhatsAppUrl(buildCartWhatsAppMessage(items, deliveryChoice.delivery)),
                       "_blank",
                       "noopener,noreferrer",
                     );
