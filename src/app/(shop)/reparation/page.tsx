@@ -139,6 +139,20 @@ export default async function RepairPage() {
             </li>
           ))}
         </ol>
+        <div className="mt-8 flex flex-col gap-4 rounded-[1.5rem] border border-[var(--lkm-yellow)]/30 bg-[var(--lkm-yellow)]/[0.06] p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-white">
+              Carte de fidélité LKM
+            </h3>
+            <p className="mt-1 text-sm text-white/60">
+              Un tampon par achat ou réparation. Au bout de 5 tampons :{" "}
+              <strong className="text-[var(--lkm-yellow)]">-20 % sur tous vos achats du jour</strong>.
+            </p>
+          </div>
+          <span className="shrink-0 rounded-full bg-[var(--lkm-yellow)] px-4 py-2 text-sm font-semibold text-[#1a1400]">
+            Demandez-la en boutique
+          </span>
+        </div>
         <p className="mt-8 text-sm text-white/45">
           {repairShop?.name} — {repairShop?.address}. Tél. {contacts.phones.join(" · ")}.
         </p>
