@@ -66,6 +66,8 @@ export interface ShopLocation {
   description: string;
   phone?: string;
   mapsUrl: string;
+  /** Coordonnées « lat,lng » ou adresse pour la carte intégrée. */
+  mapQuery?: string;
   accent: AccentColor;
 }
 

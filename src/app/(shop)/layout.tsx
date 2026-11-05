@@ -1,6 +1,7 @@
 import { BackToTop } from "@/components/layout/back-to-top";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { getPromoProducts } from "@/lib/catalog";
 
 export default async function ShopLayout({
@@ -14,6 +15,7 @@ export default async function ShopLayout({
       <Header promoCount={promoCount} />
       <main className="flex-1">{children}</main>
       <Footer />
+      <WhatsAppFloat />
       <BackToTop />
     </>
   );

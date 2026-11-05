@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AtSign, ExternalLink, MapPin, MessageCircle, Phone } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { OpeningHours } from "@/components/shop/opening-hours";
+import { LocationMap } from "@/components/shop/location-map";
 import { getShopContacts } from "@/lib/catalog";
 import { shop } from "@/data/shop";
 import { cn } from "@/lib/utils";
@@ -85,6 +86,13 @@ export default async function ContactPage() {
                   <Phone className="h-3.5 w-3.5" />
                   {loc.phone}
                 </a>
+              )}
+              {loc.mapQuery && (
+                <LocationMap
+                  query={loc.mapQuery}
+                  title={`Carte — ${loc.name}`}
+                  className="mt-5"
+                />
               )}
               <div className="mt-5">
                 <a

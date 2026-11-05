@@ -36,6 +36,7 @@ export const shop: ShopInfo = {
       phone: "+228 90 16 22 16",
       mapsUrl:
         "https://www.google.com/maps/dir/?api=1&destination=6.2138385,1.1742867",
+      mapQuery: "6.2138385,1.1742867",
       accent: "blue",
     },
     {
