@@ -159,12 +159,19 @@ export async function getPromoProducts(limit?: number): Promise<Product[]> {
 }
 
 /**
- * Derniers produits ajoutés dans Odoo (avec photo et prix), du plus récent
- * au plus ancien.
+ * Derniers produits ajoutés dans Odoo (avec photo et prix, hors pièces de
+ * réparation), du plus récent au plus ancien.
  */
 export async function getNewArrivals(limit = 8): Promise<Product[]> {
   return (await getProducts())
     .filter((p) => p.createdAt && p.image && p.price)
+    // Pas les pièces et outils de réparation : jeux, consoles, téléphones, PC…
+    .filter(
+      (p) =>
+        !p.categorySlugs.some(
+          (slug) => slug.includes("reparation") || slug.includes("piecs-de-rechange"),
+        ),
+    )
     .sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""))
     .slice(0, limit);
 }
