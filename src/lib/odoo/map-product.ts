@@ -37,6 +37,7 @@ export type OdooTemplateRow = {
   product_tag_ids?: number[];
   categ_id?: Many2one;
   write_date?: string;
+  create_date?: string;
 };
 
 export type OdooPublicCategoryRow = {
@@ -414,6 +415,7 @@ export function mapOdooTemplates(
       featured: isHighlightRibbon(row.website_ribbon_id),
       position: row.website_sequence ?? row.id,
       promo: ctx.isPromo?.(row) ?? false,
+      createdAt: row.create_date || undefined,
     };
 
     products.push(product);

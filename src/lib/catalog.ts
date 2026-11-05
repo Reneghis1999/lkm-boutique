@@ -158,6 +158,17 @@ export async function getPromoProducts(limit?: number): Promise<Product[]> {
   return typeof limit === "number" ? promos.slice(0, limit) : promos;
 }
 
+/**
+ * Derniers produits ajoutés dans Odoo (avec photo et prix), du plus récent
+ * au plus ancien.
+ */
+export async function getNewArrivals(limit = 8): Promise<Product[]> {
+  return (await getProducts())
+    .filter((p) => p.createdAt && p.image && p.price)
+    .sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""))
+    .slice(0, limit);
+}
+
 export async function getProductBySlug(
   slug: string,
 ): Promise<Product | undefined> {
