@@ -40,6 +40,7 @@ const TEMPLATE_FIELDS = [
   "product_tag_ids",
   "categ_id",
   "write_date",
+  "create_date",
 ] as const;
 
 export type OdooCatalog = {

@@ -33,6 +33,8 @@ export interface Product {
   position: number;
   /** Produit rangé dans la catégorie « Promotions » d’Odoo. */
   promo?: boolean;
+  /** Date d’ajout dans Odoo (« AAAA-MM-JJ HH:MM:SS »), pour les nouveautés. */
+  createdAt?: string;
 }
 
 export interface Category {
