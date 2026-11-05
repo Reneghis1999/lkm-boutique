@@ -45,7 +45,9 @@ export const shop: ShopInfo = {
       address: "Quartier Djidjolé, Lomé",
       description: "Service réparation & stock",
       phone: "+228 90 00 25 91",
-      mapsUrl: "https://www.google.com/maps?q=Djidjol%C3%A9,+Lom%C3%A9",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&destination=6.1735557,1.1986041",
+      mapQuery: "6.1735557,1.1986041",
       accent: "green",
     },
   ],
