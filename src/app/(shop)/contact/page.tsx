@@ -125,7 +125,8 @@ export default async function ContactPage() {
             ))}
           </ul>
           <p className="mt-4 text-sm text-white/35">
-            Nos 2 boutiques sont ouvertes tous les jours de 10h à 20h.
+            Horaires non publiés sur le site de référence — confirmez
+            l’ouverture sur WhatsApp avant votre visite.
           </p>
         </div>
       </div>

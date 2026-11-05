@@ -15,12 +15,12 @@ export const shop: ShopInfo = {
     timeZone: "Africa/Lome",
     weekly: [
       { opens: 10, closes: 20 }, // dimanche
-      { opens: 10, closes: 20 }, // lundi
-      { opens: 10, closes: 20 }, // mardi
-      { opens: 10, closes: 20 }, // mercredi
-      { opens: 10, closes: 20 }, // jeudi
-      { opens: 10, closes: 20 }, // vendredi
-      { opens: 10, closes: 20 }, // samedi
+      { opens: 8, closes: 21 }, // lundi
+      { opens: 8, closes: 21 }, // mardi
+      { opens: 8, closes: 21 }, // mercredi
+      { opens: 8, closes: 21 }, // jeudi
+      { opens: 8, closes: 21 }, // vendredi
+      { opens: 8, closes: 21 }, // samedi
     ],
   },
   social: {
