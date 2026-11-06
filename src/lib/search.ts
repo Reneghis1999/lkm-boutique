@@ -28,6 +28,10 @@ const ALIASES: Record<string, string> = {
   manettes: "manette",
   chargeurs: "chargeur",
   jeux: "jeu",
+  fifa: "fc",
+  cod: "call of duty",
+  duty: "duty",
+  dutty: "duty",
 };
 
 function normalize(text: string): string {
