@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Loader2, Search, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ReviewButton, reviewUrlFor } from "@/components/shop/review-button";
 import { formatPrice } from "@/lib/format";
 import { REPAIR_STEPS, type RepairLookup } from "@/lib/repair-status";
 import { cn } from "@/lib/utils";
@@ -144,6 +145,16 @@ export function RepairTracker() {
               })}
             </ol>
           )}
+
+          {(result.status === "ready" || result.status === "done") &&
+            reviewUrlFor(result.shop) && (
+              <div className="mt-8 rounded-2xl border border-[var(--lkm-yellow)]/30 bg-[var(--lkm-yellow)]/10 p-5">
+                <p className="text-white">
+                  Satisfait de votre réparation ? Votre avis nous aide beaucoup 🙏
+                </p>
+                <ReviewButton href={reviewUrlFor(result.shop)!} className="mt-3" />
+              </div>
+            )}
 
           {result.items.length > 0 && (
             <ul className="mt-8 space-y-1 border-t border-white/10 pt-5 text-sm text-white/65">

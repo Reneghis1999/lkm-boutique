@@ -37,6 +37,7 @@ export const shop: ShopInfo = {
       mapsUrl:
         "https://www.google.com/maps/dir/?api=1&destination=6.2138385,1.1742867",
       mapQuery: "6.2138385,1.1742867",
+      reviewUrl: "https://g.page/r/CeiLtB0b5maXEAI/review",
       accent: "blue",
     },
     {
@@ -48,6 +49,7 @@ export const shop: ShopInfo = {
       mapsUrl:
         "https://www.google.com/maps/dir/?api=1&destination=6.1735557,1.1986041",
       mapQuery: "6.1735557,1.1986041",
+      reviewUrl: "https://g.page/r/CTtM9V-jPokQEAI/review",
       accent: "green",
     },
   ],
