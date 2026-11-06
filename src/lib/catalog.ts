@@ -7,7 +7,7 @@
  * Pour les filtres côté navigateur, voir `@/lib/catalog-filter`.
  */
 import { cache } from "react";
-import { connection } from "next/server";
+import { after, connection } from "next/server";
 import catalogData from "@/data/catalog.json";
 import { fallbackRepairs, type RepairData } from "@/data/repairs";
 import { categorySlugsForGroup } from "@/lib/catalog-filter";
@@ -37,20 +37,19 @@ export type LoadedCatalog = {
 };
 
 /**
- * Le catalogue Odoo est gardé en mémoire quelques secondes : Odoo Online
- * limite le nombre d’appels API (erreur 429 au-delà). Une modification faite
- * dans Odoo apparaît donc sur le site au plus tard après ce délai.
+ * Le catalogue Odoo est gardé en mémoire (5 min par défaut, variable
+ * ODOO_CACHE_SECONDS) : le site reste rapide même avec des milliers de
+ * produits, et Odoo Online n’est pas sollicité à chaque visite.
+ * Passé ce délai, les visiteurs reçoivent tout de suite les données en
+ * mémoire pendant qu’une mise à jour se fait en arrière-plan.
  */
-const CACHE_MS = Math.max(0, Number(process.env.ODOO_CACHE_SECONDS ?? 15)) * 1000;
+const CACHE_MS = Math.max(0, Number(process.env.ODOO_CACHE_SECONDS ?? 300)) * 1000;
+/** Au-delà, les données sont trop vieilles : on attend la mise à jour. */
+const MAX_STALE_MS = Math.max(CACHE_MS * 6, 30 * 60 * 1000);
 let lastGood: { at: number; data: OdooCatalog } | null = null;
 let inflight: Promise<OdooCatalog> | null = null;
 
-async function getOdooCatalog(): Promise<{
-  data: OdooCatalog;
-  at: number;
-  error?: string;
-}> {
-  if (lastGood && Date.now() - lastGood.at < CACHE_MS) return lastGood;
+function refreshCatalog(): Promise<OdooCatalog> {
   if (!inflight) {
     inflight = fetchOdooCatalog()
       .then((data) => {
@@ -61,8 +60,32 @@ async function getOdooCatalog(): Promise<{
         inflight = null;
       });
   }
+  return inflight;
+}
+
+async function getOdooCatalog(): Promise<{
+  data: OdooCatalog;
+  at: number;
+  error?: string;
+}> {
+  const age = lastGood ? Date.now() - lastGood.at : Infinity;
+  if (lastGood && age < CACHE_MS) return lastGood;
+
+  if (lastGood && age < MAX_STALE_MS) {
+    // Réponse immédiate avec les données en mémoire, mise à jour après coup.
+    const refresh = refreshCatalog().catch((e) =>
+      console.error("[catalog] mise à jour Odoo échouée :", e instanceof Error ? e.message : e),
+    );
+    try {
+      after(() => refresh);
+    } catch {
+      // hors requête : la promesse continue d’elle-même
+    }
+    return lastGood;
+  }
+
   try {
-    const data = await inflight;
+    const data = await refreshCatalog();
     return { data, at: lastGood?.at ?? Date.now() };
   } catch (e) {
     // Odoo refuse ou ne répond pas : on garde les dernières données reçues.
