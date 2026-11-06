@@ -3,14 +3,25 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLang } from "@/lib/i18n/lang";
 
-const before = "Pas besoin de deviner : les prix sont en ligne, la commande part sur WhatsApp, et".split(" ");
-const marked = "vous testez sur place".split(" ");
-const after = "avant de repartir avec votre matériel.".split(" ");
+const TEXT = {
+  fr: [
+    "Pas besoin de deviner : les prix sont en ligne, la commande part sur WhatsApp, et",
+    "vous testez sur place",
+    "avant de repartir avec votre matériel.",
+  ],
+  en: [
+    "No guesswork: prices are online, your order goes on WhatsApp, and",
+    "you try it in store",
+    "before you leave with your device.",
+  ],
+};
 
 /** Phrase dont les mots s’allument au fil du défilement, avec un surligneur. */
 export function Statement() {
   const ref = useRef<HTMLElement>(null);
+  const [before, marked, after] = TEXT[useLang()].map((t) => t.split(" "));
 
   useEffect(() => {
     if (!ref.current) return;
@@ -47,7 +58,7 @@ export function Statement() {
   );
 
   return (
-    <section ref={ref} className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-36">
+    <section ref={ref} data-no-translate className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-36">
       <p className="statement-text font-[family-name:var(--font-display)] text-[1.9rem] font-medium leading-[1.15] tracking-[-0.025em] text-white sm:text-5xl lg:text-[3.6rem]">
         {before.map(word)}
         <span

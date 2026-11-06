@@ -14,6 +14,7 @@ import {
 import { useCart } from "@/store/cart";
 import { Button } from "@/components/ui/button";
 import { SearchDialog } from "@/components/shop/search-dialog";
+import { LangSwitch } from "@/components/i18n/lang-switch";
 
 const links = [
   { href: "/", label: "Accueil" },
@@ -157,6 +158,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
           </form>
 
           <div className={cn("flex items-center gap-1.5 sm:gap-2", "ml-auto xl:ml-0")}>
+            <LangSwitch className="hidden sm:inline-flex" />
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -249,6 +251,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
                 >
                   WhatsApp : 90 00 25 91
                 </Button>
+                <LangSwitch className="mt-3 self-start" />
               </nav>
             </motion.div>
           )}
