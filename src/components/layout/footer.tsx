@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AtSign, MapPin, Phone } from "lucide-react";
+import { AtSign, MapPin, Phone, Star } from "lucide-react";
 import { OpeningHours } from "@/components/shop/opening-hours";
 import { shop } from "@/data/shop";
 import { getCategories, getShopContacts } from "@/lib/catalog";
@@ -126,6 +126,17 @@ export async function Footer() {
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                 <span>{loc.address}</span>
               </p>
+              {loc.reviewUrl ? (
+                <a
+                  href={loc.reviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-[var(--lkm-yellow)] hover:underline"
+                >
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  Laisser un avis Google
+                </a>
+              ) : null}
             </div>
           ))}
           <OpeningHours className="justify-center md:justify-start" />

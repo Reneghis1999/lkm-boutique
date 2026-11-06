@@ -85,6 +85,8 @@ export interface ShopLocation {
   mapsUrl: string;
   /** Coordonnées « lat,lng » ou adresse pour la carte intégrée. */
   mapQuery?: string;
+  /** Lien Google « Laisser un avis » de la boutique. */
+  reviewUrl?: string;
   accent: AccentColor;
 }
 
