@@ -73,6 +73,9 @@ export default async function RepairPage() {
                 >
                   Devis sur WhatsApp
                 </PillLink>
+                <PillLink href="/suivi" variant="light">
+                  Suivre ma réparation
+                </PillLink>
               </div>
             </div>
             <div className="rounded-[1.5rem] bg-white/95 p-6 text-[#0b0b0f]">
