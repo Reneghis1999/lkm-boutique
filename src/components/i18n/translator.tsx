@@ -83,9 +83,14 @@ export function Translator() {
         attributeFilter: [...ATTRS],
       });
     };
-    const timer = window.setTimeout(start, 120);
+    // Après le chargement complet (React a fini d’hydrater), 1,2 s au plus.
+    const later = () => window.setTimeout(start, 150);
+    if (document.readyState === "complete") later();
+    else window.addEventListener("load", later, { once: true });
+    const timer = window.setTimeout(start, 1200);
     return () => {
       window.clearTimeout(timer);
+      window.removeEventListener("load", later);
       obs.disconnect();
     };
   }, []);

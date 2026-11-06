@@ -65,7 +65,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "if(/(?:^|;\\s*)lkm_lang=en\\b/.test(document.cookie)&&!location.pathname.startsWith('/admin')){var d=document.documentElement;d.classList.add('i18n-pending');d.lang='en';setTimeout(function(){d.classList.remove('i18n-pending')},1500)}",
+              "if(/(?:^|;\\s*)lkm_lang=en\\b/.test(document.cookie)&&!location.pathname.startsWith('/admin')){var d=document.documentElement;d.classList.add('i18n-pending');d.lang='en';setTimeout(function(){d.classList.remove('i18n-pending')},1600)}",
           }}
         />
       </head>
