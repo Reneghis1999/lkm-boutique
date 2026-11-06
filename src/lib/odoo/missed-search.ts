@@ -3,6 +3,7 @@
  * « Recherches sans résultat », nommée « <mot> — N recherche(s) ».
  */
 import { odooCall } from "./client";
+import { firstStageId } from "./project-stage";
 
 export const MISSED_SEARCH_PROJECT = "Recherches sans résultat";
 
@@ -29,12 +30,12 @@ const label = (term: string, n: number) =>
 /** `term` doit déjà être normalisé (lettres, chiffres, espaces, +). */
 export async function recordMissedSearch(term: string): Promise<void> {
   const project = await getProjectId();
-  const existing = await odooCall<{ id: number; name: string }[]>("project.task", "search_read", {
+  const existing = await odooCall<{ id: number; name: string; stage_id: [number, string] | false }[]>("project.task", "search_read", {
     domain: [
       ["project_id", "=", project],
       ["name", "=like", `${term} — %`],
     ],
-    fields: ["name"],
+    fields: ["name", "stage_id"],
     limit: 1,
     context: { active_test: false },
   });
@@ -42,7 +43,11 @@ export async function recordMissedSearch(term: string): Promise<void> {
     const n = Number(existing[0].name.match(/— (\d+) recherche/)?.[1] ?? 1) + 1;
     await odooCall("project.task", "write", {
       ids: [existing[0].id],
-      vals: { name: label(term, n), active: true },
+      vals: {
+        name: label(term, n),
+        active: true,
+        ...(existing[0].stage_id ? {} : { stage_id: await firstStageId(project) }),
+      },
     });
     return;
   }
@@ -51,6 +56,7 @@ export async function recordMissedSearch(term: string): Promise<void> {
       {
         name: label(term, 1),
         project_id: project,
+        stage_id: await firstStageId(project),
         description: `<p>Un client a cherché « ${term} » sur le site sans rien trouver.</p>`,
       },
     ],
