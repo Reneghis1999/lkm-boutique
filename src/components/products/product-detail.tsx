@@ -144,6 +144,22 @@ export function ProductDetail({
             </p>
           ) : null}
 
+          <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
+            <span
+              className={cn(
+                "h-2 w-2 rounded-full",
+                product.inStock === false ? "bg-[#e5322d]" : "bg-[#3ddc8a]",
+              )}
+            />
+            <span className={product.inStock === false ? "text-red-300" : "text-[#3ddc8a]"}>
+              {product.inStock === false
+                ? "Rupture de stock — demandez quand il revient sur WhatsApp"
+                : hasPrice(product.price)
+                  ? "Disponible"
+                  : "Sur demande"}
+            </span>
+          </p>
+
           {product.description ? (
             <p className="mt-5 text-base leading-relaxed text-white/55">
               {product.description}
@@ -230,6 +246,7 @@ export function ProductDetail({
             <Button
               size="lg"
               className="flex-1"
+              disabled={product.inStock === false}
               onClick={() =>
                 addItem(
                   product,
@@ -250,7 +267,9 @@ export function ProductDetail({
               onClick={() => {
                 window.open(
                   getWhatsAppUrl(
-                    buildProductWhatsAppMessage(
+                    product.inStock === false
+                      ? `Bonjour LKM Boutique,\n\nLe produit « ${product.name} » est en rupture sur le site. Pouvez-vous me prévenir quand il sera disponible ?\n\nMerci !`
+                      : buildProductWhatsAppMessage(
                       product,
                       quantity,
                       Object.keys(selectedOptions).length
@@ -265,7 +284,7 @@ export function ProductDetail({
               }}
             >
               <MessageCircle className="h-4 w-4" />
-              Commander WhatsApp
+              {product.inStock === false ? "Demander sur WhatsApp" : "Commander WhatsApp"}
             </Button>
           </div>
 

@@ -24,7 +24,8 @@ export function ProductCard({
   const pushToast = useToast((s) => s.push);
   const pro = usePro();
   const shownPrice = pro ? proPrice(product.price) : product.price;
-  const available = hasPrice(product.price);
+  const outOfStock = product.inStock === false;
+  const available = hasPrice(product.price) && !outOfStock;
   const discount =
     product.compareAtPrice && product.price && product.compareAtPrice > product.price
       ? Math.round((1 - product.price / product.compareAtPrice) * 100)
@@ -100,22 +101,29 @@ export function ProductCard({
                 available ? "bg-[var(--lkm-blue)]" : "bg-[#9aa3ad]",
               )}
             />
-            {available ? "Disponible" : "Sur demande"}
+            {outOfStock ? "Rupture de stock" : available ? "Disponible" : "Sur demande"}
           </p>
         </div>
 
         <button
           type="button"
+          disabled={outOfStock}
           onClick={() => {
             addItem(product);
             pushToast(`${product.name} ajouté au panier`, "success");
           }}
-          className="mt-3.5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#0b3d6e] text-[13px] font-semibold text-white transition hover:bg-[#0a4f8c] active:scale-[0.98] sm:mt-4 sm:h-12 sm:text-sm"
-          aria-label={`Ajouter ${product.name} au panier`}
+          className="mt-3.5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#0b3d6e] text-[13px] font-semibold text-white transition hover:bg-[#0a4f8c] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#9aa3ad] disabled:active:scale-100 sm:mt-4 sm:h-12 sm:text-sm"
+          aria-label={outOfStock ? `${product.name} en rupture de stock` : `Ajouter ${product.name} au panier`}
         >
           <ShoppingBag className="h-4 w-4" />
-          <span className="sm:hidden">Ajouter</span>
-          <span className="hidden sm:inline">Ajouter au panier</span>
+          {outOfStock ? (
+            <span>En rupture</span>
+          ) : (
+            <>
+              <span className="sm:hidden">Ajouter</span>
+              <span className="hidden sm:inline">Ajouter au panier</span>
+            </>
+          )}
         </button>
 
         <Link
