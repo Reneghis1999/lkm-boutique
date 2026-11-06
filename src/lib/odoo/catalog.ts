@@ -13,6 +13,7 @@ import {
   mapOdooCategories,
   mapOdooRepairs,
   mapOdooTemplates,
+  stockStatus,
   isPromoInternalCategory,
   isRepairInternalCategory,
   promoCategoryIds,
@@ -92,6 +93,101 @@ function legacyData() {
     (catalogData.products as Product[]).map((p) => [p.slug, p.categorySlugs]),
   );
   return { legacyCategories, legacyCategorySlugs };
+}
+
+/** Nom court d’une boutique à partir du nom de société / entrepôt Odoo. */
+function shopLabel(name: string) {
+  const n = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  if (n.includes("djid")) return "Djidjolé";
+  if (n.includes("leo") || n.includes("loe")) return "Léo 2000";
+  return name;
+}
+
+/**
+ * Pour chaque entrepôt (une boutique), liste des articles en stock.
+ * On ne garde que « en stock ou non » : aucune quantité ne sort d’ici.
+ */
+async function fetchStockByShop(
+  templateIds: number[],
+): Promise<Map<number, string[]> | null> {
+  if (templateIds.length === 0) return new Map();
+  const companies = await odooCall<{ id: number }[]>("res.company", "search_read", {
+    domain: [],
+    fields: ["id"],
+  });
+  const context = { allowed_company_ids: companies.map((c) => c.id) };
+  // Lignes de stock positives dans les emplacements internes, toutes boutiques.
+  const quants = await odooCall<
+    {
+      product_tmpl_id?: [number, string] | false;
+      warehouse_id?: [number, string] | false;
+      company_id?: [number, string] | false;
+    }[]
+  >("stock.quant", "search_read", {
+    domain: [
+      ["location_id.usage", "=", "internal"],
+      ["quantity", ">", 0],
+      ["product_tmpl_id", "in", templateIds],
+    ],
+    fields: ["product_tmpl_id", "warehouse_id", "company_id"],
+    context,
+  });
+
+  const result = new Map<number, string[]>();
+  for (const q of quants) {
+    const tmpl = q.product_tmpl_id ? q.product_tmpl_id[0] : null;
+    const where = q.warehouse_id || q.company_id;
+    if (!tmpl || !where) continue;
+    const label = shopLabel(where[1]);
+    const list = result.get(tmpl) ?? [];
+    if (!list.includes(label)) list.push(label);
+    result.set(tmpl, list);
+  }
+  // Ordre stable : Djidjolé puis Léo 2000.
+  for (const list of result.values()) list.sort();
+  return result;
+}
+
+/**
+ * Chaque boutique (société Odoo) a sa propre fiche pour un même article.
+ * On fusionne les fiches de même nom : une seule carte sur le site, avec la
+ * liste des boutiques où il est disponible.
+ */
+function mergeShopDuplicates(list: Product[]): Product[] {
+  const key = (p: Product) =>
+    p.name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+  const byKey = new Map<string, Product>();
+  const out: Product[] = [];
+  for (const p of list) {
+    const k = key(p);
+    const first = byKey.get(k);
+    if (!first) {
+      const copy = { ...p, availableAt: p.availableAt ? [...p.availableAt] : undefined };
+      byKey.set(k, copy);
+      out.push(copy);
+      continue;
+    }
+    if (p.availableAt?.length) {
+      const shops = new Set([...(first.availableAt ?? []), ...p.availableAt]);
+      first.availableAt = [...shops].sort();
+    }
+    // En stock si l’une des fiches l’est ; en rupture seulement si toutes le sont.
+    if (first.inStock === true || p.inStock === true) first.inStock = true;
+    else if (first.inStock === false && p.inStock === false) first.inStock = false;
+    else first.inStock = undefined;
+    if (!first.image && p.image) first.image = p.image;
+    if (first.price == null && p.price != null) first.price = p.price;
+    if (!first.description && p.description) first.description = p.description;
+    first.categorySlugs = [...new Set([...first.categorySlugs, ...p.categorySlugs])];
+    first.featured = first.featured || p.featured;
+    first.promo = first.promo || p.promo;
+  }
+  return out;
 }
 
 export async function fetchOdooCatalog(): Promise<OdooCatalog> {
@@ -220,7 +316,15 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     legacyCategories,
   );
 
-  const { products, withoutOdooCategory } = mapOdooTemplates(shopTemplates, {
+  const trackedIds = shopTemplates
+    .filter((r) => r.type !== "service" && stockStatus(r) !== undefined)
+    .map((r) => r.id);
+  const shopStock = await fetchStockByShop(trackedIds).catch((e) => {
+    warnings.push(`Stock par boutique illisible : ${String(e)}`);
+    return null;
+  });
+
+  const { products: mappedProducts, withoutOdooCategory } = mapOdooTemplates(shopTemplates, {
     categoriesById: mappedCategories.byId,
     parentOf: mappedCategories.parentOf,
     attributes: groupAttributes(
@@ -230,7 +334,10 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     publicImageBase: publishedFilter ? getOdooConfig().url : null,
     legacyCategorySlugs,
     isPromo,
+    shopStock,
   });
+
+  const products = mergeShopDuplicates(mappedProducts);
 
   // Nombre de produits par catégorie ; on masque les catégories vides.
   const categories = mappedCategories.categories

@@ -101,7 +101,13 @@ export function ProductCard({
                 available ? "bg-[var(--lkm-blue)]" : "bg-[#9aa3ad]",
               )}
             />
-            {outOfStock ? "Rupture de stock" : available ? "Disponible" : "Sur demande"}
+            {outOfStock
+              ? "Rupture de stock"
+              : product.availableAt?.length
+                ? `Dispo : ${product.availableAt.join(" · ")}`
+                : available
+                  ? "Disponible"
+                  : "Sur demande"}
           </p>
         </div>
 

@@ -37,6 +37,8 @@ export interface Product {
   createdAt?: string;
   /** En stock (true), en rupture (false) ou inconnu — jamais la quantité. */
   inStock?: boolean;
+  /** Boutiques où l’article est disponible (ex. « Djidjolé », « Léo 2000 »). */
+  availableAt?: string[];
 }
 
 export interface Category {

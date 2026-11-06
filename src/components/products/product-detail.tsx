@@ -154,9 +154,11 @@ export function ProductDetail({
             <span className={product.inStock === false ? "text-red-300" : "text-[#3ddc8a]"}>
               {product.inStock === false
                 ? "Rupture de stock — demandez quand il revient sur WhatsApp"
-                : hasPrice(product.price)
-                  ? "Disponible"
-                  : "Sur demande"}
+                : product.availableAt?.length
+                  ? `Disponible à ${product.availableAt.join(" et à ")}`
+                  : hasPrice(product.price)
+                    ? "Disponible"
+                    : "Sur demande"}
             </span>
           </p>
 

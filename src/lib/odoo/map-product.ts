@@ -57,6 +57,19 @@ export function stockStatus(row: OdooTemplateRow): boolean | undefined {
   return row.qty_available > 0;
 }
 
+/** Disponibilité globale + par boutique (si le stock par entrepôt est connu). */
+function shopAvailability(
+  row: OdooTemplateRow,
+  shopStock?: Map<number, string[]> | null,
+): Pick<Product, "inStock" | "availableAt"> {
+  const status = stockStatus(row);
+  if (status === undefined || row.type === "service" || !shopStock) {
+    return { inStock: status };
+  }
+  const shops = shopStock.get(row.id) ?? [];
+  return { inStock: shops.length > 0, availableAt: shops };
+}
+
 export type OdooPublicCategoryRow = {
   id: number;
   name?: string;
@@ -362,6 +375,8 @@ export function mapOdooTemplates(
     legacyCategorySlugs: Map<string, string[]>;
     /** Produit dans la catégorie « Promotions » ? */
     isPromo?: (row: OdooTemplateRow) => boolean;
+    /** Boutiques où l’article est en stock (par id de modèle). */
+    shopStock?: Map<number, string[]> | null;
   },
 ): { products: Product[]; withoutOdooCategory: Product[] } {
   const usedSlugs = new Set<string>();
@@ -433,7 +448,7 @@ export function mapOdooTemplates(
       position: row.website_sequence ?? row.id,
       promo: ctx.isPromo?.(row) ?? false,
       createdAt: row.create_date || undefined,
-      inStock: stockStatus(row),
+      ...shopAvailability(row, ctx.shopStock),
     };
 
     products.push(product);
