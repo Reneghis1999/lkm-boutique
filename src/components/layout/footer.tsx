@@ -75,6 +75,11 @@ export async function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/faq" className="hover:text-white">
+                Questions fréquentes
+              </Link>
+            </li>
+            <li>
               <Link href="/rachat" className="hover:text-white">
                 Vendre / échanger mon téléphone
               </Link>
