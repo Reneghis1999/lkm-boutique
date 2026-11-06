@@ -167,7 +167,11 @@ function mergeShopDuplicates(list: Product[]): Product[] {
     const k = key(p);
     const first = byKey.get(k);
     if (!first) {
-      const copy = { ...p, availableAt: p.availableAt ? [...p.availableAt] : undefined };
+      const copy = {
+        ...p,
+        availableAt: p.availableAt ? [...p.availableAt] : undefined,
+        options: p.options.map((o) => ({ ...o, values: [...o.values] })),
+      };
       byKey.set(k, copy);
       out.push(copy);
       continue;
@@ -181,7 +185,19 @@ function mergeShopDuplicates(list: Product[]): Product[] {
     else if (first.inStock === false && p.inStock === false) first.inStock = false;
     else first.inStock = undefined;
     if (!first.image && p.image) first.image = p.image;
-    if (first.price == null && p.price != null) first.price = p.price;
+    // Prix différents entre boutiques : on affiche le plus bas (prix ≥ 100 F,
+    // pour ignorer un prix mal saisi comme « 1 F »).
+    const valid = (x: number | null | undefined) => typeof x === "number" && x >= 100;
+    if (valid(p.price) && (!valid(first.price) || p.price! < first.price!)) {
+      first.price = p.price;
+      first.compareAtPrice = p.compareAtPrice;
+    }
+    // Choix (marque, couleur…) : on réunit ceux des deux boutiques.
+    for (const opt of p.options) {
+      const mine = first.options.find((o) => o.name === opt.name);
+      if (!mine) first.options = [...first.options, { ...opt, values: [...opt.values] }];
+      else mine.values = [...new Set([...mine.values, ...opt.values])];
+    }
     if (!first.description && p.description) first.description = p.description;
     first.categorySlugs = [...new Set([...first.categorySlugs, ...p.categorySlugs])];
     first.featured = first.featured || p.featured;
