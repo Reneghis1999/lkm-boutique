@@ -4,7 +4,9 @@ import { ParticleField } from "@/components/home/motion/particle-field";
 import { PillLink } from "@/components/home/motion/pill-link";
 import { RepairCatalog } from "@/components/repair/repair-catalog";
 import { OpeningHours } from "@/components/shop/opening-hours";
-import { getRepairs, getShopContacts } from "@/lib/catalog";
+import { getProducts, getRepairs, getShopContacts } from "@/lib/catalog";
+import { RepairQuote } from "@/components/repair/repair-quote";
+import { buildRepairQuote } from "@/lib/repair-quote";
 import { formatPrice } from "@/lib/format";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -30,7 +32,12 @@ const steps = [
 ];
 
 export default async function RepairPage() {
-  const [repairs, contacts] = await Promise.all([getRepairs(), getShopContacts()]);
+  const [repairs, contacts, products] = await Promise.all([
+    getRepairs(),
+    getShopContacts(),
+    getProducts(),
+  ]);
+  const quote = buildRepairQuote(products, repairs.items);
   const repairShop =
     contacts.locations.find((l) => l.id === "djidjole") ?? contacts.locations[0];
 
@@ -61,8 +68,8 @@ export default async function RepairPage() {
                 clic.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <PillLink href="#tarifs" variant="yellow">
-                  Voir les tarifs
+                <PillLink href="#devis" variant="yellow">
+                  Mon devis iPhone
                 </PillLink>
                 <PillLink
                   href={getWhatsAppUrl(
@@ -103,6 +110,26 @@ export default async function RepairPage() {
           </div>
         </div>
       </section>
+
+      {/* Devis iPhone */}
+      {quote.models.length > 0 && (
+        <section id="devis" className="mx-auto max-w-[1440px] scroll-mt-24 px-5 pt-16 sm:px-8 sm:pt-20">
+          <span className="inline-flex rounded-full bg-[var(--lkm-yellow)] px-3 py-1 text-xs font-semibold text-[#1a1400]">
+            Devis iPhone
+          </span>
+          <h2 className="mt-5 font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1] tracking-[-0.035em] text-white sm:text-6xl">
+            Mon devis en 1 minute
+          </h2>
+          <p className="mt-4 max-w-2xl text-white/55">
+            Choisissez votre iPhone et la panne : le prix de la pièce et de la
+            main d’œuvre s’affiche tout de suite. Réservez sur WhatsApp, on
+            prépare la pièce avant votre arrivée.
+          </p>
+          <div className="mt-10">
+            <RepairQuote data={quote} />
+          </div>
+        </section>
+      )}
 
       {/* Tarifs */}
       <section id="tarifs" className="mx-auto max-w-[1440px] scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20">
