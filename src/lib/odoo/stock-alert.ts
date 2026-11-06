@@ -4,6 +4,7 @@
  * stock » (créé automatiquement la première fois).
  */
 import { odooCall } from "./client";
+import { firstStageId } from "./project-stage";
 
 export const STOCK_ALERT_PROJECT = "Alertes retour en stock";
 
@@ -60,6 +61,7 @@ export async function createStockAlert(input: StockAlertInput): Promise<void> {
       {
         name: `${input.product}${choice} — ${input.name} ${input.phone}`.slice(0, 200),
         project_id: project,
+        stage_id: await firstStageId(project),
         description: lines.join(""),
       },
     ],
