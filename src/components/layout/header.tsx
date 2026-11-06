@@ -22,6 +22,7 @@ const links = [
   { href: "/promotions", label: "Promotions" },
   { href: "/categories", label: "Catégories" },
   { href: "/reparation", label: "Réparation" },
+  { href: "/rachat", label: "Rachat" },
   { href: "/contact", label: "Contact" },
 ];
 
