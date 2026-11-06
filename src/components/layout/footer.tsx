@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LangSwitch } from "@/components/i18n/lang-switch";
 import Link from "next/link";
 import { AtSign, MapPin, Phone, Star } from "lucide-react";
 import { OpeningHours } from "@/components/shop/opening-hours";
@@ -164,6 +165,7 @@ export async function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-5 text-center text-xs text-white/40 sm:px-6 md:flex-row md:justify-between md:text-left lg:px-8">
           <p>© {new Date().getFullYear()} — Lomé, Togo</p>
           <p>Commandes via WhatsApp · Paiement en magasin</p>
+          <LangSwitch />
         </div>
       </div>
     </footer>

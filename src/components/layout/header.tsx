@@ -146,7 +146,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
 
           <form
             onSubmit={onSearchSubmit}
-            className="relative ml-auto hidden min-w-0 max-w-xs flex-1 xl:block 2xl:max-w-sm"
+            className="relative ml-auto hidden min-w-[11rem] max-w-xs flex-1 xl:block 2xl:max-w-sm"
           >
             <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" />
             <input
@@ -158,7 +158,7 @@ export function Header({ promoCount = 0 }: { promoCount?: number }) {
           </form>
 
           <div className={cn("flex items-center gap-1.5 sm:gap-2", "ml-auto xl:ml-0")}>
-            <LangSwitch className="hidden sm:inline-flex" />
+            <LangSwitch className="hidden sm:inline-flex lg:hidden 2xl:inline-flex" />
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
