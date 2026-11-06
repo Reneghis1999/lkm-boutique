@@ -37,7 +37,7 @@ export function Translator() {
       }
     };
     const element = (el: Element) => {
-      if (el.closest(SKIP)) return;
+      if (el.closest("[data-no-translate]")) return;
       for (const a of ATTRS) {
         const v = el.getAttribute(a);
         if (!v) continue;

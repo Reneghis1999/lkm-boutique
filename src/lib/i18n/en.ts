@@ -480,6 +480,8 @@ export const EN: Record<string, string> = {
   "Code incorrect. Demandez votre code pro à LKM Boutique.": "Wrong code. Ask LKM Boutique for your pro code.",
   "Connexion impossible. Réessayez.": "Couldn’t sign in. Try again.",
   "Se déconnecter": "Sign out",
+  "Accéder à l’espace pro": "Access the pro area",
+  sur: "of",
 };
 
 /** Textes qui contiennent une partie variable (nom de boutique, nombre…). */
