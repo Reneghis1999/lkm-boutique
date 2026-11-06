@@ -75,6 +75,11 @@ export async function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/rachat" className="hover:text-white">
+                Vendre / échanger mon téléphone
+              </Link>
+            </li>
+            <li>
               <Link href="/pro" className="hover:text-white">
                 Espace réparateurs
               </Link>

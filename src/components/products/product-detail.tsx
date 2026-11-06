@@ -1,6 +1,7 @@
 "use client";
 
 import { proPrice } from "@/lib/pro-price";
+import { StockAlertForm } from "@/components/products/stock-alert-form";
 import { findVariant, shopAvailabilityText } from "@/lib/variants";
 import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
@@ -323,6 +324,15 @@ export function ProductDetail({
             <Plus className="h-4 w-4" />
             Ajouter rapidement ×1
           </Button>
+
+          {shown.inStock === false && (
+            <StockAlertForm
+              key={JSON.stringify(selectedOptions)}
+              product={product.name}
+              slug={product.slug}
+              options={Object.keys(selectedOptions).length ? selectedOptions : undefined}
+            />
+          )}
         </motion.div>
       </div>
 
