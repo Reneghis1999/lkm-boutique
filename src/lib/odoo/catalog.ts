@@ -242,14 +242,14 @@ function mergeShopDuplicates(list: Product[]): Product[] {
     else if (first.inStock === false && p.inStock === false) first.inStock = false;
     else first.inStock = undefined;
     if (!first.image && p.image) first.image = p.image;
-    // Prix différents entre boutiques : on affiche le plus bas (prix ≥ 100 F,
-    // pour ignorer un prix mal saisi comme « 1 F »).
+    // Prix différents entre boutiques : on affiche toujours le plus haut
+    // (prix ≥ 100 F, pour ignorer un prix mal saisi comme « 1 F »).
     const valid = (x: number | null | undefined) => typeof x === "number" && x >= 100;
-    if (valid(p.price) && (!valid(first.price) || p.price! < first.price!)) {
+    if (valid(p.price) && (!valid(first.price) || p.price! > first.price!)) {
       first.price = p.price;
       first.compareAtPrice = p.compareAtPrice;
     }
-    // Variantes : même choix dans les deux boutiques → prix le plus bas, stock si l’une en a.
+    // Variantes : même choix dans les deux boutiques → prix le plus haut, stock si l’une en a.
     if (p.variants?.length) {
       const merged = new Map((first.variants ?? []).map((v) => [optionsKey(v.options), { ...v }]));
       for (const v of p.variants) {
@@ -257,7 +257,7 @@ function mergeShopDuplicates(list: Product[]): Product[] {
         const cur = merged.get(k);
         if (!cur) merged.set(k, { ...v });
         else {
-          if (valid(v.price) && (!valid(cur.price) || v.price! < cur.price!)) cur.price = v.price;
+          if (valid(v.price) && (!valid(cur.price) || v.price! > cur.price!)) cur.price = v.price;
           if (v.inStock === true) cur.inStock = true;
           else if (cur.inStock === undefined) cur.inStock = v.inStock;
         }
