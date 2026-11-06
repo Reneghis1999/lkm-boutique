@@ -15,7 +15,8 @@ const STATES = [
   { value: "Abîmé", hint: "rayures, chocs" },
   { value: "Écran cassé", hint: "ou autre panne" },
 ] as const;
-const EXTRAS = ["Boîte", "Chargeur", "Facture"] as const;
+const EXTRAS = ["Chargeur", "Écouteurs", "Coque"] as const;
+const ORIGIN = ["Oui", "Non"] as const;
 
 function Choice<T extends string>({
   label,
@@ -67,19 +68,27 @@ export function TradeInForm() {
   const [wanted, setWanted] = useState("");
   const [name, setName] = useState("");
   const [tried, setTried] = useState(false);
+  const [origin, setOrigin] = useState<(typeof ORIGIN)[number] | "">("");
+  const [hasInvoice, setHasInvoice] = useState(false);
+  const [hasBox, setHasBox] = useState(false);
 
-  const missing = !action || !brand || !model.trim() || !storage || !state;
+  // Conditions : acheté chez LKM, ou avec facture d’achat ET boîte.
+  const notAccepted = origin === "Non" && !(hasInvoice && hasBox);
+  const missing = !action || !brand || !model.trim() || !storage || !state || !origin;
 
   function send(e: React.FormEvent) {
     e.preventDefault();
     setTried(true);
-    if (missing) return;
+    if (missing || notAccepted) return;
     const lines = [
       "Bonjour LKM Boutique,",
       "",
       `Je souhaite ${action === "Vendre" ? "vendre" : "échanger"} mon téléphone :`,
       `• Modèle : ${brand === "Autre" ? "" : `${brand} `}${model.trim()}`,
       `• Capacité : ${storage}`,
+      origin === "Oui"
+        ? "• Acheté chez LKM Boutique"
+        : "• Pas acheté chez LKM — j’ai la facture d’achat et la boîte",
       `• État : ${state}`,
       battery.trim() ? `• Batterie : ${battery.trim()}` : null,
       `• Avec : ${extras.length ? extras.join(", ") : "téléphone seul"}`,
@@ -100,6 +109,39 @@ export function TradeInForm() {
       className="space-y-6 rounded-[1.75rem] border border-white/10 bg-[var(--lkm-surface)] p-5 sm:p-8"
     >
       <Choice label="Je veux" values={ACTIONS} value={action} onChange={setAction} />
+      <div>
+        <Choice
+          label="Téléphone acheté chez LKM Boutique ?"
+          values={ORIGIN}
+          value={origin}
+          onChange={setOrigin}
+        />
+        {origin === "Non" && (
+          <div className="mt-3 space-y-2 rounded-2xl border border-white/10 bg-[#0b0b0f] p-4">
+            <p className="text-sm text-white/60">Pour être repris, il nous faut :</p>
+            {[
+              { label: "J’ai la facture d’achat", on: hasInvoice, set: setHasInvoice },
+              { label: "J’ai la boîte du téléphone", on: hasBox, set: setHasBox },
+            ].map((c) => (
+              <label key={c.label} className="flex items-center gap-3 text-sm text-white/85">
+                <input
+                  type="checkbox"
+                  checked={c.on}
+                  onChange={(e) => c.set(e.target.checked)}
+                  className="h-4 w-4 accent-[var(--lkm-yellow)]"
+                />
+                {c.label}
+              </label>
+            ))}
+            {notAccepted && (
+              <p className="pt-1 text-sm text-red-300">
+                Désolé, nous reprenons uniquement les téléphones achetés chez LKM
+                Boutique, ou avec leur facture d’achat et leur boîte.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
       <Choice label="Marque" values={BRANDS} value={brand} onChange={setBrand} />
       <label className="block">
         <span className="mb-1.5 block text-sm text-white/55">Modèle</span>
@@ -176,10 +218,17 @@ export function TradeInForm() {
 
       {tried && missing && (
         <p className="text-sm text-red-300">
-          Choisissez vendre/échanger, la marque, le modèle, la capacité et l’état.
+          Répondez à toutes les questions : vendre/échanger, acheté chez LKM,
+          marque, modèle, capacité et état.
         </p>
       )}
-      <Button type="submit" size="lg" variant="whatsapp" className="w-full">
+      <Button
+        type="submit"
+        size="lg"
+        variant="whatsapp"
+        className="w-full"
+        disabled={notAccepted}
+      >
         <MessageCircle className="h-4 w-4" />
         Recevoir mon prix sur WhatsApp
       </Button>
