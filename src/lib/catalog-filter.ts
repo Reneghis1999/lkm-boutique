@@ -54,6 +54,8 @@ export interface ProductFilters {
   sort?: SortOption;
   minPrice?: number;
   maxPrice?: number;
+  /** Cacher les produits en rupture. */
+  inStockOnly?: boolean;
 }
 
 export function filterProducts(
@@ -87,6 +89,10 @@ export function filterProducts(
       if (s > 0) scores.set(p, s);
     }
     result = result.filter((p) => scores!.has(p));
+  }
+
+  if (filters.inStockOnly) {
+    result = result.filter((p) => p.inStock !== false);
   }
 
   if (filters.minPrice != null) {
