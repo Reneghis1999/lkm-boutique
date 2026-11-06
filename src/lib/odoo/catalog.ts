@@ -115,43 +115,34 @@ async function fetchStockByShop(
     domain: [],
     fields: ["id"],
   });
-  const allCompanies = companies.map((c) => c.id);
-  const warehouses = await odooCall<
-    { id: number; name: string; company_id: [number, string] | false }[]
-  >("stock.warehouse", "search_read", {
-    domain: [],
-    fields: ["name", "company_id"],
-    context: { allowed_company_ids: allCompanies },
+  const context = { allowed_company_ids: companies.map((c) => c.id) };
+  // Lignes de stock positives dans les emplacements internes, toutes boutiques.
+  const quants = await odooCall<
+    {
+      product_tmpl_id?: [number, string] | false;
+      warehouse_id?: [number, string] | false;
+      company_id?: [number, string] | false;
+    }[]
+  >("stock.quant", "search_read", {
+    domain: [
+      ["location_id.usage", "=", "internal"],
+      ["quantity", ">", 0],
+      ["product_tmpl_id", "in", templateIds],
+    ],
+    fields: ["product_tmpl_id", "warehouse_id", "company_id"],
+    context,
   });
-  if (warehouses.length === 0) return null;
 
   const result = new Map<number, string[]>();
-  await Promise.all(
-    warehouses.map(async (wh) => {
-      const company = wh.company_id ? wh.company_id[0] : allCompanies[0];
-      const label = shopLabel(wh.company_id ? wh.company_id[1] : wh.name);
-      const rows = await odooCall<{ id: number; qty_available?: number }[]>(
-        "product.template",
-        "search_read",
-        {
-          domain: [["id", "in", templateIds]],
-          fields: ["qty_available"],
-          context: {
-            allowed_company_ids: [company],
-            warehouse_id: wh.id,
-            warehouse: wh.id,
-          },
-        },
-      );
-      for (const r of rows) {
-        if ((r.qty_available ?? 0) > 0) {
-          const list = result.get(r.id) ?? [];
-          if (!list.includes(label)) list.push(label);
-          result.set(r.id, list);
-        }
-      }
-    }),
-  );
+  for (const q of quants) {
+    const tmpl = q.product_tmpl_id ? q.product_tmpl_id[0] : null;
+    const where = q.warehouse_id || q.company_id;
+    if (!tmpl || !where) continue;
+    const label = shopLabel(where[1]);
+    const list = result.get(tmpl) ?? [];
+    if (!list.includes(label)) list.push(label);
+    result.set(tmpl, list);
+  }
   // Ordre stable : Djidjolé puis Léo 2000.
   for (const list of result.values()) list.sort();
   return result;
