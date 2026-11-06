@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -68,6 +68,8 @@ export function TradeInForm() {
   const [wanted, setWanted] = useState("");
   const [name, setName] = useState("");
   const [tried, setTried] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const errorRef = useRef<HTMLParagraphElement>(null);
   const [origin, setOrigin] = useState<(typeof ORIGIN)[number] | "">("");
   const [hasInvoice, setHasInvoice] = useState(false);
   const [hasBox, setHasBox] = useState(false);
@@ -79,7 +81,10 @@ export function TradeInForm() {
   function send(e: React.FormEvent) {
     e.preventDefault();
     setTried(true);
-    if (missing || notAccepted) return;
+    if (missing || notAccepted) {
+      setAttempt((n) => n + 1);
+      return;
+    }
     const lines = [
       "Bonjour LKM Boutique,",
       "",
@@ -97,8 +102,14 @@ export function TradeInForm() {
       "",
       "Quel prix pouvez-vous me proposer ? Je peux envoyer des photos.",
     ].filter((l) => l !== null);
-    window.open(getWhatsAppUrl(lines.join("\n")), "_blank", "noopener,noreferrer");
+    // Même onglet : jamais bloqué comme une fenêtre pop-up.
+    window.location.href = getWhatsAppUrl(lines.join("\n"));
   }
+
+  // Réponse manquante : on montre le message rouge au client.
+  useEffect(() => {
+    if (attempt > 0) errorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [attempt]);
 
   const field =
     "w-full rounded-xl border border-white/10 bg-[#0b0b0f] px-4 py-3 text-white placeholder:text-white/35 focus:border-[var(--lkm-yellow)] focus:outline-none";
@@ -216,10 +227,11 @@ export function TradeInForm() {
         />
       </label>
 
-      {tried && missing && (
-        <p className="text-sm text-red-300">
-          Répondez à toutes les questions : vendre/échanger, acheté chez LKM,
-          marque, modèle, capacité et état.
+      {tried && (missing || notAccepted) && (
+        <p ref={errorRef} className="rounded-xl border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-200">
+          {notAccepted && !missing
+            ? "Nous reprenons uniquement les téléphones achetés chez LKM Boutique, ou avec leur facture d’achat et leur boîte."
+            : "Répondez à toutes les questions : vendre/échanger, acheté chez LKM, marque, modèle, capacité et état."}
         </p>
       )}
       <Button
@@ -227,7 +239,6 @@ export function TradeInForm() {
         size="lg"
         variant="whatsapp"
         className="w-full"
-        disabled={notAccepted}
       >
         <MessageCircle className="h-4 w-4" />
         Recevoir mon prix sur WhatsApp
