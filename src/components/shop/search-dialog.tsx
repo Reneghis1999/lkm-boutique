@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLogMissedSearch } from "@/lib/missed-search";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -20,6 +21,11 @@ export function SearchDialog({
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Product[]>([]);
+  const [resultsFor, setResultsFor] = useState("");
+  useLogMissedSearch(
+    query,
+    open && query.trim() !== "" && resultsFor === query.trim() && results.length === 0,
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -49,6 +55,7 @@ export function SearchDialog({
         if (!res.ok) return;
         const data = (await res.json()) as Product[];
         setResults(data);
+        setResultsFor(query.trim());
       } catch {
         /* aborted */
       }

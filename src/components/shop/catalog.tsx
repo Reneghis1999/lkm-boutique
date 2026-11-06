@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useTransition } from "react";
+import { useLogMissedSearch } from "@/lib/missed-search";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from "lucide-react";
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
@@ -85,6 +86,12 @@ export function Catalog({
         categories,
       ),
     [products, categories, query, category, group, sort, minPrice, maxPrice],
+  );
+
+  // Recherche sans résultat (sans autre filtre) → notée dans Odoo.
+  useLogMissedSearch(
+    query,
+    filtered.length === 0 && !category && !group && !minPrice && !maxPrice,
   );
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
