@@ -1,7 +1,20 @@
 import { REPAIR_LABOR, type RepairItem } from "@/data/repairs";
 import { shop } from "@/data/shop";
 import { formatPrice, hasPrice } from "@/lib/format";
+import { PRO_DISCOUNT, proPrice } from "@/lib/pro-price";
 import type { CartItem, Product } from "@/types";
+
+/** Client réparateur (espace pro) : prix remisés et mention dans le message. */
+export type ProInfo = { name: string | null } | null | undefined;
+
+function proLines(pro: ProInfo): string[] {
+  if (!pro) return [];
+  const who = pro.name && pro.name !== "pro" ? ` — ${pro.name}` : "";
+  return [
+    ``,
+    `Client PRO (réparateur)${who} : prix réparateur -${Math.round(PRO_DISCOUNT * 100)} %.`,
+  ];
+}
 
 function selectedOptionsLabel(options?: Record<string, string>) {
   if (!options || Object.keys(options).length === 0) return "";
@@ -24,6 +37,7 @@ export function buildProductWhatsAppMessage(
   product: Product,
   quantity = 1,
   selectedOptions?: Record<string, string>,
+  pro?: ProInfo,
 ): string {
   const options = selectedOptionsLabel(selectedOptions);
   const lines = [
@@ -33,13 +47,15 @@ export function buildProductWhatsAppMessage(
     `• ${product.name}${options} × ${quantity}`,
   ];
 
-  if (hasPrice(product.price)) {
-    lines.push(`Prix unitaire : ${formatPrice(product.price)}`);
-    lines.push(`Total : ${formatPrice(product.price * quantity)}`);
+  const unit = pro ? proPrice(product.price) : product.price;
+  if (hasPrice(unit)) {
+    lines.push(`Prix unitaire : ${formatPrice(unit)}`);
+    lines.push(`Total : ${formatPrice(unit * quantity)}`);
   } else {
     lines.push(`Prix : à confirmer en boutique`);
   }
 
+  lines.push(...proLines(pro));
   lines.push(``, `Merci !`);
   return lines.join("\n");
 }
@@ -65,6 +81,7 @@ function deliveryLines(delivery?: DeliveryInfo): string[] {
 export function buildCartWhatsAppMessage(
   items: CartItem[],
   delivery?: DeliveryInfo,
+  pro?: ProInfo,
 ): string {
   const lines = [
     `Bonjour LKM Boutique,`,
@@ -80,11 +97,12 @@ export function buildCartWhatsAppMessage(
     const options = selectedOptionsLabel(item.selectedOptions);
     lines.push(`${index + 1}. ${item.name}${options} × ${item.quantity}`);
 
-    if (hasPrice(item.price)) {
-      const lineTotal = item.price * item.quantity;
+    const unit = pro ? proPrice(item.price) : item.price;
+    if (hasPrice(unit)) {
+      const lineTotal = unit * item.quantity;
       total += lineTotal;
       lines.push(
-        `   ${formatPrice(item.price)} / u — sous-total ${formatPrice(lineTotal)}`,
+        `   ${formatPrice(unit)} / u — sous-total ${formatPrice(lineTotal)}`,
       );
     } else {
       allPriced = false;
@@ -105,6 +123,7 @@ export function buildCartWhatsAppMessage(
     lines.push(`Prix à confirmer pour l’ensemble de la commande.`);
   }
 
+  lines.push(...proLines(pro));
   lines.push(...deliveryLines(delivery));
   lines.push(``, `Merci !`);
   return lines.join("\n");

@@ -1,5 +1,7 @@
 "use client";
 
+import { proPrice } from "@/lib/pro-price";
+import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -20,7 +22,12 @@ export function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem } = useCart();
   const deliveryChoice = useDeliveryChoice();
   const count = useCartCount();
-  const total = useCartTotal();
+  const pro = usePro();
+  const proName = useProStore((st) => st.name);
+  const baseTotal = useCartTotal();
+  const total = pro
+    ? items.reduce((sum, i) => sum + (proPrice(i.price) ?? 0) * i.quantity, 0)
+    : baseTotal;
   const hasUnpriced = items.some((i) => !hasPrice(i.price));
   useSyncCartWithCatalog(isOpen);
 
@@ -114,7 +121,7 @@ export function CartDrawer() {
                             </p>
                           )}
                           <p className="mt-1 text-sm font-semibold text-[var(--lkm-yellow)]">
-                            {formatPrice(item.price)}
+                            {formatPrice(pro ? proPrice(item.price) : item.price)}
                           </p>
                           <div className="mt-auto flex items-center justify-between pt-2">
                             <div className="inline-flex items-center rounded-lg border border-white/10">
@@ -173,6 +180,11 @@ export function CartDrawer() {
                     sur WhatsApp.
                   </p>
                 )}
+                {pro && (
+                  <p className="text-xs font-semibold text-[var(--lkm-blue)]">
+                    Prix réparateur -10 % appliqué.
+                  </p>
+                )}
                 <DeliveryChoice {...deliveryChoice} />
                 <Button
                   variant="whatsapp"
@@ -180,7 +192,11 @@ export function CartDrawer() {
                   className="w-full"
                   onClick={() => {
                     window.open(
-                      getWhatsAppUrl(buildCartWhatsAppMessage(items, deliveryChoice.delivery)),
+                      getWhatsAppUrl(buildCartWhatsAppMessage(
+                      items,
+                      deliveryChoice.delivery,
+                      pro ? { name: proName } : undefined,
+                    )),
                       "_blank",
                       "noopener,noreferrer",
                     );

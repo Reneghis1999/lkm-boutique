@@ -70,6 +70,16 @@ export async function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/suivi" className="hover:text-white">
+                Suivi de réparation
+              </Link>
+            </li>
+            <li>
+              <Link href="/pro" className="hover:text-white">
+                Espace réparateurs
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="hover:text-white">
                 Contact
               </Link>

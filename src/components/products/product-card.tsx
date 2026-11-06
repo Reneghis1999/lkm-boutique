@@ -1,5 +1,7 @@
 "use client";
 
+import { proPrice } from "@/lib/pro-price";
+import { usePro } from "@/store/pro";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +22,8 @@ export function ProductCard({
 }) {
   const addItem = useCart((s) => s.addItem);
   const pushToast = useToast((s) => s.push);
+  const pro = usePro();
+  const shownPrice = pro ? proPrice(product.price) : product.price;
   const available = hasPrice(product.price);
   const discount =
     product.compareAtPrice && product.price && product.compareAtPrice > product.price
@@ -79,8 +83,11 @@ export function ProductCard({
               available ? "text-[#0b5ea8]" : "text-[#1a1410]/45",
             )}
           >
-            {formatPrice(product.price)}
-            {discount ? (
+            {formatPrice(shownPrice)}
+            {pro && available ? (
+              <span className="ml-2 rounded bg-[var(--lkm-blue)] px-1.5 py-0.5 align-middle text-[10px] font-bold uppercase text-white">Pro</span>
+            ) : null}
+            {!pro && discount ? (
               <span className="ml-2 text-xs font-medium text-[#1a1410]/45 line-through sm:text-sm">
                 {formatPrice(product.compareAtPrice)}
               </span>
