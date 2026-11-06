@@ -1,5 +1,7 @@
 "use client";
 
+import { proPrice } from "@/lib/pro-price";
+import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -25,6 +27,8 @@ export function ProductDetail({
 }) {
   const addItem = useCart((s) => s.addItem);
   const [quantity, setQuantity] = useState(1);
+  const pro = usePro();
+  const proName = useProStore((st) => st.name);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>(
     () => {
       const initial: Record<string, string> = {};
@@ -109,8 +113,18 @@ export function ProductDetail({
                 : "text-white/45",
             )}
           >
-            {formatPrice(product.price)}
+            {formatPrice(pro ? proPrice(product.price) : product.price)}
+            {pro && hasPrice(product.price) ? (
+              <span className="ml-3 rounded-md bg-[var(--lkm-blue)] px-2 py-1 align-middle text-xs font-bold uppercase text-white">
+                Prix pro
+              </span>
+            ) : null}
           </p>
+          {pro && hasPrice(product.price) ? (
+            <p className="mt-1 text-sm text-white/40 line-through">
+              {formatPrice(product.price)}
+            </p>
+          ) : null}
           {product.compareAtPrice &&
           product.price &&
           product.compareAtPrice > product.price ? (
@@ -242,6 +256,7 @@ export function ProductDetail({
                       Object.keys(selectedOptions).length
                         ? selectedOptions
                         : undefined,
+                      pro ? { name: proName } : undefined,
                     ),
                   ),
                   "_blank",

@@ -1,5 +1,7 @@
 "use client";
 
+import { proPrice } from "@/lib/pro-price";
+import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
@@ -19,7 +21,12 @@ import { cn } from "@/lib/utils";
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart } = useCart();
   const count = useCartCount();
-  const total = useCartTotal();
+  const pro = usePro();
+  const proName = useProStore((st) => st.name);
+  const baseTotal = useCartTotal();
+  const total = pro
+    ? items.reduce((sum, i) => sum + (proPrice(i.price) ?? 0) * i.quantity, 0)
+    : baseTotal;
   const hasUnpriced = items.some((i) => !hasPrice(i.price));
   useSyncCartWithCatalog();
   const deliveryChoice = useDeliveryChoice();
@@ -76,7 +83,7 @@ export default function CartPage() {
                         {item.name}
                       </Link>
                       <p className="mt-1 text-sm text-[var(--lkm-yellow)]">
-                        {formatPrice(item.price)}
+                        {formatPrice(pro ? proPrice(item.price) : item.price)}
                       </p>
                       <div className="mt-auto flex items-center justify-between pt-3">
                         <div className="inline-flex items-center rounded-lg border border-white/10">
@@ -131,6 +138,11 @@ export default function CartPage() {
                   WhatsApp.
                 </p>
               )}
+              {pro && (
+                <p className="text-xs font-semibold text-[var(--lkm-blue)]">
+                  Prix réparateur -10 % appliqué.
+                </p>
+              )}
               <DeliveryChoice {...deliveryChoice} />
               <Button
                 variant="whatsapp"
@@ -138,7 +150,11 @@ export default function CartPage() {
                 className="w-full"
                 onClick={() =>
                   window.open(
-                    getWhatsAppUrl(buildCartWhatsAppMessage(items, deliveryChoice.delivery)),
+                    getWhatsAppUrl(buildCartWhatsAppMessage(
+                      items,
+                      deliveryChoice.delivery,
+                      pro ? { name: proName } : undefined,
+                    )),
                     "_blank",
                     "noopener,noreferrer",
                   )
