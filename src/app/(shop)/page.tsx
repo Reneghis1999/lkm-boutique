@@ -4,6 +4,7 @@ import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Locations } from "@/components/home/locations";
 import { Marquee } from "@/components/home/marquee";
+import { RecentlyViewed } from "@/components/products/recently-viewed";
 import { NewArrivals } from "@/components/home/new-arrivals";
 import { Promotions } from "@/components/home/promotions";
 import { SmoothScroll } from "@/components/home/motion/smooth-scroll";
@@ -47,6 +48,9 @@ export default async function HomePage() {
       <Hero liveProduct={live ? { name: live.name, price: live.price } : null} />
       <Promotions products={promos.slice(0, 8)} total={promos.length} />
       <NewArrivals products={arrivals} />
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+        <RecentlyViewed className="py-10" />
+      </div>
       <Marquee />
       <Statement />
       <StackedGroups groups={groups} />

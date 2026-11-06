@@ -1,12 +1,15 @@
 "use client";
 
 import { proPrice } from "@/lib/pro-price";
+import { RecentlyViewed } from "@/components/products/recently-viewed";
+import { ShareButtons } from "@/components/products/share-buttons";
+import { useRecent } from "@/store/recent";
 import { StockAlertForm } from "@/components/products/stock-alert-form";
 import { findVariant, shopAvailabilityText } from "@/lib/variants";
 import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Plus, ShoppingBag } from "lucide-react";
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
@@ -28,6 +31,10 @@ export function ProductDetail({
   related: Product[];
 }) {
   const addItem = useCart((s) => s.addItem);
+  const addRecent = useRecent((s) => s.add);
+  useEffect(() => {
+    addRecent(product.id);
+  }, [addRecent, product.id]);
   const [quantity, setQuantity] = useState(1);
   const pro = usePro();
   const proName = useProStore((st) => st.name);
@@ -157,6 +164,7 @@ export function ProductDetail({
               </span>
             </p>
           ) : null}
+          <ShareButtons name={product.name} price={shown.price} slug={product.slug} />
 
           <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
             <span
@@ -335,6 +343,8 @@ export function ProductDetail({
           )}
         </motion.div>
       </div>
+
+      <RecentlyViewed excludeId={product.id} className="mt-20" />
 
       {related.length > 0 && (
         <section className="mt-20">
