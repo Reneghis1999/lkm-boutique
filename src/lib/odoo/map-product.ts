@@ -38,7 +38,24 @@ export type OdooTemplateRow = {
   categ_id?: Many2one;
   write_date?: string;
   create_date?: string;
+  qty_available?: number;
+  is_storable?: boolean;
+  type?: string;
 };
+
+/**
+ * Disponibilité sans dévoiler la quantité :
+ * - service (réparation…)             → disponible
+ * - article suivi en stock            → disponible si quantité > 0
+ * - article non suivi (consommable)   → inconnu (undefined)
+ */
+export function stockStatus(row: OdooTemplateRow): boolean | undefined {
+  if (row.type === "service") return true;
+  const tracked =
+    row.is_storable === true || (row.is_storable === undefined && row.type === "product");
+  if (!tracked || typeof row.qty_available !== "number") return undefined;
+  return row.qty_available > 0;
+}
 
 export type OdooPublicCategoryRow = {
   id: number;
@@ -416,6 +433,7 @@ export function mapOdooTemplates(
       position: row.website_sequence ?? row.id,
       promo: ctx.isPromo?.(row) ?? false,
       createdAt: row.create_date || undefined,
+      inStock: stockStatus(row),
     };
 
     products.push(product);

@@ -35,6 +35,8 @@ export interface Product {
   promo?: boolean;
   /** Date d’ajout dans Odoo (« AAAA-MM-JJ HH:MM:SS »), pour les nouveautés. */
   createdAt?: string;
+  /** En stock (true), en rupture (false) ou inconnu — jamais la quantité. */
+  inStock?: boolean;
 }
 
 export interface Category {
