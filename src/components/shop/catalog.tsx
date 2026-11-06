@@ -46,6 +46,7 @@ export function Catalog({
   initialSort = "featured",
   initialMinPrice = "",
   initialMaxPrice = "",
+  initialInStockOnly = false,
   initialPage = 1,
 }: {
   products: Product[];
@@ -56,6 +57,7 @@ export function Catalog({
   initialSort?: SortOption;
   initialMinPrice?: string;
   initialMaxPrice?: string;
+  initialInStockOnly?: boolean;
   initialPage?: number;
 }) {
   const router = useRouter();
@@ -68,6 +70,7 @@ export function Catalog({
   const [sort, setSort] = useState<SortOption>(initialSort);
   const [minPrice, setMinPrice] = useState(initialMinPrice);
   const [maxPrice, setMaxPrice] = useState(initialMaxPrice);
+  const [inStockOnly, setInStockOnly] = useState(initialInStockOnly);
   const [page, setPage] = useState(Math.max(1, initialPage));
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -81,17 +84,18 @@ export function Catalog({
           sort,
           minPrice: minPrice ? Number(minPrice) : undefined,
           maxPrice: maxPrice ? Number(maxPrice) : undefined,
+          inStockOnly,
         },
         products,
         categories,
       ),
-    [products, categories, query, category, group, sort, minPrice, maxPrice],
+    [products, categories, query, category, group, sort, minPrice, maxPrice, inStockOnly],
   );
 
   // Recherche sans résultat (sans autre filtre) → notée dans Odoo.
   useLogMissedSearch(
     query,
-    filtered.length === 0 && !category && !group && !minPrice && !maxPrice,
+    filtered.length === 0 && !category && !group && !minPrice && !maxPrice && !inStockOnly,
   );
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -109,6 +113,7 @@ export function Catalog({
     min?: string;
     max?: string;
     page?: number;
+    stock?: boolean;
   }) {
     const params = new URLSearchParams(searchParams.toString());
     const map: Record<string, string | undefined> = {
@@ -119,6 +124,7 @@ export function Catalog({
       min: next.min,
       max: next.max,
       page: next.page != null && next.page > 1 ? String(next.page) : "",
+      stock: next.stock === undefined ? undefined : next.stock ? "1" : "",
     };
     Object.entries(map).forEach(([key, value]) => {
       if (value === undefined) return;
@@ -205,6 +211,30 @@ export function Catalog({
             </option>
           ))}
         </select>
+        <button
+          type="button"
+          aria-pressed={inStockOnly}
+          onClick={() => {
+            const next = !inStockOnly;
+            setInStockOnly(next);
+            setPage(1);
+            syncUrl({ stock: next, page: 1 });
+          }}
+          className={cn(
+            "inline-flex h-11 items-center justify-center gap-2 rounded-xl border px-4 text-sm font-medium transition",
+            inStockOnly
+              ? "border-[#3ddc8a]/60 bg-[#3ddc8a]/15 text-[#3ddc8a]"
+              : "border-white/10 bg-white/5 text-white/80 hover:text-white",
+          )}
+        >
+          <span
+            className={cn(
+              "h-2 w-2 rounded-full",
+              inStockOnly ? "bg-[#3ddc8a]" : "bg-white/30",
+            )}
+          />
+          En stock seulement
+        </button>
         <button
           type="button"
           onClick={() => setFiltersOpen((v) => !v)}

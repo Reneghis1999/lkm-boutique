@@ -18,6 +18,7 @@ type SearchParams = Promise<{
   min?: string;
   max?: string;
   page?: string;
+  stock?: string;
 }>;
 
 export default async function BoutiquePage({
@@ -47,6 +48,7 @@ export default async function BoutiquePage({
           initialSort={(params.sort as SortOption) || "featured"}
           initialMinPrice={params.min ?? ""}
           initialMaxPrice={params.max ?? ""}
+          initialInStockOnly={params.stock === "1"}
           initialPage={params.page ? Number(params.page) || 1 : 1}
         />
       </Suspense>
