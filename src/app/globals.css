@@ -74,3 +74,8 @@ pre {
   border-radius: 999px;
   border: 2px solid #0a0a0c;
 }
+
+/* Site en anglais : page masquée le temps de la traduction */
+html.i18n-pending body {
+  visibility: hidden;
+}

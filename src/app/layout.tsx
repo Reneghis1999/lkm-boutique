@@ -59,7 +59,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${display.variable} ${body.variable} ${mono.variable} h-full`}>
+    <html lang="fr" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable} h-full`}>
+      <head>
+        {/* Site en anglais : on masque la page le temps de la traduire (1,5 s max). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(/(?:^|;\\s*)lkm_lang=en\\b/.test(document.cookie)&&!location.pathname.startsWith('/admin')){var d=document.documentElement;d.classList.add('i18n-pending');d.lang='en';setTimeout(function(){d.classList.remove('i18n-pending')},1500)}",
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-[var(--lkm-bg)] text-[var(--foreground)] antialiased">
         <BusinessJsonLd />
         <Providers>{children}</Providers>
