@@ -1,6 +1,7 @@
 "use client";
 
 import { proPrice } from "@/lib/pro-price";
+import { priceRange } from "@/lib/variants";
 import { usePro } from "@/store/pro";
 import type { ReactNode } from "react";
 import Image from "next/image";
@@ -23,6 +24,8 @@ export function ProductCard({
   const addItem = useCart((s) => s.addItem);
   const pushToast = useToast((s) => s.push);
   const pro = usePro();
+  const range = priceRange(product);
+  const hasChoices = product.options.length > 0;
   const shownPrice = pro ? proPrice(product.price) : product.price;
   const outOfStock = product.inStock === false;
   const available = hasPrice(product.price) && !outOfStock;
@@ -84,7 +87,10 @@ export function ProductCard({
               available ? "text-[#0b5ea8]" : "text-[#1a1410]/45",
             )}
           >
-            {formatPrice(shownPrice)}
+            {range ? (
+              <span className="mr-1 text-xs font-medium text-[#5c6570]">dès</span>
+            ) : null}
+            {formatPrice(range ? (pro ? proPrice(range.min) : range.min) : shownPrice)}
             {pro && available ? (
               <span className="ml-2 rounded bg-[var(--lkm-blue)] px-1.5 py-0.5 align-middle text-[10px] font-bold uppercase text-white">Pro</span>
             ) : null}
@@ -111,6 +117,16 @@ export function ProductCard({
           </p>
         </div>
 
+        {hasChoices && !outOfStock ? (
+          <Link
+            href={`/produit/${product.slug}`}
+            className="mt-3.5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#0b3d6e] text-[13px] font-semibold text-white transition hover:bg-[#0a4f8c] sm:mt-4 sm:h-12 sm:text-sm"
+            aria-label={`Choisir les options de ${product.name}`}
+          >
+            <ShoppingBag className="h-4 w-4" />
+            Choisir
+          </Link>
+        ) : (
         <button
           type="button"
           disabled={outOfStock}
@@ -131,6 +147,7 @@ export function ProductCard({
             </>
           )}
         </button>
+        )}
 
         <Link
           href={`/produit/${product.slug}`}

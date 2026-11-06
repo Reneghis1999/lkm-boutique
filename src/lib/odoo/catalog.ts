@@ -23,7 +23,8 @@ import {
   type OdooPublicCategoryRow,
   type OdooTemplateRow,
 } from "@/lib/odoo/map-product";
-import type { Category, Product } from "@/types";
+import type { Category, Product, ProductVariant } from "@/types";
+import { optionsKey } from "@/lib/variants";
 
 const TEMPLATE_FIELDS = [
   "id",
@@ -109,8 +110,8 @@ function shopLabel(name: string) {
  */
 async function fetchStockByShop(
   templateIds: number[],
-): Promise<Map<number, string[]> | null> {
-  if (templateIds.length === 0) return new Map();
+): Promise<{ byTemplate: Map<number, string[]>; variantsInStock: Set<number> } | null> {
+  if (templateIds.length === 0) return { byTemplate: new Map(), variantsInStock: new Set() };
   const companies = await odooCall<{ id: number }[]>("res.company", "search_read", {
     domain: [],
     fields: ["id"],
@@ -120,6 +121,7 @@ async function fetchStockByShop(
   const quants = await odooCall<
     {
       product_tmpl_id?: [number, string] | false;
+      product_id?: [number, string] | false;
       warehouse_id?: [number, string] | false;
       company_id?: [number, string] | false;
     }[]
@@ -129,12 +131,14 @@ async function fetchStockByShop(
       ["quantity", ">", 0],
       ["product_tmpl_id", "in", templateIds],
     ],
-    fields: ["product_tmpl_id", "warehouse_id", "company_id"],
+    fields: ["product_tmpl_id", "product_id", "warehouse_id", "company_id"],
     context,
   });
 
   const result = new Map<number, string[]>();
+  const variantsInStock = new Set<number>();
   for (const q of quants) {
+    if (q.product_id) variantsInStock.add(q.product_id[0]);
     const tmpl = q.product_tmpl_id ? q.product_tmpl_id[0] : null;
     const where = q.warehouse_id || q.company_id;
     if (!tmpl || !where) continue;
@@ -145,6 +149,59 @@ async function fetchStockByShop(
   }
   // Ordre stable : Djidjolé puis Léo 2000.
   for (const list of result.values()) list.sort();
+  return { byTemplate: result, variantsInStock };
+}
+
+/**
+ * Prix (et stock) de chaque variante pour les modèles qui proposent des choix
+ * (marque, couleur…). Les noms de choix sont ceux des attributs Odoo.
+ */
+async function fetchVariants(
+  templateIds: number[],
+  attributeRows: OdooAttributeValueRow[],
+  variantsInStock: Set<number> | null,
+  tracked: Set<number>,
+): Promise<Map<number, ProductVariant[]>> {
+  const result = new Map<number, ProductVariant[]>();
+  if (templateIds.length === 0) return result;
+  const ptav = new Map(
+    attributeRows
+      .filter((r) => Array.isArray(r.attribute_id) && r.name)
+      .map((r) => [r.id, { attr: (r.attribute_id as [number, string])[1], value: r.name!.trim() }]),
+  );
+  const companies = await odooCall<{ id: number }[]>("res.company", "search_read", {
+    domain: [],
+    fields: ["id"],
+  });
+  const rows = await odooCall<
+    {
+      id: number;
+      product_tmpl_id: [number, string] | false;
+      lst_price?: number;
+      product_template_attribute_value_ids?: number[];
+    }[]
+  >("product.product", "search_read", {
+    domain: [["product_tmpl_id", "in", templateIds]],
+    fields: ["product_tmpl_id", "lst_price", "product_template_attribute_value_ids"],
+    context: { allowed_company_ids: companies.map((c) => c.id) },
+  });
+  for (const r of rows) {
+    if (!r.product_tmpl_id) continue;
+    const tmpl = r.product_tmpl_id[0];
+    const options: Record<string, string> = {};
+    for (const id of r.product_template_attribute_value_ids ?? []) {
+      const v = ptav.get(id);
+      if (v) options[v.attr] = v.value;
+    }
+    if (Object.keys(options).length === 0) continue;
+    const list = result.get(tmpl) ?? [];
+    list.push({
+      options,
+      price: typeof r.lst_price === "number" && r.lst_price > 0 ? Math.round(r.lst_price) : null,
+      inStock: variantsInStock && tracked.has(tmpl) ? variantsInStock.has(r.id) : undefined,
+    });
+    result.set(tmpl, list);
+  }
   return result;
 }
 
@@ -185,12 +242,27 @@ function mergeShopDuplicates(list: Product[]): Product[] {
     else if (first.inStock === false && p.inStock === false) first.inStock = false;
     else first.inStock = undefined;
     if (!first.image && p.image) first.image = p.image;
-    // Prix différents entre boutiques : on affiche le plus bas (prix ≥ 100 F,
-    // pour ignorer un prix mal saisi comme « 1 F »).
+    // Prix différents entre boutiques : on affiche toujours le plus haut
+    // (prix ≥ 100 F, pour ignorer un prix mal saisi comme « 1 F »).
     const valid = (x: number | null | undefined) => typeof x === "number" && x >= 100;
-    if (valid(p.price) && (!valid(first.price) || p.price! < first.price!)) {
+    if (valid(p.price) && (!valid(first.price) || p.price! > first.price!)) {
       first.price = p.price;
       first.compareAtPrice = p.compareAtPrice;
+    }
+    // Variantes : même choix dans les deux boutiques → prix le plus haut, stock si l’une en a.
+    if (p.variants?.length) {
+      const merged = new Map((first.variants ?? []).map((v) => [optionsKey(v.options), { ...v }]));
+      for (const v of p.variants) {
+        const k = optionsKey(v.options);
+        const cur = merged.get(k);
+        if (!cur) merged.set(k, { ...v });
+        else {
+          if (valid(v.price) && (!valid(cur.price) || v.price! > cur.price!)) cur.price = v.price;
+          if (v.inStock === true) cur.inStock = true;
+          else if (cur.inStock === undefined) cur.inStock = v.inStock;
+        }
+      }
+      first.variants = [...merged.values()];
     }
     // Choix (marque, couleur…) : on réunit ceux des deux boutiques.
     for (const opt of p.options) {
@@ -335,8 +407,33 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
   const trackedIds = shopTemplates
     .filter((r) => r.type !== "service" && stockStatus(r) !== undefined)
     .map((r) => r.id);
-  const shopStock = await fetchStockByShop(trackedIds).catch((e) => {
+  const stock = await fetchStockByShop(trackedIds).catch((e) => {
     warnings.push(`Stock par boutique illisible : ${String(e)}`);
+    return null;
+  });
+  const shopStock = stock?.byTemplate ?? null;
+
+  // Modèles avec des choix (au moins un attribut à plusieurs valeurs).
+  const allAttributeRows = Array.isArray(attributeRows) ? attributeRows : [];
+  const multi = new Map<number, Map<number, Set<string>>>();
+  for (const r of allAttributeRows) {
+    const t = Array.isArray(r.product_tmpl_id) ? r.product_tmpl_id[0] : null;
+    const a = Array.isArray(r.attribute_id) ? r.attribute_id[0] : null;
+    if (!t || !a) continue;
+    const m = multi.get(t) ?? new Map<number, Set<string>>();
+    m.set(a, (m.get(a) ?? new Set()).add(r.name || ""));
+    multi.set(t, m);
+  }
+  const withOptions = shopTemplates
+    .map((r) => r.id)
+    .filter((id) => [...(multi.get(id)?.values() ?? [])].some((v) => v.size > 1));
+  const variants = await fetchVariants(
+    withOptions,
+    allAttributeRows,
+    stock?.variantsInStock ?? null,
+    new Set(trackedIds),
+  ).catch((e) => {
+    warnings.push(`Variantes (prix par choix) illisibles : ${String(e)}`);
     return null;
   });
 
@@ -351,6 +448,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     legacyCategorySlugs,
     isPromo,
     shopStock,
+    variants,
   });
 
   const products = mergeShopDuplicates(mappedProducts);

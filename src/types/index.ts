@@ -13,6 +13,13 @@ export interface ProductOption {
   values: string[];
 }
 
+/** Une combinaison de choix (ex. Marque : DD) avec son prix et son stock. */
+export interface ProductVariant {
+  options: Record<string, string>;
+  price: number | null;
+  inStock?: boolean;
+}
+
 export interface ProductSpec {
   name: string;
   value: string;
@@ -39,6 +46,8 @@ export interface Product {
   inStock?: boolean;
   /** Boutiques où l’article est disponible (ex. « Djidjolé », « Léo 2000 »). */
   availableAt?: string[];
+  /** Prix / stock par choix (marque, couleur…), si différents dans Odoo. */
+  variants?: ProductVariant[];
 }
 
 export interface Category {

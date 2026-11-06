@@ -19,12 +19,13 @@ export async function GET(request: Request) {
     const products = await getProducts();
     const items = products
       .filter((p) => wanted.has(p.id))
-      .map(({ id, slug, name, price, image }) => ({
+      .map(({ id, slug, name, price, image, variants }) => ({
         id,
         slug,
         name,
         price,
         image,
+        ...(variants?.length ? { variants } : {}),
       }));
     return NextResponse.json(items, {
       headers: { "Cache-Control": "no-store" },

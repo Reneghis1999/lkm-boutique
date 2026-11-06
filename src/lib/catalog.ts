@@ -37,15 +37,16 @@ export type LoadedCatalog = {
 };
 
 /**
- * Le catalogue Odoo est gardé en mémoire (5 min par défaut, variable
- * ODOO_CACHE_SECONDS) : le site reste rapide même avec des milliers de
- * produits, et Odoo Online n’est pas sollicité à chaque visite.
- * Passé ce délai, les visiteurs reçoivent tout de suite les données en
- * mémoire pendant qu’une mise à jour se fait en arrière-plan.
+ * Le catalogue Odoo est gardé en mémoire pour que le site reste rapide.
+ * Règle : un prix changé dans Odoo est sur le site en 5 minutes maximum.
+ * - moins de 4 min : données en mémoire ;
+ * - entre 4 et 5 min : données en mémoire + mise à jour en arrière-plan ;
+ * - plus de 5 min : on attend les données fraîches d’Odoo
+ *   (si Odoo ne répond pas, on garde les dernières données reçues).
  */
-const CACHE_MS = Math.max(0, Number(process.env.ODOO_CACHE_SECONDS ?? 300)) * 1000;
-/** Au-delà, les données sont trop vieilles : on attend la mise à jour. */
-const MAX_STALE_MS = Math.max(CACHE_MS * 6, 30 * 60 * 1000);
+const MAX_AGE_MS = Math.max(60, Number(process.env.ODOO_CACHE_SECONDS ?? 300)) * 1000;
+const CACHE_MS = Math.round(MAX_AGE_MS * 0.8);
+const MAX_STALE_MS = MAX_AGE_MS;
 let lastGood: { at: number; data: OdooCatalog } | null = null;
 let inflight: Promise<OdooCatalog> | null = null;
 
