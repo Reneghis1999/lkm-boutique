@@ -1,5 +1,6 @@
 "use client";
 
+import { GuaranteeNote } from "@/components/shop/guarantee-note";
 import { proPrice } from "@/lib/pro-price";
 import { RecentlyViewed } from "@/components/products/recently-viewed";
 import { ShareButtons } from "@/components/products/share-buttons";
@@ -332,6 +333,7 @@ export function ProductDetail({
             <Plus className="h-4 w-4" />
             Ajouter rapidement ×1
           </Button>
+          <GuaranteeNote className="mt-3" />
 
           {shown.inStock === false && (
             <StockAlertForm

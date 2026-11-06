@@ -1,5 +1,6 @@
 "use client";
 
+import { GuaranteeNote } from "@/components/shop/guarantee-note";
 import { proPrice } from "@/lib/pro-price";
 import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
@@ -144,6 +145,7 @@ export default function CartPage() {
                 </p>
               )}
               <DeliveryChoice {...deliveryChoice} />
+              <GuaranteeNote />
               <Button
                 variant="whatsapp"
                 size="lg"

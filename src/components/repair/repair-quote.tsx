@@ -1,5 +1,6 @@
 "use client";
 
+import { GuaranteeNote } from "@/components/shop/guarantee-note";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
@@ -195,6 +196,7 @@ export function RepairQuote({ data }: { data: RepairQuoteData }) {
           <MessageCircle className="h-4 w-4" />
           Réserver sur WhatsApp
         </Button>
+        <GuaranteeNote className="mt-3" />
       </div>
     </div>
   );
