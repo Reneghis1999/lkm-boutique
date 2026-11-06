@@ -92,10 +92,18 @@ export function buildRepairQuote(products: Product[], repairs: RepairItem[]): Re
     }
     if (!options.length) continue;
 
-    const key = `${model.toLowerCase()}|${part}`;
-    const entry = byKey.get(key) ?? { model, part, options: [] as QuoteOption[] };
-    entry.options.push(...options);
-    byKey.set(key, entry);
+    // « iPhone 12 / 12 Pro » : même pièce pour les deux modèles.
+    const models = model.split("/").map((m, i) => {
+      const t = m.trim();
+      return i === 0 || /^iphone/i.test(t) ? t : `iPhone ${t}`;
+    });
+    for (const m of models) {
+      if (!m) continue;
+      const key = `${m.toLowerCase()}|${part}`;
+      const entry = byKey.get(key) ?? { model: m, part, options: [] as QuoteOption[] };
+      entry.options.push(...options.map((o) => ({ ...o })));
+      byKey.set(key, entry);
+    }
   }
 
   for (const e of byKey.values()) {
