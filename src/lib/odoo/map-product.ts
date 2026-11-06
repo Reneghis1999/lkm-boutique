@@ -9,14 +9,7 @@ import {
   type RepairItem,
 } from "@/data/repairs";
 import { slugify } from "@/lib/slug";
-import type {
-  AccentColor,
-  Category,
-  CategoryGroup,
-  Product,
-  ProductOption,
-  ProductSpec,
-} from "@/types";
+import type { AccentColor, Category, CategoryGroup, Product, ProductOption, ProductSpec, ProductVariant } from "@/types";
 
 type Many2one = [number, string] | false;
 
@@ -377,6 +370,8 @@ export function mapOdooTemplates(
     isPromo?: (row: OdooTemplateRow) => boolean;
     /** Boutiques où l’article est en stock (par id de modèle). */
     shopStock?: Map<number, string[]> | null;
+    /** Variantes (prix / stock par choix) par id de modèle. */
+    variants?: Map<number, ProductVariant[]> | null;
   },
 ): { products: Product[]; withoutOdooCategory: Product[] } {
   const usedSlugs = new Set<string>();
@@ -449,6 +444,7 @@ export function mapOdooTemplates(
       promo: ctx.isPromo?.(row) ?? false,
       createdAt: row.create_date || undefined,
       ...shopAvailability(row, ctx.shopStock),
+      ...(ctx.variants?.get(row.id)?.length ? { variants: ctx.variants.get(row.id) } : {}),
     };
 
     products.push(product);

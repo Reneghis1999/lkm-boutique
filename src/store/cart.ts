@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { priceFor } from "@/lib/variants";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { CartItem, Product } from "@/types";
+import type { CartItem, Product, ProductVariant } from "@/types";
 
 interface CartState {
   items: CartItem[];
@@ -21,7 +22,9 @@ interface CartState {
   clearCart: () => void;
   /** Met à jour prix / nom / photo avec les données actuelles du catalogue. */
   refreshItems: (
-    fresh: Pick<CartItem, "productId" | "slug" | "name" | "price" | "image">[],
+    fresh: (Pick<CartItem, "productId" | "slug" | "name" | "price" | "image"> & {
+      variants?: ProductVariant[];
+    })[],
   ) => void;
 }
 
@@ -92,9 +95,10 @@ export const useCart = create<CartState>()(
         let changed = false;
         const items = get().items.map((item) => {
           const f = byId.get(item.productId);
+          const price = f ? priceFor(f, item.selectedOptions) : null;
           if (
             !f ||
-            (f.price === item.price &&
+            (price === item.price &&
               f.name === item.name &&
               f.image === item.image &&
               f.slug === item.slug)
@@ -106,7 +110,7 @@ export const useCart = create<CartState>()(
             ...item,
             slug: f.slug,
             name: f.name,
-            price: f.price,
+            price,
             image: f.image,
           };
         });
@@ -157,6 +161,7 @@ export function useSyncCartWithCatalog(enabled = true) {
                 name: string;
                 price: number | null;
                 image: string | null;
+                variants?: ProductVariant[];
               }[]
             | null,
         ) => {
@@ -168,6 +173,7 @@ export function useSyncCartWithCatalog(enabled = true) {
               name: r.name,
               price: r.price,
               image: r.image,
+              variants: r.variants,
             })),
           );
         },
