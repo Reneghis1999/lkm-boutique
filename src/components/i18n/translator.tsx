@@ -57,11 +57,6 @@ export function Translator() {
       }
     };
 
-    walk(document.body);
-    const title = translateEn(document.title.split(" | ")[0]);
-    if (title) document.title = document.title.replace(document.title.split(" | ")[0], title);
-    root.classList.remove("i18n-pending");
-
     const obs = new MutationObserver((list) => {
       for (const m of list) {
         if (m.type === "characterData") textNode(m.target as Text);
@@ -69,14 +64,30 @@ export function Translator() {
         else m.addedNodes.forEach(walk);
       }
     });
-    obs.observe(document.body, {
-      subtree: true,
-      childList: true,
-      characterData: true,
-      attributes: true,
-      attributeFilter: [...ATTRS],
-    });
-    return () => obs.disconnect();
+    // On attend la fin de l’hydratation de React (sinon il remet le français),
+    // et on surveille <html> entier : React peut recréer <body>.
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      walk(document.body);
+      const head = document.title.split(" | ")[0];
+      const title = translateEn(head);
+      if (title) document.title = document.title.replace(head, title);
+      root.classList.remove("i18n-pending");
+      obs.observe(root, {
+        subtree: true,
+        childList: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: [...ATTRS],
+      });
+    };
+    const timer = window.setTimeout(start, 120);
+    return () => {
+      window.clearTimeout(timer);
+      obs.disconnect();
+    };
   }, []);
 
   return null;
