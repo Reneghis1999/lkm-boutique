@@ -3,6 +3,7 @@
  * (aucun import Odoo ni du gros catalog.json ici).
  */
 import type { Category, CategoryGroup, Product, SortOption } from "@/types";
+import { searchScore, searchTokens } from "@/lib/search";
 
 /** Rubriques historiques (catégories eCommerce Odoo existantes). */
 export const GROUP_CATEGORY_SLUGS: Record<string, string[]> = {
@@ -77,14 +78,15 @@ export function filterProducts(
     }
   }
 
+  let scores: Map<Product, number> | null = null;
   if (filters.query?.trim()) {
-    const q = filters.query.trim().toLowerCase();
-    result = result.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.categorySlugs.some((s) => s.includes(q)),
-    );
+    const tokens = searchTokens(filters.query);
+    scores = new Map();
+    for (const p of result) {
+      const s = searchScore(p, tokens);
+      if (s > 0) scores.set(p, s);
+    }
+    result = result.filter((p) => scores!.has(p));
   }
 
   if (filters.minPrice != null) {
@@ -114,6 +116,12 @@ export function filterProducts(
       break;
     case "featured":
     default:
+      // Avec une recherche : les produits les plus proches d’abord.
+      if (scores) {
+        const sc = scores;
+        result.sort((a, b) => (sc.get(b) ?? 0) - (sc.get(a) ?? 0));
+        break;
+      }
       result.sort((a, b) => {
         if (a.featured !== b.featured) return a.featured ? -1 : 1;
         return a.position - b.position;
