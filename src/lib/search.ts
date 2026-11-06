@@ -32,12 +32,36 @@ const ALIASES: Record<string, string> = {
   cod: "call of duty",
   duty: "duty",
   dutty: "duty",
+  // « derrière » = vitre arrière (façon de dire des clients), fautes comprises
+  derriere: "vitre arriere",
+  derrier: "vitre arriere",
+  derrie: "vitre arriere",
+  derri: "vitre arriere",
+  derr: "vitre arriere",
+  deriere: "vitre arriere",
+  derier: "vitre arriere",
+  derie: "vitre arriere",
+  deri: "vitre arriere",
+  dos: "vitre arriere",
+  arier: "arriere",
+  ariere: "arriere",
+  arrier: "arriere",
+  // autres fautes courantes
+  ekran: "ecran",
+  ecrant: "ecran",
+  ecrans: "ecran",
+  batri: "batterie",
+  batrie: "batterie",
+  baterie: "batterie",
+  baterry: "batterie",
+  capter: "capteur",
+  capteurs: "capteur",
 };
 
 function normalize(text: string): string {
   return text
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/\+/g, " plus ")
     // sépare chiffres et lettres collés : « 15pro » → « 15 pro », « iph11 » → « iph 11 »
