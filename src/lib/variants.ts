@@ -46,3 +46,19 @@ export function optionsKey(options: Record<string, string>): string {
     .map(([k, v]) => `${k}:${v}`)
     .join("|");
 }
+
+/** Les deux boutiques LKM (mêmes libellés que le stock Odoo). */
+export const SHOPS = ["Djidjolé", "Léo 2000"] as const;
+
+/**
+ * Texte de disponibilité par boutique.
+ * Ex. « Fini à Léo 2000 — disponible à Djidjolé ».
+ */
+export function shopAvailabilityText(availableAt?: string[]): string | null {
+  if (!availableAt?.length) return null;
+  const missing = SHOPS.filter((s) => !availableAt.includes(s));
+  if (missing.length === 0 || availableAt.length > 1) {
+    return `Disponible à ${availableAt.join(" et à ")}`;
+  }
+  return `Fini à ${missing.join(" et à ")} — disponible à ${availableAt[0]}`;
+}
