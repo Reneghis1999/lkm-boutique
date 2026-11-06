@@ -110,8 +110,8 @@ function shopLabel(name: string) {
  */
 async function fetchStockByShop(
   templateIds: number[],
-): Promise<{ byTemplate: Map<number, string[]>; variantsInStock: Set<number> } | null> {
-  if (templateIds.length === 0) return { byTemplate: new Map(), variantsInStock: new Set() };
+): Promise<{ byTemplate: Map<number, string[]>; variantsInStock: Map<number, string[]> } | null> {
+  if (templateIds.length === 0) return { byTemplate: new Map(), variantsInStock: new Map() };
   const companies = await odooCall<{ id: number }[]>("res.company", "search_read", {
     domain: [],
     fields: ["id"],
@@ -136,19 +136,25 @@ async function fetchStockByShop(
   });
 
   const result = new Map<number, string[]>();
-  const variantsInStock = new Set<number>();
+  // Boutiques où chaque variante (marque, couleur…) est en stock.
+  const variantsInStock = new Map<number, string[]>();
   for (const q of quants) {
-    if (q.product_id) variantsInStock.add(q.product_id[0]);
     const tmpl = q.product_tmpl_id ? q.product_tmpl_id[0] : null;
     const where = q.warehouse_id || q.company_id;
     if (!tmpl || !where) continue;
     const label = shopLabel(where[1]);
+    if (q.product_id) {
+      const vs = variantsInStock.get(q.product_id[0]) ?? [];
+      if (!vs.includes(label)) vs.push(label);
+      variantsInStock.set(q.product_id[0], vs);
+    }
     const list = result.get(tmpl) ?? [];
     if (!list.includes(label)) list.push(label);
     result.set(tmpl, list);
   }
   // Ordre stable : Djidjolé puis Léo 2000.
   for (const list of result.values()) list.sort();
+  for (const list of variantsInStock.values()) list.sort();
   return { byTemplate: result, variantsInStock };
 }
 
@@ -159,7 +165,7 @@ async function fetchStockByShop(
 async function fetchVariants(
   templateIds: number[],
   attributeRows: OdooAttributeValueRow[],
-  variantsInStock: Set<number> | null,
+  variantsInStock: Map<number, string[]> | null,
   tracked: Set<number>,
 ): Promise<Map<number, ProductVariant[]>> {
   const result = new Map<number, ProductVariant[]>();
@@ -198,7 +204,12 @@ async function fetchVariants(
     list.push({
       options,
       price: typeof r.lst_price === "number" && r.lst_price > 0 ? Math.round(r.lst_price) : null,
-      inStock: variantsInStock && tracked.has(tmpl) ? variantsInStock.has(r.id) : undefined,
+      ...(variantsInStock && tracked.has(tmpl)
+        ? {
+            inStock: variantsInStock.has(r.id),
+            availableAt: variantsInStock.get(r.id) ?? [],
+          }
+        : {}),
     });
     result.set(tmpl, list);
   }
@@ -249,7 +260,7 @@ function mergeShopDuplicates(list: Product[]): Product[] {
       first.price = p.price;
       first.compareAtPrice = p.compareAtPrice;
     }
-    // Variantes : même choix dans les deux boutiques → prix le plus haut, stock si l’une en a.
+    // Variantes : même choix dans les deux boutiques → prix le plus haut, stock et boutiques réunis.
     if (p.variants?.length) {
       const merged = new Map((first.variants ?? []).map((v) => [optionsKey(v.options), { ...v }]));
       for (const v of p.variants) {
@@ -260,6 +271,9 @@ function mergeShopDuplicates(list: Product[]): Product[] {
           if (valid(v.price) && (!valid(cur.price) || v.price! > cur.price!)) cur.price = v.price;
           if (v.inStock === true) cur.inStock = true;
           else if (cur.inStock === undefined) cur.inStock = v.inStock;
+          if (v.availableAt) {
+            cur.availableAt = [...new Set([...(cur.availableAt ?? []), ...v.availableAt])].sort();
+          }
         }
       }
       first.variants = [...merged.values()];

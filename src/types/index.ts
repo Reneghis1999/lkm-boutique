@@ -18,6 +18,8 @@ export interface ProductVariant {
   options: Record<string, string>;
   price: number | null;
   inStock?: boolean;
+  /** Boutiques où ce choix est en stock. */
+  availableAt?: string[];
 }
 
 export interface ProductSpec {

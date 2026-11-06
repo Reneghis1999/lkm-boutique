@@ -1,7 +1,7 @@
 "use client";
 
 import { proPrice } from "@/lib/pro-price";
-import { findVariant } from "@/lib/variants";
+import { findVariant, shopAvailabilityText } from "@/lib/variants";
 import { usePro, useProStore } from "@/store/pro";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,6 +46,7 @@ export function ProductDetail({
     ...product,
     price: variant?.price ?? product.price,
     inStock: variant?.inStock ?? product.inStock,
+    availableAt: variant?.availableAt ?? product.availableAt,
   };
   const variantOut = variant?.inStock === false && product.inStock !== false;
   const isOut = (name: string, value: string) =>
@@ -168,8 +169,8 @@ export function ProductDetail({
                 ? "Ce choix est en rupture — choisissez-en un autre ou demandez sur WhatsApp"
                 : shown.inStock === false
                 ? "Rupture de stock — demandez quand il revient sur WhatsApp"
-                : product.availableAt?.length
-                  ? `Disponible à ${product.availableAt.join(" et à ")}`
+                : shown.availableAt?.length
+                  ? shopAvailabilityText(shown.availableAt)
                   : hasPrice(shown.price)
                     ? "Disponible"
                     : "Sur demande"}

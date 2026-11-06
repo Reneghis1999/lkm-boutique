@@ -110,7 +110,9 @@ export function ProductCard({
             {outOfStock
               ? "Rupture de stock"
               : product.availableAt?.length
-                ? `Dispo : ${product.availableAt.join(" · ")}`
+                ? product.availableAt.length === 1
+                  ? `Dispo seulement : ${product.availableAt[0]}`
+                  : `Dispo : ${product.availableAt.join(" · ")}`
                 : available
                   ? "Disponible"
                   : "Sur demande"}
