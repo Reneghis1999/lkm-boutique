@@ -148,6 +148,48 @@ async function fetchStockByShop(
   return result;
 }
 
+/**
+ * Chaque boutique (société Odoo) a sa propre fiche pour un même article.
+ * On fusionne les fiches de même nom : une seule carte sur le site, avec la
+ * liste des boutiques où il est disponible.
+ */
+function mergeShopDuplicates(list: Product[]): Product[] {
+  const key = (p: Product) =>
+    p.name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+  const byKey = new Map<string, Product>();
+  const out: Product[] = [];
+  for (const p of list) {
+    const k = key(p);
+    const first = byKey.get(k);
+    if (!first) {
+      const copy = { ...p, availableAt: p.availableAt ? [...p.availableAt] : undefined };
+      byKey.set(k, copy);
+      out.push(copy);
+      continue;
+    }
+    if (p.availableAt?.length) {
+      const shops = new Set([...(first.availableAt ?? []), ...p.availableAt]);
+      first.availableAt = [...shops].sort();
+    }
+    // En stock si l’une des fiches l’est ; en rupture seulement si toutes le sont.
+    if (first.inStock === true || p.inStock === true) first.inStock = true;
+    else if (first.inStock === false && p.inStock === false) first.inStock = false;
+    else first.inStock = undefined;
+    if (!first.image && p.image) first.image = p.image;
+    if (first.price == null && p.price != null) first.price = p.price;
+    if (!first.description && p.description) first.description = p.description;
+    first.categorySlugs = [...new Set([...first.categorySlugs, ...p.categorySlugs])];
+    first.featured = first.featured || p.featured;
+    first.promo = first.promo || p.promo;
+  }
+  return out;
+}
+
 export async function fetchOdooCatalog(): Promise<OdooCatalog> {
   const warnings: string[] = [];
   const [{ domain, publishedFilter }, templateFields] = await Promise.all([
@@ -282,7 +324,7 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     return null;
   });
 
-  const { products, withoutOdooCategory } = mapOdooTemplates(shopTemplates, {
+  const { products: mappedProducts, withoutOdooCategory } = mapOdooTemplates(shopTemplates, {
     categoriesById: mappedCategories.byId,
     parentOf: mappedCategories.parentOf,
     attributes: groupAttributes(
@@ -294,6 +336,8 @@ export async function fetchOdooCatalog(): Promise<OdooCatalog> {
     isPromo,
     shopStock,
   });
+
+  const products = mergeShopDuplicates(mappedProducts);
 
   // Nombre de produits par catégorie ; on masque les catégories vides.
   const categories = mappedCategories.categories
