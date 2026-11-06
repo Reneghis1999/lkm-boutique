@@ -22,7 +22,18 @@ export default function RachatPage() {
           Décrivez votre téléphone en 1 minute. On vous répond sur WhatsApp avec
           notre prix, puis vous passez à Djidjolé ou à Léo 2000.
         </p>
-        <div className="mt-10">
+        <div className="mt-8 rounded-2xl border border-[var(--lkm-yellow)]/40 bg-[var(--lkm-yellow)]/10 p-5">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-[var(--lkm-yellow)]">
+            Conditions
+          </h2>
+          <p className="mt-2 text-white/80">
+            Nous reprenons uniquement les téléphones{" "}
+            <strong className="text-white">achetés chez LKM Boutique</strong>, ou
+            les téléphones avec leur{" "}
+            <strong className="text-white">facture d’achat et leur boîte</strong>.
+          </p>
+        </div>
+        <div className="mt-8">
           <TradeInForm />
         </div>
       </section>
