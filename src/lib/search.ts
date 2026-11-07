@@ -78,6 +78,15 @@ const ALIASES: Record<string, string> = {
   aifone: "iphone",
   iphones: "iphone",
   do: "vitre arriere",
+  // recherches générales
+  accessoires: "accessoire",
+  accesoire: "accessoire",
+  accesoires: "accessoire",
+  reparations: "reparation",
+  reparer: "reparation",
+  pieces: "piece",
+  consoles: "console",
+  games: "game",
   // vis
   boulon: "vis",
   boulons: "vis",
@@ -131,6 +140,25 @@ function wordScore(q: string, words: string[]): number {
   return best;
 }
 
+/**
+ * Mots ajoutés selon la catégorie du produit, pour les recherches générales :
+ * « jeux » trouve consoles, CD, manettes… ; « accessoires de réparation » trouve
+ * écrans, batteries, vitres, bouts de charge, capteurs, vis…
+ */
+const CATEGORY_TAGS: { test: RegExp; tags: string }[] = [
+  { test: /^(cd|manette)$|jeu|console/, tags: "jeu jeux console gaming game" },
+  {
+    test: /reparation|batterie|ecran|vitre|bouts-de-charge|capteur|piec|rechange/,
+    tags: "accessoire reparation piece rechange",
+  },
+];
+
+function categoryTags(slugs: string[]): string {
+  return CATEGORY_TAGS.filter((c) => slugs.some((s) => c.test.test(s)))
+    .map((c) => c.tags)
+    .join(" ");
+}
+
 type Indexed = { name: string[]; other: string[] };
 const cache = new WeakMap<Product, Indexed>();
 
@@ -139,7 +167,9 @@ function index(p: Product): Indexed {
   if (!entry) {
     entry = {
       name: searchTokens(p.name),
-      other: searchTokens(`${p.categorySlugs.join(" ")} ${p.description ?? ""}`),
+      other: searchTokens(
+        `${p.categorySlugs.join(" ")} ${categoryTags(p.categorySlugs)} ${p.description ?? ""}`,
+      ),
     };
     cache.set(p, entry);
   }
