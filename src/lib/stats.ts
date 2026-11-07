@@ -75,6 +75,7 @@ export type DashboardStats = {
   visitors: { today: number; week: number; month: number };
   daily: { day: string; views: number }[];
   products: Ranked;
+  productViews: Record<string, number>;
   searches: Ranked;
   whatsapp: Ranked;
   whatsappProducts: Ranked;
@@ -88,6 +89,7 @@ export async function readStats(days = 30): Promise<DashboardStats> {
     visitors: { today: 0, week: 0, month: 0 },
     daily: [],
     products: [],
+    productViews: {},
     searches: [],
     whatsapp: [],
     whatsappProducts: [],
@@ -106,8 +108,8 @@ export async function readStats(days = 30): Promise<DashboardStats> {
     redis.pfcount(uKeys(7)[0], ...uKeys(7).slice(1)),
     redis.pfcount(uKeys(days)[0], ...uKeys(days).slice(1)),
   ]);
-  const [products, searches, whatsapp, whatsappProducts] = await Promise.all([
-    topOver("p", days, 10),
+  const [allProducts, searches, whatsapp, whatsappProducts] = await Promise.all([
+    topOver("p", days, 2000),
     topOver("s", days, 15),
     topOver("w", days, 10),
     topOver("wp", days, 10),
@@ -118,7 +120,8 @@ export async function readStats(days = 30): Promise<DashboardStats> {
     views: { today: sumDays(1), week: sumDays(7), month: sumDays(days) },
     visitors: { today: uToday, week: uWeek, month: uMonth },
     daily: dayList.slice(0, 14).map((d, i) => ({ day: d, views: counts[i] })).reverse(),
-    products,
+    products: allProducts.slice(0, 10),
+    productViews: Object.fromEntries(allProducts.map((r) => [r.name, r.count])),
     searches,
     whatsapp,
     whatsappProducts,
