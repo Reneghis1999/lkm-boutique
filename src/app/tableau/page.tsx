@@ -226,6 +226,37 @@ export default async function TableauPage() {
           )}
         </Card>
       </div>
+      <section className="mt-8 rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-white/50">
+          Statut WhatsApp du jour
+        </h2>
+        <p className="mt-1 text-sm text-white/55">
+          Images prêtes à poster en statut WhatsApp ou TikTok, mises à jour chaque jour avec Odoo.
+        </p>
+        <div className="mt-4 grid grid-cols-2 gap-4">
+          {[
+            { type: "nouveautes", label: "Nouveautés" },
+            { type: "promos", label: "Promos" },
+          ].map((s) => (
+            <div key={s.type} className="flex flex-col gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/statut?type=${s.type}`}
+                alt={`Statut ${s.label}`}
+                className="w-full rounded-xl border border-white/10"
+                loading="lazy"
+              />
+              <a
+                href={`/api/statut?type=${s.type}&download=1`}
+                className="rounded-full bg-[#25d366] px-4 py-2.5 text-center text-sm font-semibold text-[#0b0b0f]"
+              >
+                Télécharger « {s.label} »
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <p className="mt-8 text-xs text-white/30">
         Données des 30 derniers jours, mises à jour en direct.
       </p>
