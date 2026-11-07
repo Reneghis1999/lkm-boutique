@@ -84,10 +84,14 @@ export function SearchDialog({
     onClose();
   }
 
-  function goToBoutique(q: string) {
+  function goToBoutique(q: string, category?: string) {
     setQuery("");
     onClose();
-    router.push(q ? `/boutique?q=${encodeURIComponent(q)}` : "/boutique");
+    const params = new URLSearchParams();
+    if (q) params.set("q", q);
+    if (category) params.set("category", category);
+    const qs = params.toString();
+    router.push(qs ? `/boutique?${qs}` : "/boutique");
   }
 
   return (
@@ -129,7 +133,7 @@ export function SearchDialog({
             </div>
             <BrandSuggestions
               items={suggestions}
-              onPick={(q) => setQuery(q)}
+              onPick={(s) => (s.category ? goToBoutique(s.q, s.category) : setQuery(s.q))}
               className="border-b border-white/10 px-4 py-3"
             />
             <div className="max-h-80 overflow-y-auto p-2">

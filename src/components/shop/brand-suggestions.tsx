@@ -2,14 +2,14 @@
 
 import type { Suggestion } from "@/lib/search-suggest";
 
-/** Boutons « Batterie iPhone (40) » proposés pendant la saisie. */
+/** Boutons « Batterie iPhone », « Manette PS5 »… proposés pendant la saisie. */
 export function BrandSuggestions({
   items,
   onPick,
   className = "",
 }: {
   items: Suggestion[];
-  onPick: (q: string) => void;
+  onPick: (s: Suggestion) => void;
   className?: string;
 }) {
   if (items.length === 0) return null;
@@ -19,7 +19,7 @@ export function BrandSuggestions({
         <button
           key={s.label}
           type="button"
-          onClick={() => onPick(s.q)}
+          onClick={() => onPick(s)}
           className="rounded-full border border-[var(--lkm-blue)]/40 bg-[var(--lkm-blue)]/10 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[var(--lkm-blue)]/25"
         >
           {s.label}

@@ -87,6 +87,7 @@ const ALIASES: Record<string, string> = {
   pieces: "piece",
   consoles: "console",
   games: "game",
+  nintendo: "switch",
   // vis
   boulon: "vis",
   boulons: "vis",
