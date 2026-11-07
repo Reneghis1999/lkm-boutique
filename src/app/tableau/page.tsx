@@ -125,7 +125,7 @@ export default async function TableauPage() {
     b.views - a.views || a.total - b.total;
   const ruptures = withViews.filter((r) => r.total <= 0).sort(byImportance);
   const lowStock = withViews
-    .filter((r) => r.total > 0 && (r.total <= 2 || r.djidjole === 0 || r.leo === 0) && r.total <= 4)
+    .filter((r) => r.total > 0 && r.total <= 2)
     .sort(byImportance);
   const orderText = [
     "Commande LKM Boutique :",
