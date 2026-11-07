@@ -78,6 +78,14 @@ const ALIASES: Record<string, string> = {
   aifone: "iphone",
   iphones: "iphone",
   do: "vitre arriere",
+  // vis
+  boulon: "vis",
+  boulons: "vis",
+  boulo: "vis",
+  bouln: "vis",
+  visse: "vis",
+  visses: "vis",
+  viss: "vis",
 };
 
 /**
