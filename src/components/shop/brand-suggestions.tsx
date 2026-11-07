@@ -22,7 +22,7 @@ export function BrandSuggestions({
           onClick={() => onPick(s.q)}
           className="rounded-full border border-[var(--lkm-blue)]/40 bg-[var(--lkm-blue)]/10 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[var(--lkm-blue)]/25"
         >
-          {s.label} <span className="text-white/50">({s.count})</span>
+          {s.label}
         </button>
       ))}
     </div>

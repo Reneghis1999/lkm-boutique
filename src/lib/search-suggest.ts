@@ -50,7 +50,7 @@ function nameTokens(p: Product): string[] {
   return t;
 }
 
-export function suggestBrands(query: string, products: Product[], max = 6): Suggestion[] {
+export function suggestBrands(query: string, products: Product[], max = 20): Suggestion[] {
   const tokens = searchTokens(query);
   if (tokens.length === 0) return [];
   // Une marque déjà tapée → pas de propositions (le client sait ce qu’il veut).
