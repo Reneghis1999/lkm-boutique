@@ -36,3 +36,12 @@ export async function DELETE() {
   res.cookies.delete(DASH_COOKIE);
   return res;
 }
+
+/** Diagnostic : le code est-il bien configuré ? (ne révèle que sa longueur) */
+export async function GET() {
+  const c = (process.env.DASHBOARD_CODE || "").trim();
+  return NextResponse.json(
+    { configured: c.length > 0, length: c.length, secret: Boolean(process.env.AUTH_SECRET) },
+    { headers: { "Cache-Control": "no-store" } },
+  );
+}
