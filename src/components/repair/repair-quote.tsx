@@ -9,6 +9,7 @@ import { formatPrice } from "@/lib/format";
 import { QUOTE_PARTS, type QuotePart, type RepairQuoteData } from "@/lib/repair-quote";
 import { shopAvailabilityText } from "@/lib/variants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsApp } from "@/lib/track-client";
 import { cn } from "@/lib/utils";
 
 function Chips<T extends string>({
@@ -81,7 +82,9 @@ export function RepairQuote({ data }: { data: RepairQuoteData }) {
     ]
       .filter((l) => l !== null)
       .join("\n");
-    window.location.assign(getWhatsAppUrl(message));
+    const waUrl = getWhatsAppUrl(message);
+    trackWhatsApp(waUrl);
+    window.location.assign(waUrl);
   }
 
   const labelCls = "mb-2 block text-sm text-white/55";

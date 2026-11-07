@@ -2,14 +2,15 @@
 
 import { useEffect } from "react";
 import { normalizeSearchTerm } from "@/lib/search-term";
+import { sendTrack } from "@/lib/track-client";
 
 const SENT_KEY = "lkm-missed-searches";
 
-function alreadySent(term: string): boolean {
+function alreadySent(term: string, key = SENT_KEY): boolean {
   try {
-    const list = JSON.parse(sessionStorage.getItem(SENT_KEY) || "[]") as string[];
+    const list = JSON.parse(sessionStorage.getItem(key) || "[]") as string[];
     if (list.includes(term)) return true;
-    sessionStorage.setItem(SENT_KEY, JSON.stringify([...list, term].slice(-50)));
+    sessionStorage.setItem(key, JSON.stringify([...list, term].slice(-50)));
   } catch {
     // stockage indisponible : on envoie quand même
   }
@@ -23,9 +24,11 @@ function alreadySent(term: string): boolean {
 export function useLogMissedSearch(query: string, noResult: boolean) {
   useEffect(() => {
     const term = normalizeSearchTerm(query);
-    if (!noResult || term.replace(/\s/g, "").length < 3) return;
+    if (term.replace(/\s/g, "").length < 3) return;
     const timer = window.setTimeout(() => {
-      if (alreadySent(term)) return;
+      // Statistique : toutes les recherches (une fois par mot et par visite)
+      if (!alreadySent(term, "lkm-searches")) sendTrack({ type: "search", q: query });
+      if (!noResult || alreadySent(term)) return;
       fetch("/api/recherche", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
