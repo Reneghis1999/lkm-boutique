@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsApp } from "@/lib/track-client";
 import { cn } from "@/lib/utils";
 
 const ACTIONS = ["Vendre", "Échanger"] as const;
@@ -103,7 +104,9 @@ export function TradeInForm() {
       "Quel prix pouvez-vous me proposer ? Je peux envoyer des photos.",
     ].filter((l) => l !== null);
     // Même onglet : jamais bloqué comme une fenêtre pop-up.
-    window.location.href = getWhatsAppUrl(lines.join("\n"));
+    const waUrl = getWhatsAppUrl(lines.join("\n"));
+    trackWhatsApp(waUrl);
+    window.location.href = waUrl;
   }
 
   // Réponse manquante : on montre le message rouge au client.
