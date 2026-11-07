@@ -38,13 +38,13 @@ export type LoadedCatalog = {
 
 /**
  * Le catalogue Odoo est gardé en mémoire pour que le site reste rapide.
- * Règle : un prix changé dans Odoo est sur le site en 5 minutes maximum.
- * - moins de 4 min : données en mémoire ;
- * - entre 4 et 5 min : données en mémoire + mise à jour en arrière-plan ;
- * - plus de 5 min : on attend les données fraîches d’Odoo
+ * Règle : un prix changé dans Odoo est sur le site en 2 minutes maximum.
+ * - moins de 1 min 36 : données en mémoire ;
+ * - entre 1 min 36 et 2 min : données en mémoire + mise à jour en arrière-plan ;
+ * - plus de 2 min : on attend les données fraîches d’Odoo
  *   (si Odoo ne répond pas, on garde les dernières données reçues).
  */
-const MAX_AGE_MS = Math.max(60, Number(process.env.ODOO_CACHE_SECONDS ?? 300)) * 1000;
+const MAX_AGE_MS = Math.max(60, Number(process.env.ODOO_CACHE_SECONDS ?? 120)) * 1000;
 const CACHE_MS = Math.round(MAX_AGE_MS * 0.8);
 const MAX_STALE_MS = MAX_AGE_MS;
 let lastGood: { at: number; data: OdooCatalog } | null = null;
