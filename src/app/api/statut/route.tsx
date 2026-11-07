@@ -117,7 +117,7 @@ export async function GET(request: Request) {
               <div
                 style={{
                   width: "100%",
-                  height: 400,
+                  height: products.length <= 2 ? 640 : 400,
                   background: "white",
                   borderRadius: 22,
                   display: "flex",
