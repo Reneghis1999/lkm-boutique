@@ -25,6 +25,8 @@ type Kind = {
   categories?: string[];
   /** Filtrer par catégorie au clic (sinon on cherche « type marque »). */
   useCategory?: boolean;
+  /** Marques à ne pas proposer pour ce type. */
+  skipBrands?: string[];
 };
 
 const KINDS: Kind[] = [
@@ -41,7 +43,7 @@ const KINDS: Kind[] = [
   { words: ["manette"], label: "Manette", nameWords: ["manette"], categories: ["manette"] },
   { words: ["console"], label: "Console", categories: ["console"], useCategory: true },
   { words: ["jeu", "cd", "game"], label: "Jeux", categories: ["cd", "copie-de-jeux"], useCategory: true },
-  { words: ["telephone", "tel", "portable", "smartphone"], label: "Téléphone", categories: ["telephone", "iphone", "motorola"], useCategory: true },
+  { words: ["telephone", "tel", "portable", "smartphone"], label: "Téléphone", categories: ["telephone", "iphone", "motorola"], useCategory: true, skipBrands: ["iPad", "Garmin", "Apple Watch"] },
   { words: ["pc", "ordinateur", "laptop", "macbook"], label: "PC", categories: ["pc"], useCategory: true },
   { words: ["woofer", "enceinte", "baffle", "mp"], label: "Woofer", categories: ["mp3"], useCategory: true },
   { words: ["casque", "ecouteur"], label: "Casque", nameWords: ["casque", "ecouteur"] },
@@ -128,10 +130,12 @@ export function suggest(
 
   if (kind) {
     const found = new Map<string, Suggestion>();
+    let any: Product | undefined;
     for (const p of products) {
       if (!isKind(p, kind)) continue;
+      any ??= p;
       const brand = BRANDS.find((b) => b.re.test(info(p).name));
-      if (!brand) continue;
+      if (!brand || kind.skipBrands?.includes(brand.label)) continue;
       const label = `${kind.label} ${brand.label}`;
       const prev = found.get(label);
       if (prev) {
@@ -147,13 +151,26 @@ export function suggest(
       });
     }
     const list = [...found.values()].sort((a, b) => b.count - a.count).slice(0, max);
+    // Bouton « tout voir » pour ce type (utile quand des produits n’ont pas de marque).
+    if (any) {
+      const oneCategory = kind.useCategory && kind.categories?.length === 1;
+      const category = oneCategory ? categoryFor(any, kind) : undefined;
+      if (category || kind.nameWords) {
+        list.push({
+          label: `Tout voir : ${kind.label}`,
+          q: category ? "" : kind.label,
+          ...(category ? { category } : {}),
+          count: 0,
+        });
+      }
+    }
     if (list.length > 0) return list;
   }
 
   // Sinon : catégories dont un mot commence par ce qui est tapé.
   return categories
     .filter((c) => {
-      const words = norm(c.name).split(" ");
+      const words = norm(`${c.name} ${c.shortName ?? ""} ${c.slug.replace(/-/g, " ")}`).split(" ");
       return words.some((w) => w.length > 2 && w.startsWith(norm(query).split(" ")[0]));
     })
     .slice(0, max)
