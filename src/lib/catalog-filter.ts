@@ -3,7 +3,7 @@
  * (aucun import Odoo ni du gros catalog.json ici).
  */
 import type { Category, CategoryGroup, Product, SortOption } from "@/types";
-import { searchScore, searchTokens } from "@/lib/search";
+import { relaxedQueries, searchScore, searchTokens } from "@/lib/search";
 
 /** Rubriques historiques (catégories eCommerce Odoo existantes). */
 export const GROUP_CATEGORY_SLUGS: Record<string, string[]> = {
@@ -83,10 +83,14 @@ export function filterProducts(
   let scores: Map<Product, number> | null = null;
   if (filters.query?.trim()) {
     const tokens = searchTokens(filters.query);
-    scores = new Map();
-    for (const p of result) {
-      const s = searchScore(p, tokens);
-      if (s > 0) scores.set(p, s);
+    // Recherche exacte d’abord, puis de plus en plus large si rien n’est trouvé.
+    for (const t of [tokens, ...relaxedQueries(tokens)]) {
+      scores = new Map();
+      for (const p of result) {
+        const s = searchScore(p, t);
+        if (s > 0) scores.set(p, s);
+      }
+      if (scores.size > 0) break;
     }
     result = result.filter((p) => scores!.has(p));
   }

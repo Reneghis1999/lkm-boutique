@@ -56,7 +56,38 @@ const ALIASES: Record<string, string> = {
   baterry: "batterie",
   capter: "capteur",
   capteurs: "capteur",
+  // chargeurs et câbles
+  charger: "chargeur",
+  chargeu: "chargeur",
+  chageur: "chargeur",
+  chargeure: "chargeur",
+  charg: "chargeur",
+  cables: "cable",
+  cabl: "cable",
+  teste: "tete",
+  tetes: "tete",
+  typec: "type c",
+  usbc: "usb c",
+  magsafe: "magsafe",
+  // iPhone mal écrit
+  ipy: "iphone",
+  ipho: "iphone",
+  iphon: "iphone",
+  ifone: "iphone",
+  ifon: "iphone",
+  aifone: "iphone",
+  iphones: "iphone",
+  do: "vitre arriere",
 };
+
+/**
+ * Mots « de remplissage » : ils aident à classer mais ne sont pas obligatoires
+ * (« chargeur complet iphone » trouve aussi les chargeurs iPhone sans le mot « complet »).
+ */
+const SOFT = new Set([
+  "complet", "original", "originale", "origine", "pour", "de", "du", "des",
+  "la", "le", "les", "un", "une", "neuf", "bon", "et", "avec",
+]);
 
 function normalize(text: string): string {
   return text
@@ -115,17 +146,41 @@ export function searchScore(p: Product, queryTokens: string[]): number {
   if (queryTokens.length === 0) return 1;
   const { name, other } = index(p);
   let score = 0;
+  let hard = 0;
   for (const q of queryTokens) {
+    const soft = SOFT.has(q);
+    if (!soft) hard++;
     const inName = wordScore(q, name);
     if (inName) {
       score += inName * 3;
       continue;
     }
     const inOther = wordScore(q, other);
-    if (!inOther) return 0;
+    if (!inOther) {
+      if (soft) continue;
+      return 0;
+    }
     score += inOther;
   }
+  if (hard === 0 && score === 0) return 0;
   // À score égal, le nom le plus court (le plus proche de la recherche) d’abord :
   // « vitre 15 » montre l’iPhone 15 avant le 15 Pro Max.
   return score * 100 - name.length;
+}
+
+
+/**
+ * Recherches de secours quand rien ne correspond : on retire les derniers mots
+ * un par un (« chargeur pro max 35w » → « chargeur pro max » → …),
+ * tant qu’il reste un vrai mot (3 lettres ou plus).
+ */
+export function relaxedQueries(tokens: string[]): string[][] {
+  const out: string[][] = [];
+  const hard = tokens.filter((t) => !SOFT.has(t));
+  for (let n = hard.length - 1; n >= 1; n--) {
+    const kept = hard.slice(0, n);
+    if (!kept.some((t) => t.length >= 3 && !isNumber(t))) break;
+    out.push(kept);
+  }
+  return out;
 }
