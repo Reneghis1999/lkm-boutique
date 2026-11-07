@@ -9,6 +9,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/types";
+import type { Suggestion } from "@/lib/search-suggest";
+import { BrandSuggestions } from "@/components/shop/brand-suggestions";
 
 export function SearchDialog({
   open,
@@ -22,6 +24,7 @@ export function SearchDialog({
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Product[]>([]);
   const [resultsFor, setResultsFor] = useState("");
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   useLogMissedSearch(
     query,
     open && query.trim() !== "" && resultsFor === query.trim() && results.length === 0,
@@ -51,11 +54,20 @@ export function SearchDialog({
         ? `/api/catalog?q=${encodeURIComponent(query.trim())}`
         : "/api/catalog?featured=1";
       try {
-        const res = await fetch(url, { signal: controller.signal });
+        const q = query.trim();
+        const [res, sug] = await Promise.all([
+          fetch(url, { signal: controller.signal }),
+          q
+            ? fetch(`/api/suggest?q=${encodeURIComponent(q)}`, { signal: controller.signal })
+                .then((r) => (r.ok ? (r.json() as Promise<Suggestion[]>) : []))
+                .catch(() => [] as Suggestion[])
+            : Promise.resolve([] as Suggestion[]),
+        ]);
+        setSuggestions(sug);
         if (!res.ok) return;
         const data = (await res.json()) as Product[];
         setResults(data);
-        setResultsFor(query.trim());
+        setResultsFor(q);
       } catch {
         /* aborted */
       }
@@ -115,6 +127,11 @@ export function SearchDialog({
                 <X className="h-4 w-4" />
               </button>
             </div>
+            <BrandSuggestions
+              items={suggestions}
+              onPick={(q) => setQuery(q)}
+              className="border-b border-white/10 px-4 py-3"
+            />
             <div className="max-h-80 overflow-y-auto p-2">
               {results.length === 0 ? (
                 <p className="px-3 py-6 text-center text-sm text-white/40">
