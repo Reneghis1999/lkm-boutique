@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Providers } from "@/components/providers";
 import { BusinessJsonLd } from "@/components/seo/business-json-ld";
 import { shop } from "@/data/shop";
@@ -72,6 +74,8 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-[var(--lkm-bg)] text-[var(--foreground)] antialiased">
         <BusinessJsonLd />
         <Providers>{children}</Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
