@@ -7,6 +7,8 @@ import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from "lucide-rea
 import { ProductCard, ProductGrid } from "@/components/products/product-card";
 import { Input } from "@/components/ui/input";
 import { filterProducts } from "@/lib/catalog-filter";
+import { suggestBrands } from "@/lib/search-suggest";
+import { BrandSuggestions } from "@/components/shop/brand-suggestions";
 import type { Category, Product, SortOption } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -91,6 +93,8 @@ export function Catalog({
       ),
     [products, categories, query, category, group, sort, minPrice, maxPrice, inStockOnly],
   );
+
+  const suggestions = useMemo(() => suggestBrands(query, products), [query, products]);
 
   // Recherche sans résultat (sans autre filtre) → notée dans Odoo.
   useLogMissedSearch(
@@ -196,6 +200,11 @@ export function Catalog({
             placeholder="Rechercher un produit…"
             className="pl-10"
             autoFocus={Boolean(initialQuery)}
+          />
+          <BrandSuggestions
+            items={suggestions}
+            onPick={(q) => applyFilters({ q, page: 1 })}
+            className="mt-2"
           />
         </div>
         <select
