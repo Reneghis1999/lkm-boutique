@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text */
 import { ImageResponse } from "next/og";
+import sharp from "sharp";
+import { siteUrl } from "@/lib/site";
 import { getFeaturedProducts, getNewArrivals, getPromoProducts } from "@/lib/catalog";
 import { formatPrice, hasPrice } from "@/lib/format";
 import { priceRange } from "@/lib/variants";
@@ -13,16 +15,19 @@ const W = 1080;
 const H = 1920;
 const YELLOW = "#f5c518";
 
-/** Photo du produit en « data URL » (seulement JPEG/PNG, sinon rien). */
+/** Photo en « data URL » PNG (WebP et autres formats convertis). */
 async function photo(url: string | null | undefined): Promise<string | null> {
   if (!url) return null;
   try {
     const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
     if (!res.ok) return null;
     const type = res.headers.get("content-type") ?? "";
-    if (!/image\/(png|jpe?g)/.test(type)) return null;
-    const buf = Buffer.from(await res.arrayBuffer());
-    return `data:${type.split(";")[0]};base64,${buf.toString("base64")}`;
+    if (!type.startsWith("image/")) return null;
+    const png = await sharp(Buffer.from(await res.arrayBuffer()))
+      .resize(600, 600, { fit: "inside", withoutEnlargement: true })
+      .png()
+      .toBuffer();
+    return `data:image/png;base64,${png.toString("base64")}`;
   } catch {
     return null;
   }
@@ -57,7 +62,7 @@ export async function GET(request: Request) {
   }
 
   const [logo, ...photos] = await Promise.all([
-    photo(new URL("/logo-lkm.png", request.url).toString()),
+    photo(`${siteUrl}/logo-lkm.png`),
     ...products.map((p) => photo(p.image)),
   ]);
 
