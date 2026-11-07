@@ -8,6 +8,8 @@ import { odooCall } from "@/lib/odoo/client";
 import { STOCK_ALERT_PROJECT } from "@/lib/odoo/stock-alert";
 import { MISSED_SEARCH_PROJECT } from "@/lib/odoo/missed-search";
 import { readStats } from "@/lib/stats";
+import { fetchRestock } from "@/lib/odoo/restock";
+import { CopyListButton } from "@/components/stats/copy-list-button";
 
 export const metadata: Metadata = {
   title: "Tableau de bord",
@@ -84,11 +86,12 @@ export default async function TableauPage() {
     );
   }
 
-  const [stats, products, alerts, missed] = await Promise.all([
+  const [stats, products, alerts, missed, restock] = await Promise.all([
     readStats(30),
     getProducts(),
     odooTasks(STOCK_ALERT_PROJECT),
     odooTasks(MISSED_SEARCH_PROJECT),
+    fetchRestock(),
   ]);
   const bySlug = new Map(products.map((p) => [p.slug, p]));
   const productName = (slug: string) => bySlug.get(slug)?.name ?? slug;
@@ -109,6 +112,27 @@ export default async function TableauPage() {
     .slice(0, 10);
 
   const maxDay = Math.max(1, ...stats.daily.map((d) => d.views));
+
+  // À commander : ruptures et presque finis, les plus regardés d’abord
+  const normName = (s: string) =>
+    s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+  const slugByName = new Map(products.map((p) => [normName(p.name), p.slug]));
+  const withViews = (restock ?? []).map((r) => {
+    const slug = slugByName.get(normName(r.name));
+    return { ...r, slug, views: slug ? (stats.productViews[slug] ?? 0) : 0 };
+  });
+  const byImportance = (a: { views: number; total: number }, b: { views: number; total: number }) =>
+    b.views - a.views || a.total - b.total;
+  const ruptures = withViews.filter((r) => r.total <= 0).sort(byImportance);
+  const lowStock = withViews
+    .filter((r) => r.total > 0 && r.total <= 2)
+    .sort(byImportance);
+  const orderText = [
+    "Commande LKM Boutique :",
+    ...[...ruptures.slice(0, 40), ...lowStock.slice(0, 40)].map(
+      (r) => `- ${r.name} (Djidjolé ${r.djidjole} / Léo 2000 ${r.leo})`,
+    ),
+  ].join("\n");
 
   return (
     <main className="mx-auto max-w-6xl px-5 py-10" data-no-translate>
@@ -226,6 +250,69 @@ export default async function TableauPage() {
           )}
         </Card>
       </div>
+      <section className="mt-8 rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-white/50">À commander</h2>
+            <p className="mt-1 text-sm text-white/55">
+              Produits publiés, stock en direct d’Odoo. Les plus regardés sur le site sont en premier.
+            </p>
+          </div>
+          {restock && (ruptures.length > 0 || lowStock.length > 0) ? <CopyListButton text={orderText} /> : null}
+        </div>
+        {restock === null ? (
+          <p className="mt-4 text-sm text-white/40">Odoo injoignable pour le moment.</p>
+        ) : (
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+            {[
+              { title: `Ruptures (${ruptures.length})`, rows: ruptures, color: "text-red-300" },
+              { title: `Bientôt finis (${lowStock.length})`, rows: lowStock, color: "text-amber-300" },
+            ].map((block) => (
+              <div key={block.title}>
+                <p className={`text-sm font-semibold ${block.color}`}>{block.title}</p>
+                {block.rows.length === 0 ? (
+                  <p className="mt-2 text-sm text-white/40">Rien à signaler.</p>
+                ) : (
+                  <div className="mt-2 max-h-96 overflow-y-auto pr-1">
+                    <table className="w-full text-sm">
+                      <thead className="text-left text-xs text-white/40">
+                        <tr>
+                          <th className="py-1 font-normal">Produit</th>
+                          <th className="py-1 text-right font-normal">Djidjolé</th>
+                          <th className="py-1 text-right font-normal">Léo</th>
+                          <th className="py-1 text-right font-normal">Vues</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.rows.slice(0, 60).map((r) => (
+                          <tr key={r.name} className="border-t border-white/5">
+                            <td className="max-w-[14rem] truncate py-1.5 text-white/85">
+                              {r.slug ? (
+                                <Link href={`/produit/${r.slug}`} className="hover:underline">
+                                  {r.name}
+                                </Link>
+                              ) : (
+                                r.name
+                              )}
+                            </td>
+                            <td className={`py-1.5 text-right ${r.djidjole === 0 ? "text-red-300" : "text-white/75"}`}>{r.djidjole}</td>
+                            <td className={`py-1.5 text-right ${r.leo === 0 ? "text-red-300" : "text-white/75"}`}>{r.leo}</td>
+                            <td className="py-1.5 text-right text-white/45">{r.views || "–"}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    {block.rows.length > 60 && (
+                      <p className="mt-2 text-xs text-white/35">+ {block.rows.length - 60} autres</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
       <section className="mt-8 rounded-2xl border border-white/10 bg-[var(--lkm-surface)] p-5">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-white/50">
           Statut WhatsApp du jour

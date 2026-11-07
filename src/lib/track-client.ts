@@ -29,6 +29,7 @@ export function whatsappSource(url: string): string {
 }
 
 export function trackWhatsApp(url: string) {
+  if (window.location.pathname.startsWith("/tableau")) return;
   const source = whatsappSource(url);
   const m = window.location.pathname.match(/^\/produit\/([a-z0-9-]+)/);
   sendTrack({ type: "whatsapp", source, slug: m?.[1] });
